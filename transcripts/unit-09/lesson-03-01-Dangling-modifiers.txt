@@ -1,0 +1,124 @@
+Title: Dangling modifiers 
+Unit: Syntax: conventions of standard English
+Lesson: Dangling modifiers and parallel structure
+URL: https://www.khanacademy.org/humanities/grammar/syntax-conventions-of-standard-english/dangling-modifiers-and-parallel-structure/v/dangling-modifiers-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello grammarians, hello Rosie. - [Voiceover] Hi Paige. - [Voiceover] So in this video we're gonna talk about something called a dangling modifier. So, before we get in to what a dangling modifier is, we can sort of talk about just what a modifier is. Rosie, do want to tell us what the definition of a modifier is? - [Voiceover] Sure, so, well one major modifier that you think of is an adjective. So a lot of times a modifier is describing something else in the sentence. - [Voiceover] Right, okay. So it can be an adjective or like a, - [Voiceover] An adverb - [Voiceover] A phrase, yeah an adverb too. So a modifier is always supposed to come right before the word or phrase that it's modifying. But when it doesn't do that, that's what's called a dangling modifier. - [Voiceover] So this can look something like, Flashing lightning and thunder, the little bunny struggled through the storm. - [Voiceover] So this sentence has a dangling modifier, and the modifier in question is, flashing lightning and thunder. So the phrase that this comes right before is, the little bunny. And flashing lightning and thunder is not describing the little bunny, right. I don't think I've ever seen a bunny with like, lightning coming out of it or anything. - [Voiceover] Rosie what is this modifier actually supposed to be modifying? - [Voiceover] So, the modifier is actually supposed to be modifying the storm. Because we've got lightning and thunder, flashing, all of those things describe the storm. - [Voiceover] Right, okay, so, we're really not supposed to have a dangling modifier like this so we need to fix this sentence. - [Voiceover] Flashing lightning and thunder, the storm raged as the bunny struggled. - [Voiceover] So this is all better, the modifier, flashing lightning and thunder, comes right before the storm, now. - [Voiceover] Right. - [Voiceover] So, this makes more sense. We got rid of the dangling modifier, it's not you know, hanging out, looking like it's modifying the wrong noun. - [Voiceover] So if you're doing editing, or you're looking at a sentence, when you take a look at a sentence, see if you can spot what it is that that modifier is supposed to be describing. And then just make sure that that noun or phrase comes right after the modifier. [Voiceover] Right, like in this example we had to pretty much completely rewrite this sentence. It still gets across the same idea, but we had to put the nouns in a different order so the modifier wasn't dangling any more. - [Voiceover] Running around on his little hamster wheel, Albert watched his pet exercise. (laughing) - [Voiceover] This whole part, running around on his little hamster wheel, is the modifier in the sentence, but what comes right after it, is Albert, which I don't think he's the one running around on a little hamster wheel. - [Voiceover] Right so, this is something you want to look out for, and maybe rewrite your sentence so that doesn't happen. - [Voiceover] Right and we have a clue that Albert is not the name of the hamster or the pet, because it says Albert watched his pet exercise. So we have a good clue that Albert is probably a human, and he's probably not running on a hamster wheel. (laughing) - [Voiceover] Right? - [Voiceover] So he shouldn't be coming right after that, that modifier. - [Voiceover] Yeah, exactly. - [Voiceover] Running around on his little hamster wheel, the critter exercised while Albert watched. - [Voiceover] Right, so this is how we made our change. We still have running around on his little hamster wheel at the beginning, but then we sort of, switched around the order of Albert and his pet. So now we have the critter following the modifier that it's supposed to be modified by. - [Voiceover] Right. - [Voiceover] Yeah so like, that is dangling modifiers, and how you get rid of them. They're words or phrases that describe another word or phrase, and when they're dangling they're like in the wrong place, they're in front of the wrong noun. - [Voiceover] So, when you have a modifier at the beginning of your sentence, and it's set off with a comma, like all of these are, that's when you have to pay attention, and make sure that the noun or phrase coming right after the modifier is matched up with the modifier, so that it's describing the right thing. - [Voiceover] Right. You can get some crazy meanings out of your sentences otherwise. Like the bunny, with lightning. So that's dangling modifiers. You can learn anything. Paige out. - [Voiceover] Rosie out.
+
+Timestamped transcript:
+[03:57 - 30:10] - [Voiceover] Hello grammarians, hello Rosie.
+[30:10 - 46:44] - [Voiceover] Hi Paige.
+[46:44 - 01:17:23] - [Voiceover] So in this video we're gonna talk about
+[01:17:23 - 01:58:58] something called a dangling modifier.
+[01:58:58 - 02:45:28] So, before we get in to what a dangling modifier is,
+[02:45:28 - 03:37:21] we can sort of talk about just what a modifier is.
+[03:37:21 - 04:20:34] Rosie, do want to tell us what the definition
+[04:20:34 - 04:42:13] of a modifier is?
+[04:42:13 - 05:29:29] - [Voiceover] Sure, so, well one major modifier that
+[05:29:29 - 05:55:02] you think of is an adjective.
+[05:55:02 - 06:58:48] So a lot of times a modifier is describing
+[06:58:48 - 07:33:29] something else in the sentence.
+[07:33:29 - 07:47:22] - [Voiceover] Right, okay.
+[07:47:22 - 08:12:48] So it can be an adjective or
+[08:12:48 - 08:33:08] like a, - [Voiceover] An adverb
+[08:33:08 - 08:57:29] - [Voiceover] A phrase, yeah an adverb too.
+[08:57:29 - 09:42:19] So a modifier is always supposed to come right before
+[09:42:19 - 10:25:04] the word or phrase that it's modifying.
+[10:25:04 - 10:49:05] But when it doesn't do that,
+[10:49:05 - 11:35:37] that's what's called a dangling modifier.
+[11:35:37 - 12:07:56] - [Voiceover] So this can look something like,
+[12:07:56 - 12:50:36] Flashing lightning and thunder,
+[12:50:36 - 13:57:05] the little bunny struggled through the storm.
+[13:57:05 - 14:31:20] - [Voiceover] So this sentence has a dangling modifier,
+[14:31:20 - 14:55:16] and the modifier in question is,
+[14:55:16 - 15:44:11] flashing lightning and thunder.
+[15:44:11 - 16:45:01] So the phrase that this comes right before is,
+[16:45:01 - 17:10:34] the little bunny.
+[17:10:34 - 18:01:20] And flashing lightning and thunder is not describing
+[18:01:20 - 18:24:05] the little bunny, right.
+[18:24:05 - 18:57:07] I don't think I've ever seen a bunny
+[18:57:07 - 19:44:26] with like, lightning coming out of it or anything.
+[19:44:26 - 20:07:04] - [Voiceover] Rosie what is this modifier actually
+[20:07:04 - 20:43:59] supposed to be modifying?
+[20:43:59 - 21:23:53] - [Voiceover] So, the modifier is actually supposed
+[21:23:53 - 22:03:05] to be modifying the storm.
+[22:03:05 - 22:53:58] Because we've got lightning and thunder, flashing,
+[22:53:58 - 23:48:05] all of those things describe the storm.
+[23:48:05 - 24:21:44] - [Voiceover] Right, okay, so,
+[24:21:44 - 25:00:34] we're really not supposed to have a dangling modifier
+[25:00:34 - 25:38:48] like this so we need to fix this sentence.
+[25:38:48 - 26:19:40] - [Voiceover] Flashing lightning and thunder, the storm
+[26:19:40 - 27:18:00] raged as the bunny struggled.
+[27:55:20 - 28:09:35] - [Voiceover] So this is all better,
+[28:09:35 - 28:55:17] the modifier, flashing lightning and thunder,
+[28:55:17 - 29:29:21] comes right before the storm, now.
+[29:29:21 - 29:47:00] - [Voiceover] Right.
+[29:47:00 - 30:22:57] - [Voiceover] So, this makes more sense.
+[30:22:57 - 30:52:28] We got rid of the dangling modifier,
+[30:52:28 - 31:25:57] it's not you know, hanging out,
+[31:25:57 - 32:11:55] looking like it's modifying the wrong noun.
+[32:11:55 - 32:42:08] - [Voiceover] So if you're doing editing,
+[32:42:08 - 33:15:43] or you're looking at a sentence,
+[33:15:43 - 33:52:37] when you take a look at a sentence,
+[33:52:37 - 34:42:48] see if you can spot what it is that
+[34:42:48 - 35:30:02] that modifier is supposed to be describing.
+[35:30:02 - 36:37:50] And then just make sure that that noun or phrase
+[36:37:50 - 37:34:32] comes right after the modifier.
+[37:34:32 - 38:14:57] [Voiceover] Right, like in this example we had to
+[38:14:57 - 38:44:03] pretty much completely rewrite this sentence.
+[38:44:03 - 39:08:22] It still gets across the same idea,
+[39:08:22 - 39:42:34] but we had to put the nouns in a different order
+[39:42:34 - 40:16:33] so the modifier wasn't dangling any more.
+[40:16:33 - 41:25:56] - [Voiceover] Running around on his little hamster wheel,
+[41:25:56 - 42:21:41] Albert watched his pet exercise.
+[42:21:41 - 42:41:54] (laughing)
+[42:41:54 - 42:55:47] - [Voiceover] This whole part,
+[42:55:47 - 43:10:27] running around on his little hamster wheel,
+[43:10:27 - 43:40:10] is the modifier in the sentence,
+[43:40:10 - 44:16:33] but what comes right after it, is Albert,
+[44:16:33 - 45:04:04] which I don't think he's the one running around
+[45:04:04 - 45:30:52] on a little hamster wheel.
+[45:30:52 - 45:55:18] - [Voiceover] Right so,
+[45:55:18 - 46:21:34] this is something you want to look out for,
+[46:21:34 - 47:11:19] and maybe rewrite your sentence so that doesn't happen.
+[47:11:19 - 47:36:13] - [Voiceover] Right and we have a clue that
+[47:36:13 - 48:38:08] Albert is not the name of the hamster or the pet,
+[48:38:08 - 49:33:24] because it says Albert watched his pet exercise.
+[49:33:24 - 50:52:52] So we have a good clue that Albert is probably a human,
+[50:52:52 - 51:37:49] and he's probably not running on a hamster wheel.
+[51:37:49 - 51:51:42] (laughing) - [Voiceover] Right?
+[51:51:42 - 52:11:54] - [Voiceover] So he shouldn't be coming right after that,
+[52:11:54 - 52:30:07] that modifier.
+[52:30:07 - 52:44:11] - [Voiceover] Yeah, exactly.
+[52:44:11 - 53:17:37] - [Voiceover] Running around on his little hamster wheel,
+[53:17:37 - 54:09:28] the critter exercised while Albert watched.
+[54:09:28 - 54:46:00] - [Voiceover] Right, so this is how we made our change.
+[54:46:00 - 55:21:09] We still have running around on his little hamster wheel
+[55:21:09 - 55:39:22] at the beginning,
+[55:39:22 - 56:30:33] but then we sort of, switched around the order of
+[56:30:33 - 56:57:19] Albert and his pet.
+[56:57:19 - 58:02:37] So now we have the critter following the modifier
+[58:02:37 - 58:54:03] that it's supposed to be modified by.
+[58:54:03 - 59:13:33] - [Voiceover] Right.
+[59:13:33 - 59:59:13] - [Voiceover] Yeah so like, that is dangling modifiers,
+[59:59:13 - 60:24:38] and how you get rid of them.
+[60:24:38 - 61:07:29] They're words or phrases that describe
+[61:07:29 - 61:30:43] another word or phrase,
+[61:30:43 - 62:14:04] and when they're dangling they're like in the wrong place,
+[62:14:04 - 62:35:34] they're in front of the wrong noun.
+[62:35:34 - 63:08:41] - [Voiceover] So, when you have a modifier
+[63:08:41 - 63:33:09] at the beginning of your sentence,
+[63:33:09 - 64:38:49] and it's set off with a comma, like all of these are,
+[64:38:49 - 65:05:30] that's when you have to pay attention,
+[65:05:30 - 65:59:23] and make sure that the noun or phrase
+[65:59:23 - 67:02:41] coming right after the modifier is
+[67:02:41 - 68:03:08] matched up with the modifier,
+[68:03:08 - 68:31:28] so that it's describing the right thing.
+[68:31:28 - 69:05:01] - [Voiceover] Right. You can get some crazy
+[69:05:01 - 69:38:09] meanings out of your sentences otherwise.
+[69:38:09 - 70:07:08] Like the bunny, with lightning.
+[70:07:08 - 70:39:01] So that's dangling modifiers.
+[70:39:01 - 71:00:32] You can learn anything.
+[71:00:32 - 71:14:25] Paige out.
+[71:14:25 - 71:42:35] - [Voiceover] Rosie out.

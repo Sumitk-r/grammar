@@ -1,0 +1,112 @@
+Title: Subject-verb agreement 
+Unit: Syntax: conventions of standard English
+Lesson: Subject-verb agreement and pronoun-antecedent agreement 
+URL: https://www.khanacademy.org/humanities/grammar/syntax-conventions-of-standard-english/subject-verb-agreement-and-pronoun-antecedent-agreement/v/subject-verb-agreement-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello Grammarians, today we're going to talk about subject-verb agreement. What this is, is the idea that you want your subject and your verb to get along in a sentence. What agreement is, in grammar, is the art of making sure that sentence parts connect with one another in the right way. It's making sure that a square peg goes in a square hole. Right, not a square peg in a round, square peg in a triangular hole. You want to make sure that the way you render your subject fits with the way you've rendered your verb. What do I mean by that? Let's take this sentence, the dog barks. We have this subject, the dog, and it is singular, there's one of it. The way this verb is, the word is conjugated, the way this verb is conjugated, the way we've assembled, or figured out how the verb is going to be is also a singular conjugation. So, we say the dog barks and not the dog bark, right? This is not standard American English. This is the plural form. You can say the dogs bark, right, because there's more than one dog here and this is their verb, this is their plural form. I know it's kind of strange that the third person, singular form of a verb ends in S. Like, if English made sense-- OK, like, if I ran the zoo, right, I would want it to work like, this, the dogs barks, right, because there's an S, there's multiple. Unfortunately, for many weird reasons, and the history of English, it didn't work out that way. A third person singular verb usually ends in an S. Right, I talk that's first person. Third person is she talks. We eat. That's plural first person. They eat, see no S. It's only this weird third person singular, here, that's got that S on the end. So, if you're trying to figure out how to make something agree, if you're unsure as you're writing, so if you're looking at a sentence like the dogs bark. And, you can't figure out if it's suppose to be the dogs bark or the dog barks, or the dogs barks, as yourself first, what is the subject of the sentence? So, first find the subject, and then ask yourself is it singular or plural. Is is S or P, is it salt or is it pepper? And, then if you can remember that, then just remember that singular S usually results in another S. So, if it's the dog, and that's singular, then you're gonna want to put that S over here. So, if the subject isn't noun but a pronoun, same question. Is it singular or plural? I is singular, there's only one me. We is plural, there's many of us. And, if it's singular third person, so like she, he, it, end it in an S. Another thing to remember, is that most what we call indefinite pronouns are third person singular. So, if you wanted to ask whether or not anyone knows the way to San Jose as a question, but you're not sure whether or not it would be does anyone know the way to San Jose, or do anyone know the way to San Jose? Well, the work anyone is third person singular, and all though do is an irregular verb, we still kind of hold to the idea of the third person singular verb ends in an S. So, it's a z sound, written as an S, so we would say does. Does anyone know as opposed to if it were in the plural. Do we know, right? So, does is singular, do is plural. And, that's kind of the basic idea of subject-verb agreement, cause you want to make sure that the number of things in your subject matches up with the number in your predicate. So, is the subject singular or plural? If it's third person singular, the verb probably ends in an S, even though the third person singular noun or pronoun does not. You can learn anything, David out.
+
+Timestamped transcript:
+[03:02 - 40:24] - [Voiceover] Hello Grammarians, today we're going to talk
+[40:24 - 01:17:10] about subject-verb agreement.
+[01:17:10 - 02:02:35] What this is, is the idea that you want your subject
+[02:02:35 - 03:08:12] and your verb to get along in a sentence.
+[03:08:12 - 04:16:04] What agreement is, in grammar, is the art
+[04:16:04 - 05:12:06] of making sure that sentence parts connect with one another
+[05:12:06 - 05:38:10] in the right way.
+[05:38:10 - 06:47:37] It's making sure that a square peg goes in a square hole.
+[07:03:53 - 07:38:27] Right, not a square peg in a round,
+[07:38:27 - 08:00:39] square peg in a triangular hole.
+[08:00:39 - 09:06:47] You want to make sure that the way you
+[09:06:47 - 09:30:24] render your subject
+[09:30:24 - 10:13:02] fits with the way you've rendered your verb.
+[10:13:02 - 10:36:01] What do I mean by that?
+[10:36:01 - 11:10:44] Let's take this sentence,
+[11:31:10 - 11:50:37] the dog barks.
+[12:25:37 - 13:10:40] We have this subject, the dog,
+[13:10:40 - 13:40:13] and it is singular,
+[13:40:13 - 13:58:30] there's one of it.
+[13:58:30 - 14:44:10] The way this verb is, the word is conjugated,
+[14:44:10 - 15:13:46] the way this verb is conjugated,
+[15:13:46 - 15:49:19] the way we've assembled, or figured out
+[15:49:19 - 16:13:17] how the verb is going to be
+[16:13:17 - 17:03:22] is also a singular conjugation.
+[17:03:22 - 18:12:49] So, we say the dog barks and not the dog bark, right?
+[19:08:11 - 20:00:58] This is not standard American English.
+[20:32:21 - 21:05:41] This is the plural form.
+[21:34:25 - 22:19:40] You can say the dogs bark, right,
+[22:19:40 - 22:59:28] because there's more than one dog here
+[22:59:28 - 23:35:39] and this is their verb,
+[23:35:39 - 23:59:14] this is their plural form.
+[23:59:14 - 25:04:18] I know it's kind of strange that the third person,
+[25:04:18 - 25:51:31] singular form of a verb ends in S.
+[26:22:48 - 27:04:45] Like, if English made sense--
+[27:04:45 - 27:35:30] OK, like, if I ran the zoo, right,
+[27:35:30 - 28:12:32] I would want it to work like, this,
+[28:12:32 - 28:41:53] the dogs barks, right,
+[28:41:53 - 29:08:00] because there's an S, there's multiple.
+[29:08:00 - 30:17:27] Unfortunately, for many weird reasons, and the history
+[30:37:10 - 31:36:30] of English, it didn't work out that way.
+[31:36:30 - 32:10:12] A third person singular verb
+[32:10:12 - 32:39:22] usually ends in an S.
+[33:18:24 - 34:05:37] Right, I talk that's first person.
+[34:48:47 - 35:24:54] Third person is she talks.
+[36:25:02 - 36:38:55] We eat.
+[37:32:36 - 38:21:56] That's plural first person.
+[38:21:56 - 38:48:19] They eat, see no S.
+[39:09:16 - 39:37:03] It's only this weird
+[39:51:48 - 41:08:44] third person singular, here, that's got that S on the end.
+[41:08:44 - 41:38:25] So, if you're trying to figure out
+[41:38:25 - 42:05:07] how to make something agree,
+[42:05:07 - 42:43:58] if you're unsure as you're writing,
+[42:43:58 - 43:15:56] so if you're looking at a sentence like
+[43:15:56 - 43:43:18] the dogs bark.
+[43:43:18 - 44:08:57] And, you can't figure out if it's suppose
+[44:08:57 - 44:52:55] to be the dogs bark or the dog barks,
+[44:52:55 - 45:22:07] or the dogs barks,
+[45:22:07 - 46:26:16] as yourself first, what is the subject of the sentence?
+[46:26:16 - 46:53:20] So, first find the subject,
+[46:53:20 - 47:30:17] and then ask yourself
+[47:30:17 - 47:57:31] is it singular or plural.
+[47:57:31 - 48:38:45] Is is S or P, is it salt or is it pepper?
+[48:38:45 - 49:14:21] And, then if you can remember that,
+[49:14:21 - 49:49:07] then just remember
+[49:49:07 - 51:02:24] that singular S usually results in another S.
+[51:02:24 - 52:00:45] So, if it's the dog, and that's singular,
+[52:00:45 - 52:55:12] then you're gonna want to put that S over here.
+[52:55:12 - 53:36:08] So, if the subject isn't noun but a pronoun,
+[53:36:08 - 53:53:24] same question.
+[53:53:24 - 54:28:18] Is it singular or plural?
+[54:28:18 - 55:06:46] I is singular, there's only one me.
+[55:06:46 - 55:42:54] We is plural, there's many of us.
+[55:42:54 - 56:21:25] And, if it's singular third person,
+[56:21:25 - 57:11:25] so like she, he, it, end it in an S.
+[57:39:47 - 58:20:10] Another thing to remember, is that most
+[58:20:10 - 59:04:37] what we call indefinite pronouns
+[59:32:11 - 59:59:27] are third person singular.
+[59:59:27 - 60:39:47] So, if you wanted to ask whether or not
+[60:39:47 - 61:18:48] anyone knows the way to San Jose as a question,
+[61:18:48 - 61:50:44] but you're not sure whether or not
+[61:50:44 - 62:34:41] it would be does anyone know the way to San Jose,
+[62:34:41 - 63:16:54] or do anyone know the way to San Jose?
+[63:16:54 - 64:14:27] Well, the work anyone is third person singular,
+[64:14:27 - 64:54:56] and all though do is an irregular verb,
+[64:54:56 - 65:23:53] we still kind of hold to the idea
+[65:23:53 - 66:03:09] of the third person singular verb ends in an S.
+[66:03:09 - 66:53:09] So, it's a z sound, written as an S,
+[67:12:07 - 67:41:17] so we would say does.
+[69:59:50 - 70:45:07] Does anyone know as opposed to
+[70:45:07 - 71:33:17] if it were in the plural.
+[71:33:17 - 71:58:17] Do we know, right?
+[72:38:49 - 73:27:26] So, does is singular, do is plural.
+[73:41:38 - 74:16:36] And, that's kind of the basic idea
+[74:16:36 - 74:41:56] of subject-verb agreement,
+[74:41:56 - 75:08:08] cause you want to make sure
+[75:08:08 - 75:58:18] that the number of things in your subject
+[75:58:18 - 76:57:12] matches up with the number in your predicate.
+[76:57:12 - 77:36:12] So, is the subject singular or plural?
+[77:36:12 - 78:03:56] If it's third person singular,
+[78:03:56 - 78:36:40] the verb probably ends in an S,
+[78:36:40 - 79:23:14] even though the third person singular
+[79:23:14 - 79:57:57] noun or pronoun does not.
+[80:33:57 - 81:17:40] You can learn anything, David out.

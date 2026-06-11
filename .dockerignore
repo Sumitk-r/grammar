@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+.pytest_cache
+grammar.db
+transcripts
+sample_transcripts
+__WINDOWOSX
+

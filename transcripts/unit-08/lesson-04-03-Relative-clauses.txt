@@ -1,0 +1,110 @@
+Title: Relative clauses 
+Unit: Syntax: sentences and clauses
+Lesson: Phrases and clauses
+URL: https://www.khanacademy.org/humanities/grammar/syntax-sentences-and-clauses/phrases-and-clauses/v/relative-clauses-syntax-khan-academy
+
+Transcript:
+- [David] Hello, grammarians, hello, Rosie. - [Rosie] Hi, David. - [David] So today we're gonna talk about a special kind of dependent clause, which again, is a kind of clause that can't be a sentence on its own called a relative clause. So a relative clause is a dependent clause that starts with a relative pronoun So okay, so a relative pronoun is a word like who or that or which or whose or where that like any pronoun, substitutes in for another part of the sentence. So for example, Harry Potter is also known as. - [Rosie] The boy who lived. - [David] The boy who lived. - [Rosie] Is that Dumbledore? - [David] Yeah, that's my Dumbledore. - [Rosie] I like it. - [David] Thank you. You can see in this little snippet who is subbing in for the boy, right, so it is behaving like a pronoun, but a relative pronoun, and so we've got this thing here, who lived. The boy lived, on its own, could be a sentence, but who lived cannot be. - [Rosie] Well who lived is describing the boy. - [David] So right now, all of this together is just a noun phrase, but who lived within this noun phrase is a relative clause. So, we need to find a store that sells the new Willamette cold brew coffee ice cream. - [Rosie] I've heard it's really good. - [David] So all of this together is a sentence. This is definitely a sentence We need to find a store that sells the new Willamette cold brew coffee ice cream. Like, indisputably, that is a sentence. We have our subject, we. We have our verb, need, and then the object of need is to find a store that sells the new Willamette cold brew coffee ice cream. But, we're focusing on this yellow part here, so that is substituting in for a store, that's what that relative pronoun is representing. And then we have that sells the new, so we've got store that sells, right? So that is our subject here. Sells is the verb The new Willamette cold brew coffee ice cream is the object of sells, and everything in yellow here, all this yellow text, is our relative clause. It cannot stand on its own as a sentence. You could not just have that sells the new Willamette cold brew coffee ice cream. On its own, that doesn't work because the very presence of this relative pronoun requires more stuff to go on. Well, let's make things a little more complicated. The woman who always wore a red hat came into the cafe every Sunday. So this sentence contains a relative clause right there in the middle of it, who always wore a red hat. All right, so we've got who substituting in for the woman and that's the subject of the verb phrase wore a red hat, but again, this could not be a sentence on its own. Now the challenge here is when you see sentences like this in the wild, then you see sentences like these in the exercises, they're not gonna be differentiated for your convenience with two different colors, so you have to be very careful to figure out where this dependent clause begins and ends. So you can parse, so you can make sense of this sentence, in order to make it work. So really what is this sentence actually saying, just on a base level? - [Rosie] The woman came into the cafe. - [David] Right, and so everything else, this every Sunday, or who always wore a red had, that is kinda extra, and so it's your job as a writer, reader and editor of text, as someone who is working with the English language, to puzzle it out and separate the sentence into its components. - [Rosie] Right, this is a who always wore a red hat is a description of the woman. - [David] Right. - [Rosie] Then we move on to the verb, the action of the sentence, what is she doing, she came into the cafe, so that's not part of that relative clause. The relative clause is just, in this case, providing some description of the woman. - [David] Right, so use your best sense because yes, it is possible that the red hat could be the thing that comes into the cafe every Sunday, but it's more likely that that hat is attached to the woman that was referenced earlier. - [Rosie] Right. - [David] So, that is a relative clause. You can learn anything. David out. - [Rosie] Rosie out.
+
+Timestamped transcript:
+[22:40 - 49:22] - [David] Hello, grammarians, hello, Rosie.
+[49:22 - 01:06:01] - [Rosie] Hi, David.
+[01:06:01 - 01:22:31] - [David] So today we're gonna talk
+[01:22:31 - 02:10:21] about a special kind of dependent clause, which again,
+[02:10:21 - 02:46:39] is a kind of clause that can't be a sentence
+[02:46:39 - 03:39:53] on its own called a relative clause.
+[03:39:53 - 04:20:06] So a relative clause is a dependent clause
+[04:20:06 - 05:12:43] that starts with a relative pronoun
+[05:12:43 - 05:58:14] So okay, so a relative pronoun is a word
+[05:58:14 - 06:57:57] like who or that or which or whose or where
+[08:14:13 - 09:04:10] that like any pronoun, substitutes in
+[09:04:10 - 09:54:36] for another part of the sentence.
+[09:54:36 - 11:07:28] So for example, Harry Potter is also known as.
+[11:07:28 - 11:46:11] - [Rosie] The boy who lived.
+[11:46:11 - 12:19:49] - [David] The boy who lived.
+[12:19:49 - 12:38:45] - [Rosie] Is that Dumbledore?
+[12:38:45 - 13:09:12] - [David] Yeah, that's my Dumbledore.
+[13:09:12 - 13:31:25] - [Rosie] I like it.
+[13:31:25 - 13:45:18] - [David] Thank you.
+[13:45:18 - 14:47:50] You can see in this little snippet who is subbing in
+[14:47:50 - 15:39:13] for the boy, right, so it is behaving
+[15:53:41 - 16:35:04] like a pronoun, but a relative pronoun,
+[16:35:04 - 17:33:32] and so we've got this thing here, who lived.
+[17:33:32 - 18:22:22] The boy lived, on its own, could be a sentence,
+[18:22:22 - 18:55:42] but who lived cannot be.
+[19:20:29 - 20:20:42] - [Rosie] Well who lived is describing the boy.
+[20:20:42 - 21:03:40] - [David] So right now, all of this together is
+[21:03:40 - 21:47:22] just a noun phrase, but who lived within
+[21:47:22 - 22:42:21] this noun phrase is a relative clause.
+[22:42:21 - 23:28:15] So, we need to find a store that sells the new
+[23:28:15 - 24:10:58] Willamette cold brew coffee ice cream.
+[24:10:58 - 24:27:36] - [Rosie] I've heard it's really good.
+[24:27:36 - 25:33:45] - [David] So all of this together is a sentence.
+[25:33:45 - 25:57:21] This is definitely a sentence
+[25:57:21 - 26:40:18] We need to find a store that sells the new Willamette
+[26:40:18 - 27:07:33] cold brew coffee ice cream.
+[27:07:33 - 27:36:33] Like, indisputably, that is a sentence.
+[27:36:33 - 28:02:35] We have our subject, we.
+[28:02:35 - 29:02:18] We have our verb, need, and then the object
+[29:38:10 - 30:18:48] of need is to find a store that sells the new Willamette
+[30:18:48 - 30:45:17] cold brew coffee ice cream.
+[30:45:17 - 31:25:14] But, we're focusing on this yellow part here,
+[31:25:14 - 32:19:24] so that is substituting in for a store,
+[33:06:46 - 34:05:36] that's what that relative pronoun is representing.
+[34:05:36 - 34:43:16] And then we have that sells the new,
+[34:43:16 - 35:40:02] so we've got store that sells, right?
+[35:40:02 - 36:13:17] So that is our subject here.
+[36:13:17 - 36:42:20] Sells is the verb
+[36:42:20 - 37:31:08] The new Willamette cold brew coffee ice cream
+[37:31:08 - 38:41:37] is the object of sells, and everything in yellow here,
+[38:41:37 - 39:43:13] all this yellow text, is our relative clause.
+[39:43:13 - 40:18:48] It cannot stand on its own as a sentence.
+[40:18:48 - 41:26:06] You could not just have that sells the new Willamette
+[41:26:06 - 41:57:36] cold brew coffee ice cream.
+[41:57:36 - 42:46:11] On its own, that doesn't work because the very presence
+[42:46:11 - 43:55:38] of this relative pronoun requires more stuff to go on.
+[44:35:13 - 45:19:53] Well, let's make things a little more complicated.
+[45:19:53 - 45:54:40] The woman who always wore a red hat came
+[45:54:40 - 46:43:04] into the cafe every Sunday.
+[46:43:04 - 47:26:24] So this sentence contains a relative clause
+[47:26:24 - 47:52:21] right there in the middle of it,
+[47:52:21 - 48:35:41] who always wore a red hat.
+[48:35:41 - 49:19:44] All right, so we've got who substituting in
+[49:19:44 - 50:03:07] for the woman and that's the subject
+[50:03:07 - 51:00:22] of the verb phrase wore a red hat, but again,
+[51:00:22 - 51:41:05] this could not be a sentence on its own.
+[51:41:05 - 52:14:03] Now the challenge here is when you see sentences
+[52:14:03 - 52:46:20] like this in the wild, then you see sentences
+[52:46:20 - 53:30:42] like these in the exercises, they're not gonna be
+[53:30:42 - 54:06:23] differentiated for your convenience
+[54:06:23 - 54:33:33] with two different colors, so you have to be very careful
+[54:33:33 - 55:43:00] to figure out where this dependent clause begins and ends.
+[56:29:29 - 57:20:26] So you can parse, so you can make sense of this sentence,
+[57:20:26 - 57:51:55] in order to make it work.
+[57:51:55 - 58:39:35] So really what is this sentence actually saying,
+[58:39:35 - 59:10:20] just on a base level?
+[59:10:20 - 60:02:53] - [Rosie] The woman came into the cafe.
+[60:02:53 - 61:20:11] - [David] Right, and so everything else, this every Sunday,
+[61:20:11 - 62:42:01] or who always wore a red had, that is kinda extra,
+[62:42:01 - 63:55:37] and so it's your job as a writer, reader and editor
+[63:55:37 - 64:28:19] of text, as someone who is working
+[64:28:19 - 65:40:04] with the English language, to puzzle it out
+[65:40:04 - 66:49:12] and separate the sentence into its components.
+[66:49:12 - 67:42:01] - [Rosie] Right, this is a who always wore a red hat
+[67:42:01 - 67:58:33] is a description of the woman.
+[67:58:33 - 68:12:26] - [David] Right.
+[68:12:26 - 69:30:25] - [Rosie] Then we move on to the verb, the action
+[69:30:25 - 70:08:45] of the sentence, what is she doing, she came into the cafe,
+[70:08:45 - 70:55:02] so that's not part of that relative clause.
+[70:55:02 - 72:05:50] The relative clause is just, in this case, providing
+[72:05:50 - 72:34:47] some description of the woman.
+[72:34:47 - 73:30:40] - [David] Right, so use your best sense because yes,
+[73:30:40 - 74:18:17] it is possible that the red hat could be the thing
+[74:18:17 - 74:45:35] that comes into the cafe every Sunday,
+[74:45:35 - 75:18:57] but it's more likely that that hat is attached
+[75:18:57 - 75:53:19] to the woman that was referenced earlier.
+[75:53:19 - 76:14:02] - [Rosie] Right.
+[76:14:02 - 76:45:43] - [David] So, that is a relative clause.
+[76:45:43 - 77:15:30] You can learn anything.
+[77:15:30 - 77:32:49] David out.
+[77:32:49 - 78:01:59] - [Rosie] Rosie out.

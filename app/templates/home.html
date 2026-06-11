@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Khan Transcript Library{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="eyebrow">Khan Academy transcript scraper</div>
+  <h1>Turn a course into a searchable transcript library.</h1>
+  <p class="hero-copy">Submit a Khan Academy course URL. The worker maps every unit, lesson, and video, then stores available subtitles in a structured database.</p>
+  <form id="job-form" class="submit-card">
+    <label for="course-url">Course URL</label>
+    <div class="input-row">
+      <input id="course-url" name="url" type="url" required value="https://www.khanacademy.org/humanities/grammar" aria-describedby="form-message">
+      <button type="submit">Start scraping</button>
+    </div>
+    <p id="form-message" class="form-message">A separate worker process handles the course in the background.</p>
+  </form>
+</section>
+
+<section class="content-section">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">Library</div>
+      <h2>Available courses</h2>
+    </div>
+  </div>
+  {% if courses %}
+  <div class="course-grid">
+    {% for course in courses %}
+    <a class="course-card" href="/courses/{{ course.id }}">
+      <span class="course-index">{{ "%02d"|format(loop.index) }}</span>
+      <h3>{{ course.title }}</h3>
+      <p>{{ course.description or "Browse units, lessons, videos, and transcripts." }}</p>
+      <span class="text-link">Open course <span aria-hidden="true">→</span></span>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">No courses are stored yet. Submit a URL above or import the included CSV.</div>
+  {% endif %}
+</section>
+
+<section class="content-section compact">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">Processing</div>
+      <h2>Recent jobs</h2>
+    </div>
+  </div>
+  {% if jobs %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Course path</th><th>Status</th><th>Progress</th><th>Created</th></tr></thead>
+      <tbody>
+      {% for job in jobs %}
+        <tr>
+          <td><a href="/jobs/{{ job.id }}">{{ job.normalized_path }}</a></td>
+          <td><span class="badge badge-{{ job.status.value }}">{{ job.status.value|replace("_", " ") }}</span></td>
+          <td>{{ job.progress_percent }}%</td>
+          <td>{{ job.created_at.strftime("%b %d, %Y %H:%M") }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-state">No jobs have been submitted.</div>
+  {% endif %}
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const form = document.getElementById("job-form");
+const message = document.getElementById("form-message");
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const button = form.querySelector("button");
+  button.disabled = true;
+  button.textContent = "Creating job...";
+  message.className = "form-message";
+  try {
+    const response = await fetch("/api/jobs", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({url: form.url.value})
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Unable to create job.");
+    window.location.href = `/jobs/${data.job_id}`;
+  } catch (error) {
+    message.textContent = error.message;
+    message.className = "form-message error";
+    button.disabled = false;
+    button.textContent = "Start scraping";
+  }
+});
+</script>
+{% endblock %}
+

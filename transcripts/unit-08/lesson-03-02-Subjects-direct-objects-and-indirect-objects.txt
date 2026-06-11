@@ -1,0 +1,141 @@
+Title: Subjects, direct objects, and indirect objects
+Unit: Syntax: sentences and clauses
+Lesson: Subjects and predicates
+URL: https://www.khanacademy.org/humanities/grammar/syntax-sentences-and-clauses/subjects-and-predicates/v/subject-direct-object-and-indirect-object-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello, grammarians. Hello, Rosie. - [Voiceover] Hi, David. - [Voiceover] So, today we're gonna be talking about subject, direct object, and indirect object, and identifying those within a sentence, but first, I suppose we should figure out what those things are. So, we've talked about what subjects are before, but let's review it again really quickly. So, a subject is a noun or a pronoun that performs the verb in a sentence. So, in the sentence, Chris ate cereal, Chris is the subject, because Chris is the noun or pronoun that is performing the verb, ate. Rosie, what is a direct object? - [Voiceover] So, a direct object is the main thing in the sentence that is being acted upon, so in this sentence, Chris ate cereal, cereal would be the direct object, because it's the thing being acted upon, it's being eaten. - [Voiceover] So, every sentence has to have a subject, so subject is critical, but direct objects and indirect objects less so. - [Voiceover] Right. - [Voiceover] So, you know, as a sentence, we could just have "Chris ate", right? - [Voiceover] Right. - [Voiceover] But if we want to bring in this direct object, we can say Chris ate cereal. So, who's doing the eating? Chris. What is the thing that was eaten? Cereal. So, this seems like it would cover most interactions between objects and people, but then we have this other thing, indirect object. What's that about? - [Voiceover] So, an indirect object is often... It's kind of signifying a recipient of something, so it's like another thing in a sentence that might be acted upon. - [Voiceover] So, let's see if we can come up with some examples for that, cause we have this direct object, which is this thing being acted upon, and then the indirect object is also being acted upon, but it's being acted upon in, like, a giving way? Let's see if we can figure this out. Alright, so we have this sentence, straightforward, Althea threw a frisbee. So, we've got subject here, and we've got direct object here. Who's doing the throwing? Althea. What did she throw? A frisbee. But, what if we have the sentence Althea threw me a frisbee? Well, we know from context, because we have the word frisbee in here, that Althea is not hurling me, bodily, right? She's not chucking me across a field for a dog to catch. But we do know that the subject of the sentence is Althea, and we know that the direct object of the sentence is frisbee, but where is that frisbee going? Well, it's going to me. Okay, so we've got this, is the direct object, this is the subject, and this is the indirect object. So, the pronoun, me, is the recipient of the direct object, the frisbee. Rosie, would you read me this sentence, please? - [Voiceover] Wanda gave Louie a gift card. - [Voiceover] That's very nice of her. - [Voiceover] Yeah. - [Voiceover] Okay, so, walk me through this, then. What is going on in this sentence? What are the relationships between the components of this sentence? - [Voiceover] Okay. So, we have two people, and the first person listed is the subject of the sentence, because she's doing an action. - [Voiceover] Right, she's doing the giving. - [Voiceover] Right. Then we have the direct object, which is a gift card. - [Voiceover] Okay, that's the object that she gave. - [Voiceover] Yeah, that's something she's giving. She has a direct relationship with that, but she... The gift card has a recipient, and that's Louie, and he's the indirect object. - [Voiceover] I think another way to identify whether or not a word is the indirect object in a sentence is to see if you can pull it out and stick it on the end of the sentence, as it currently stands, with a preposition, and see if it still makes sense. In this case, to Louie is no longer what we would traditionally consider an indirect object. So, if we've got Wanda gave a gift card to Louie, Wanda is the subject, gift card is the direct object, and then we can see to Louie is now this adverbial prepositional phrase that modifies gave. It's the manner in which she gave it to Louie, and if we switched it out, if we said Wanda gave Louie to gift card, that doesn't make sense at all. So, to review, the subject is the noun or pronoun that performs a verb in a sentence. - [Voiceover] The direct object is the thing that's acted upon. - [Voiceover] And the indirect object is the recipient of that direct object, it's the thing that gets the direct object. In the case of Althea threw me a frisbee, the pronoun me is the indirect object. In the case of Wanda gave Louie a gift card, Louie is the indirect object. He gets the gift card, I get the frisbee. - [Voiceover] Right. - [Voiceover] But, as subjects, direct object, and indirect objects, you can learn anything. David out. - [Voiceover] Rosie out.
+
+Timestamped transcript:
+[00:00 - 17:34] - [Voiceover] Hello, grammarians.
+[17:34 - 31:27] Hello, Rosie.
+[31:27 - 48:29] - [Voiceover] Hi, David.
+[48:29 - 01:23:11] - [Voiceover] So, today we're gonna be talking about
+[01:23:11 - 02:09:48] subject, direct object, and indirect object,
+[02:09:48 - 02:53:38] and identifying those within a sentence,
+[02:53:38 - 03:20:08] but first, I suppose we should figure out
+[03:20:08 - 03:38:51] what those things are.
+[03:38:51 - 04:05:35] So, we've talked about what subjects are before,
+[04:05:35 - 04:34:00] but let's review it again really quickly.
+[04:34:00 - 05:28:47] So, a subject is a noun or a pronoun
+[05:28:47 - 06:14:50] that performs the verb in a sentence.
+[06:14:50 - 06:30:19] So, in the sentence,
+[06:30:19 - 06:57:13] Chris ate cereal,
+[06:57:13 - 07:32:03] Chris is the subject,
+[07:32:03 - 08:08:49] because Chris is the noun or pronoun
+[08:08:49 - 08:45:46] that is performing the verb, ate.
+[08:45:46 - 09:36:58] Rosie, what is a direct object?
+[09:36:58 - 10:11:13] - [Voiceover] So, a direct object is
+[10:11:13 - 11:16:23] the main thing in the sentence that is
+[11:16:23 - 11:45:49] being acted upon,
+[11:45:49 - 12:32:05] so in this sentence, Chris ate cereal,
+[12:32:05 - 13:11:12] cereal would be the direct object,
+[13:11:12 - 13:39:45] because it's the thing
+[13:39:45 - 14:13:58] being acted upon, it's being eaten.
+[14:13:58 - 14:52:31] - [Voiceover] So, every sentence has to have a subject,
+[14:52:31 - 15:28:59] so subject is critical,
+[15:28:59 - 16:14:49] but direct objects and indirect objects less so.
+[16:14:49 - 16:37:56] - [Voiceover] Right. - [Voiceover] So, you know,
+[16:37:56 - 17:14:07] as a sentence, we could just have "Chris ate", right?
+[17:14:07 - 17:28:00] - [Voiceover] Right.
+[17:28:00 - 17:52:42] - [Voiceover] But if we want to bring in this direct object,
+[17:52:42 - 18:31:00] we can say Chris ate cereal.
+[18:31:00 - 19:02:54] So, who's doing the eating?
+[19:02:54 - 19:16:47] Chris.
+[19:16:47 - 19:51:01] What is the thing that was eaten?
+[19:51:01 - 20:04:54] Cereal.
+[20:04:54 - 20:55:50] So, this seems like it would cover
+[20:55:50 - 22:04:42] most interactions between objects and people,
+[22:04:42 - 22:42:50] but then we have this other thing, indirect object.
+[22:42:50 - 23:04:38] What's that about?
+[23:04:38 - 24:10:01] - [Voiceover] So, an indirect object is often...
+[24:10:01 - 25:03:08] It's kind of signifying a recipient of something,
+[25:03:08 - 25:48:48] so it's like another thing in a sentence
+[25:48:48 - 26:24:58] that might be acted upon.
+[26:24:58 - 26:43:27] - [Voiceover] So, let's see if we can come up
+[26:43:27 - 27:29:59] with some examples for that,
+[27:29:59 - 27:47:44] cause we have this direct object,
+[27:47:44 - 28:17:22] which is this thing being acted upon,
+[28:17:22 - 29:04:35] and then the indirect object is also being acted upon,
+[29:04:35 - 30:09:15] but it's being acted upon in, like, a giving way?
+[30:09:15 - 30:38:10] Let's see if we can figure this out.
+[30:38:10 - 31:09:27] Alright, so we have this sentence, straightforward,
+[31:09:27 - 31:36:55] Althea threw a frisbee.
+[31:36:55 - 32:05:06] So, we've got subject here,
+[32:05:06 - 32:33:14] and we've got direct object here.
+[32:33:14 - 32:51:32] Who's doing the throwing?
+[32:51:32 - 33:05:25] Althea.
+[33:05:25 - 33:19:44] What did she throw?
+[33:19:44 - 33:33:37] A frisbee.
+[33:33:37 - 34:08:02] But, what if we have the sentence
+[34:08:02 - 34:57:22] Althea threw me a frisbee?
+[34:57:22 - 35:33:40] Well, we know from context,
+[35:33:40 - 36:08:38] because we have the word frisbee in here,
+[36:08:38 - 36:57:58] that Althea is not hurling me, bodily, right?
+[36:57:58 - 37:42:42] She's not chucking me across a field for a dog to catch.
+[37:42:42 - 38:15:41] But we do know that the subject of the sentence
+[38:15:41 - 39:00:41] is Althea, and we know that the direct object
+[39:00:41 - 39:44:34] of the sentence is frisbee,
+[39:44:34 - 40:08:34] but where is that frisbee going?
+[40:08:34 - 40:34:50] Well, it's going to me.
+[40:34:50 - 41:19:05] Okay, so we've got this, is the direct object,
+[41:19:05 - 41:48:37] this is the subject,
+[41:48:37 - 42:30:28] and this is the indirect object.
+[42:30:28 - 43:17:24] So, the pronoun, me,
+[43:17:24 - 44:17:20] is the recipient of the direct object, the frisbee.
+[44:17:20 - 44:58:45] Rosie, would you read me this sentence, please?
+[44:58:45 - 45:40:38] - [Voiceover] Wanda gave Louie a gift card.
+[45:40:38 - 46:03:37] - [Voiceover] That's very nice of her.
+[46:03:37 - 46:17:30] - [Voiceover] Yeah.
+[46:17:30 - 47:03:35] - [Voiceover] Okay, so, walk me through this, then.
+[47:03:35 - 47:31:06] What is going on in this sentence?
+[47:31:06 - 47:48:03] What are the relationships
+[47:48:03 - 48:25:21] between the components of this sentence?
+[48:25:21 - 48:39:14] - [Voiceover] Okay.
+[48:39:14 - 49:01:38] So, we have two people,
+[49:01:38 - 49:50:41] and the first person listed is the subject of the sentence,
+[49:50:41 - 50:24:16] because she's doing an action.
+[50:24:16 - 50:43:25] - [Voiceover] Right, she's doing the giving.
+[50:43:25 - 51:03:14] - [Voiceover] Right.
+[51:03:14 - 51:53:21] Then we have the direct object, which is a gift card.
+[51:53:21 - 52:29:31] - [Voiceover] Okay, that's the object that she gave.
+[52:29:31 - 52:57:05] - [Voiceover] Yeah, that's something she's giving.
+[52:57:05 - 53:59:45] She has a direct relationship with that, but she...
+[53:59:45 - 55:06:24] The gift card has a recipient, and that's Louie,
+[55:06:24 - 55:38:58] and he's the indirect object.
+[55:38:58 - 55:56:14] - [Voiceover] I think another way to identify
+[55:56:14 - 56:36:08] whether or not a word is the indirect object in a sentence
+[56:36:08 - 57:08:44] is to see if you can pull it out
+[57:08:44 - 57:47:11] and stick it on the end of the sentence,
+[57:47:11 - 58:20:57] as it currently stands, with a preposition,
+[58:20:57 - 59:05:24] and see if it still makes sense.
+[59:22:34 - 60:15:46] In this case, to Louie is no longer what we would
+[60:15:46 - 61:03:27] traditionally consider an indirect object.
+[61:03:27 - 61:25:40] So, if we've got
+[61:39:41 - 62:09:17] Wanda gave a gift card to Louie,
+[62:09:17 - 63:07:08] Wanda is the subject, gift card is the direct object,
+[63:07:08 - 63:33:31] and then we can see
+[63:52:56 - 64:59:51] to Louie is now this adverbial prepositional phrase
+[64:59:51 - 65:30:42] that modifies gave.
+[65:30:42 - 66:12:58] It's the manner in which she gave it to Louie,
+[66:12:58 - 66:38:09] and if we switched it out,
+[66:38:09 - 67:44:56] if we said Wanda gave Louie to gift card,
+[67:44:56 - 68:18:39] that doesn't make sense at all.
+[68:18:39 - 68:58:00] So, to review, the subject is the noun
+[68:58:00 - 69:50:54] or pronoun that performs a verb in a sentence.
+[69:50:54 - 70:12:34] - [Voiceover] The direct object
+[70:12:34 - 70:41:11] is the thing that's acted upon.
+[70:41:11 - 71:03:22] - [Voiceover] And the indirect object is
+[71:03:22 - 71:47:13] the recipient of that direct object,
+[71:47:13 - 72:37:52] it's the thing that gets the direct object.
+[72:37:52 - 73:28:47] In the case of Althea threw me a frisbee,
+[73:28:47 - 74:16:57] the pronoun me is the indirect object.
+[74:16:57 - 74:59:18] In the case of Wanda gave Louie a gift card,
+[74:59:18 - 75:29:41] Louie is the indirect object.
+[75:29:41 - 76:19:33] He gets the gift card, I get the frisbee.
+[76:19:33 - 76:33:26] - [Voiceover] Right.
+[76:33:26 - 76:48:57] - [Voiceover] But, as subjects,
+[76:48:57 - 77:15:34] direct object, and indirect objects,
+[77:15:34 - 77:35:11] you can learn anything.
+[77:35:11 - 77:49:04] David out.
+[77:49:04 - 78:22:24] - [Voiceover] Rosie out.

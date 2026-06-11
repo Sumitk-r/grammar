@@ -1,0 +1,160 @@
+Title: Phrases and clauses
+Unit: Syntax: sentences and clauses
+Lesson: Phrases and clauses
+URL: https://www.khanacademy.org/humanities/grammar/syntax-sentences-and-clauses/phrases-and-clauses/v/phrases-and-clauses-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello, grammarians. Hello Rosie. - [Voiceover] Hello, David. - [Voiceover] So, okay, you know the Schoolhouse Rock song Conjunction Junction? - [Voiceover] Right. - [Voiceover] Classic. - [Voiceover] Classic. - [Voiceover] So in that song, you know, the chorus asks, like, ♫ Conjunction junction, what's your function ♫ And then the engineer played by Jack Sheldon goes, ♫ Hooking up words and phrases and clauses ♫ And so that's what we're gonna be talking about today is the difference between a phrase and a clause, because both of them are groups of words, right? Phrases and clauses are both groups of words but they each do different things. So let's break that down. So, Rosie, if you'd please, what is a phrase? - [Voiceover] So phrase is a group of words and it acts like a single part of speech, but it's not, it will never be a full sentence, because phrases don't have both a subject and a verb. - [Voiceover] Right, so a phrase can never be a sentence. - [Voiceover] Right. - [Voiceover] What are some examples of phrases? - [Voiceover] My best friend. - [Voiceover] So this is a group of words that ultimately behaves like a noun? - [Voiceover] Right. - [Voiceover] Okay. - [Voiceover] Then there's an adjective phrase, with the blue shirt. - [Voiceover] So this is a prepositional phrase that, as you said, is behaving like an adjective. - [Voiceover] Right. - [Voiceover] Okay. - [Voiceover] And then for 20 days, which behaves like an adverb. - [Voiceover] So this is a noun phrase, an adjective phrase and an adverbial phrase. So none of these things can be sentences, but they all, like you said, act like parts of speech. Okay, meanwhile a clause is a group of words that can be a sentence? - [Voiceover] It's not always a sentence, but the big difference between phrases and clauses is that clauses do have both a subject and a verb. - [Voiceover] So it's not, it can't be a phrase because a phrase is just one part of speech, but a clause always has a noun or pronoun component and a verb component. - [Voiceover] That's right. - [Voiceover] Okay. - [Voiceover] So, a clause could be a dependent clause which can't stand on its own. For example, the wizard who cast a spell. Right, that can't be its own sentence, but it's got a lot going on. - [Voiceover] So that's not a sentence, but it can also be independent. - [Voiceover] Right, so, if we said, "The wizard cast a spell," that's also a clause, and it's also its own sentence. - [Voiceover] So let's test a couple of things and see if they are phrases or clauses. - [Voiceover] Okay. - [Voiceover] The falcon soared majestically. So this is a group of words. And we've got the falcon here, that's a noun phrase, that's behaving like a part of speech. So I know that this definitely has a phrase in it, but is it just a phrase on its own? I guess I would have to say no, because it's got this verb, soared, and this adverb, majectically. So, the falcon soared majestically, I would have to say this is a clause. Would I be right? - [Voiceover] You would be right. - [Voiceover] Hooray! - [Voiceover] That's not only a clause, but it's an independent clause. - [Voiceover] So it can be its own sentence. With a period right. So let's get a little bit of a George Harrison in here. While my guitar gently weeps. So we've got a subject in here, my guitar, and a verb, weeps. So we know it's a clause, but it begins with this word while, which is, I think, a subordinating conjunction. - [Voiceover] Right. - [Voiceover] So this would be actually a dependent clause, but it is a clause, so this thing could not be a sentence on it's own. - [Voiceover] That's right. - [Voiceover] Now Rosie, what about the best ham sandwich in Oklahoma? Is that a phrase or a clause? - [Voiceover] That is a phrase. - [Voiceover] Okay, why is that? - [Voiceover] We don't have a verb. This is all a subject, and we've got the best, so we've kind of got this superlative thrown in there. - [Voiceover] But it's all modifying ham sandwich. - [Voiceover] Right. - [Voiceover] It's actually all modifying sandwich, 'cause it's the best ham sandwich. And then we've got this other prepositional phrase that also modifies sandwich. - [Voiceover] Right. - [Voiceover] So that's a phrase. How about under the ocean blue? - [Voiceover] That is a phrase. - [Voiceover] Okay. What makes you say that? - [Voiceover] Well, again, we don't have a verb, so we've got a subject, the ocean, and we have under, that's a preposition, so we have kind of a direction and a subject, we have a direction and a place, but we don't have an action. - [Voiceover] And that would make it a phrase and not a clause. So, phrases are groups of words that act like parts of speech, so this one, for example, is an adjectival or adverbial phrase. We don't know because, we don't know what it's modifying. And this one is a noun phrase, the best ham sandwich in Oklahoma. It's behaving like a noun. And clauses are groups of phrases that have a subject and a verb. So, while my guitar gently weeps. There's a guitar, what is it doing? It's weeping, so we know it's a clause. We'll go into what the difference between a dependent and an independent clause is next time, but just know for now, this is a clause over here and this clause over here, the falcon soared majestically, is also a clause by dint of the fact that it has both a subject, the falcon, and a verb, soared majestically. - [Voiceover] All right. - [Voiceover] Cool. That is phrases and clauses. You can learn anything, David out. - [Voiceover] Rosie out.
+
+Timestamped transcript:
+[06:45 - 22:50] - [Voiceover] Hello, grammarians.
+[22:50 - 36:43] Hello Rosie.
+[36:43 - 50:36] - [Voiceover] Hello, David.
+[50:36 - 01:35:05] - [Voiceover] So, okay, you know the Schoolhouse Rock song
+[01:35:05 - 01:57:51] Conjunction Junction?
+[01:57:51 - 02:11:44] - [Voiceover] Right.
+[02:11:44 - 02:25:37] - [Voiceover] Classic.
+[02:25:37 - 02:39:30] - [Voiceover] Classic.
+[02:39:30 - 03:13:12] - [Voiceover] So in that song, you know,
+[03:13:12 - 03:53:35] the chorus asks, like,
+[03:53:35 - 04:25:47] ♫ Conjunction junction, what's your function ♫
+[04:25:47 - 04:59:19] And then the engineer played by Jack Sheldon goes,
+[04:59:19 - 05:46:49] ♫ Hooking up words and phrases and clauses ♫
+[05:46:49 - 06:28:20] And so that's what we're gonna be talking about today
+[06:28:20 - 07:10:44] is the difference between a phrase and a clause,
+[07:10:44 - 07:48:13] because both of them are groups of words, right?
+[07:48:13 - 08:17:21] Phrases and clauses are both groups of words
+[08:17:21 - 09:04:27] but they each do different things.
+[09:04:27 - 09:34:36] So let's break that down.
+[09:34:36 - 10:50:38] So, Rosie, if you'd please, what is a phrase?
+[10:50:38 - 11:33:00] - [Voiceover] So phrase is a group of words
+[11:33:00 - 12:14:22] and it acts like a single part of speech,
+[12:14:22 - 13:19:39] but it's not, it will never be a full sentence,
+[13:39:08 - 14:48:35] because phrases don't have both a subject and a verb.
+[15:11:18 - 16:01:33] - [Voiceover] Right, so a phrase can never be a sentence.
+[16:01:33 - 16:15:26] - [Voiceover] Right.
+[16:15:26 - 17:12:12] - [Voiceover] What are some examples of phrases?
+[17:12:12 - 17:42:36] - [Voiceover] My best friend.
+[17:42:36 - 18:06:08] - [Voiceover] So this is a group of words
+[18:06:08 - 18:38:47] that ultimately behaves like a noun?
+[18:38:47 - 18:52:40] - [Voiceover] Right.
+[18:52:40 - 19:17:49] - [Voiceover] Okay.
+[19:17:49 - 19:47:40] - [Voiceover] Then there's an adjective phrase,
+[19:47:40 - 20:17:00] with the blue shirt.
+[20:17:00 - 20:51:55] - [Voiceover] So this is a prepositional phrase
+[20:51:55 - 21:34:48] that, as you said, is behaving like an adjective.
+[21:34:48 - 21:48:41] - [Voiceover] Right.
+[21:48:41 - 22:02:34] - [Voiceover] Okay.
+[22:02:34 - 22:44:09] - [Voiceover] And then for 20 days,
+[22:44:09 - 23:10:51] which behaves like an adverb.
+[23:10:51 - 23:33:21] - [Voiceover] So this is a noun phrase,
+[23:33:21 - 24:26:14] an adjective phrase and an adverbial phrase.
+[24:26:14 - 25:03:08] So none of these things can be sentences,
+[25:03:08 - 26:01:45] but they all, like you said, act like parts of speech.
+[26:01:45 - 26:55:45] Okay, meanwhile a clause is a group of words
+[26:55:45 - 27:20:55] that can be a sentence?
+[27:20:55 - 27:47:01] - [Voiceover] It's not always a sentence,
+[27:47:01 - 28:56:28] but the big difference between phrases and clauses is
+[29:13:31 - 30:24:38] that clauses do have both a subject and a verb.
+[30:24:38 - 30:53:17] - [Voiceover] So it's not, it can't be a phrase
+[30:53:17 - 31:30:44] because a phrase is just one part of speech,
+[31:30:44 - 32:21:58] but a clause always has a noun or pronoun component
+[32:21:58 - 32:48:38] and a verb component.
+[32:48:38 - 33:02:31] - [Voiceover] That's right.
+[33:02:31 - 33:28:04] - [Voiceover] Okay.
+[33:28:04 - 34:36:26] - [Voiceover] So, a clause could be a dependent clause
+[34:36:26 - 35:16:26] which can't stand on its own.
+[35:16:26 - 36:23:58] For example, the wizard who cast a spell.
+[36:23:58 - 37:16:38] Right, that can't be its own sentence,
+[37:16:38 - 37:55:31] but it's got a lot going on.
+[38:10:03 - 38:35:50] - [Voiceover] So that's not a sentence,
+[38:35:50 - 39:14:19] but it can also be independent.
+[39:14:19 - 39:54:07] - [Voiceover] Right, so, if we said,
+[39:54:07 - 41:00:47] "The wizard cast a spell," that's also a clause,
+[41:25:40 - 42:20:16] and it's also its own sentence.
+[42:20:16 - 42:55:52] - [Voiceover] So let's test a couple of things
+[42:55:52 - 43:50:02] and see if they are phrases or clauses.
+[44:05:45 - 44:19:38] - [Voiceover] Okay.
+[44:19:38 - 44:59:41] - [Voiceover] The falcon soared majestically.
+[44:59:41 - 45:45:39] So this is a group of words.
+[45:45:39 - 46:55:06] And we've got the falcon here, that's a noun phrase,
+[47:22:51 - 48:27:52] that's behaving like a part of speech.
+[48:27:52 - 49:27:50] So I know that this definitely has a phrase in it,
+[49:27:50 - 50:05:21] but is it just a phrase on its own?
+[50:05:21 - 50:50:52] I guess I would have to say no, because it's got this verb,
+[50:50:52 - 51:45:09] soared, and this adverb, majectically.
+[51:45:09 - 52:16:55] So, the falcon soared majestically,
+[52:16:55 - 52:49:54] I would have to say this is a clause.
+[52:49:54 - 53:05:58] Would I be right?
+[53:05:58 - 53:20:37] - [Voiceover] You would be right.
+[53:20:37 - 53:49:47] - [Voiceover] Hooray!
+[54:14:00 - 54:30:30] - [Voiceover] That's not only a clause,
+[54:30:30 - 55:10:46] but it's an independent clause.
+[55:10:46 - 56:00:51] - [Voiceover] So it can be its own sentence.
+[56:00:51 - 56:38:49] With a period right.
+[56:38:49 - 57:10:21] So let's get a little bit of a George Harrison in here.
+[57:10:21 - 57:48:45] While my guitar gently weeps.
+[57:48:45 - 58:38:01] So we've got a subject in here, my guitar,
+[58:38:01 - 59:07:38] and a verb, weeps.
+[59:07:38 - 59:33:47] So we know it's a clause,
+[59:33:47 - 60:21:41] but it begins with this word while,
+[60:21:41 - 60:59:30] which is, I think, a subordinating conjunction.
+[60:59:30 - 61:13:23] - [Voiceover] Right.
+[61:13:23 - 61:40:30] - [Voiceover] So this would be actually a dependent clause,
+[61:40:30 - 62:14:08] but it is a clause, so this thing could not be
+[62:14:08 - 62:55:58] a sentence on it's own.
+[62:55:58 - 63:34:10] - [Voiceover] That's right.
+[63:34:10 - 63:54:47] - [Voiceover] Now Rosie, what about
+[63:54:47 - 64:31:43] the best ham sandwich in Oklahoma?
+[64:31:43 - 65:12:00] Is that a phrase or a clause?
+[65:28:58 - 65:49:36] - [Voiceover] That is a phrase.
+[65:49:36 - 66:25:13] - [Voiceover] Okay, why is that?
+[66:25:13 - 67:01:15] - [Voiceover] We don't have a verb.
+[67:01:15 - 67:31:48] This is all a subject,
+[68:08:13 - 69:04:07] and we've got the best, so we've kind of got
+[69:04:07 - 69:56:01] this superlative thrown in there.
+[69:56:01 - 70:43:13] - [Voiceover] But it's all modifying ham sandwich.
+[70:43:13 - 70:57:06] - [Voiceover] Right.
+[70:57:06 - 71:19:18] - [Voiceover] It's actually all modifying sandwich,
+[71:19:18 - 71:58:50] 'cause it's the best ham sandwich.
+[71:58:50 - 72:27:24] And then we've got this other prepositional phrase
+[72:27:24 - 73:02:44] that also modifies sandwich.
+[73:02:44 - 73:16:37] - [Voiceover] Right.
+[73:16:37 - 73:56:57] - [Voiceover] So that's a phrase.
+[73:56:57 - 74:45:39] How about under the ocean blue?
+[74:45:39 - 75:05:28] - [Voiceover] That is a phrase.
+[75:05:28 - 75:43:03] - [Voiceover] Okay.
+[75:43:03 - 76:14:32] What makes you say that?
+[76:14:32 - 77:21:12] - [Voiceover] Well, again, we don't have a verb,
+[77:46:24 - 78:33:37] so we've got a subject, the ocean,
+[78:50:02 - 79:26:32] and we have under, that's a preposition,
+[79:26:32 - 80:33:11] so we have kind of a direction and a subject,
+[80:33:11 - 80:57:21] we have a direction and a place,
+[80:57:21 - 81:39:04] but we don't have an action.
+[81:39:04 - 81:56:35] - [Voiceover] And that would make it
+[81:56:35 - 82:33:10] a phrase and not a clause.
+[82:33:10 - 83:08:49] So, phrases are groups of words
+[83:08:49 - 83:34:55] that act like parts of speech,
+[83:34:55 - 84:15:10] so this one, for example,
+[84:15:10 - 85:20:21] is an adjectival or adverbial phrase.
+[85:20:21 - 86:21:56] We don't know because, we don't know what it's modifying.
+[86:21:56 - 86:56:03] And this one is a noun phrase,
+[86:56:03 - 87:29:31] the best ham sandwich in Oklahoma.
+[87:29:31 - 88:01:14] It's behaving like a noun.
+[88:01:14 - 88:47:04] And clauses are groups of phrases
+[89:03:16 - 89:35:30] that have a subject and a verb.
+[89:35:30 - 90:31:50] So, while my guitar gently weeps.
+[90:31:50 - 90:55:39] There's a guitar, what is it doing?
+[90:55:39 - 91:47:47] It's weeping, so we know it's a clause.
+[91:47:47 - 92:06:06] We'll go into what the difference
+[92:06:06 - 92:53:11] between a dependent and an independent clause is next time,
+[92:53:11 - 93:34:53] but just know for now, this is a clause over here
+[93:34:53 - 94:40:43] and this clause over here, the falcon soared majestically,
+[94:40:43 - 95:15:24] is also a clause by dint of the fact
+[95:15:24 - 95:55:02] that it has both a subject, the falcon,
+[95:55:02 - 96:50:57] and a verb, soared majestically.
+[96:50:57 - 97:04:50] - [Voiceover] All right.
+[97:04:50 - 97:20:08] - [Voiceover] Cool.
+[97:20:08 - 98:06:02] That is phrases and clauses.
+[98:06:02 - 98:40:58] You can learn anything, David out.
+[98:40:58 - 98:56:30] - [Voiceover] Rosie out.

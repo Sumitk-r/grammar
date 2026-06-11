@@ -1,0 +1,88 @@
+Title: Subjects and predicates
+Unit: Syntax: sentences and clauses
+Lesson: Subjects and predicates
+URL: https://www.khanacademy.org/humanities/grammar/syntax-sentences-and-clauses/subjects-and-predicates/v/subjects-and-predicates-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello, grammarians. Hello, Paige. - [Paige] Hi, David. - [David] Today we're going to talk about identifying subjects and predicates and in order to do that, we shall begin with a sentence. Paige, would you read me the sentence, please? - [Paige] I bought a crate of goblin hats. - [David] Thank you, Paige. So Paige, do you think that's hats for goblins, or hats that make you look like a goblin? - [Paige] Well, I bought it, so I can say that it is both. - [David] So we could go either way is what you're saying. - [Paige] (Laughs) Oh, yeah. - [David] A sentence is kind of a like a car. It's got a lot of different parts, like an engine, or wheels, or a body, whatever. A sentence is very much the same way and you can divide up a sentence into parts. Today, we're going to be dividing up the sentence into subject and predicate. Paige, what is the subject of a sentence? - [Paige] The subject is a noun or a pronoun that is doing the action in the sentence or performing the verb. - [David] What does that mean to perform a verb? - [Paige] Right, so a verb isn't always an action, right? That's why I wanted to clarify. - [David] Mm-hmm. - [Paige] Because you can say, "I am happy." Am is a verb, but that's not an action that I'm doing. - [David] Right, you can't just actively am. - [Paige] Right. (laughs) - [David] But in the sentence, "I am happy," the subject I is performing the verb to be, or am. - [Paige] Right. - [David] Gotcha. What is a predicate? - [Paige] A predicate is all of the rest of the sentence that isn't the subject. What it really is is the verb and all of the parts that are related to the verb. Yeah, verb and its pals, that's good. - [David] Let's apply that approach to goblin hat sentence. - [Paige] Mm-hmm. - [David] Okay, so I'm looking for a noun or pronoun that performs a verb in the sentence. Well, I found the verb and the verb is bought. Who's doing the buying? I am. - [Paige] Right. - [David] So our subject is I. - [Paige] Yeah. - [David] Then predicate is basically everything else, right? It's bought, what did I buy? A crate of goblin hats. - [Paige] Right. You can see that a crate of goblin hats is also a noun, right? But it's not doing anything in the sentence. I am buying. - [David] Just because there's a noun, just because there's another noun in the sentence, like crate or goblin hats, doesn't necessarily mean that it's the subject. - [Paige] Right. - [David] So you have to look for the thing that is performing the verb. - [Paige] Exactly. - [David] Paige, I think that covers everything except exactly what a goblin hat is, but we can talk about that some other time. - [Paige] Yeah. - [David] That's identifying subjects and predicates. You can learn anything. David out. - [Paige] Paige out.
+
+Timestamped transcript:
+[03:55 - 17:48] - [Voiceover] Hello, grammarians.
+[17:48 - 31:41] Hello, Paige.
+[31:41 - 45:34] - [Paige] Hi, David.
+[45:34 - 59:27] - [David] Today we're going to talk about
+[59:27 - 01:21:49] identifying subjects and predicates
+[01:21:49 - 02:09:22] and in order to do that, we shall begin with a sentence.
+[02:09:22 - 02:46:55] Paige, would you read me the sentence, please?
+[02:46:55 - 03:17:36] - [Paige] I bought a crate of goblin hats.
+[03:17:36 - 03:59:25] - [David] Thank you, Paige.
+[03:59:25 - 04:39:43] So Paige, do you think that's hats for goblins,
+[04:39:43 - 05:32:31] or hats that make you look like a goblin?
+[05:32:31 - 05:53:03] - [Paige] Well, I bought it, so I can say
+[05:53:03 - 06:20:58] that it is both.
+[06:20:58 - 07:19:33] - [David] So we could go either way is what you're saying.
+[07:19:33 - 07:33:26] - [Paige] (Laughs) Oh, yeah.
+[07:33:26 - 07:55:36] - [David] A sentence is kind of a like a car.
+[07:55:36 - 08:31:19] It's got a lot of different parts, like an engine,
+[08:31:19 - 09:14:22] or wheels, or a body, whatever.
+[09:14:22 - 09:40:16] A sentence is very much the same way
+[09:40:16 - 10:38:39] and you can divide up a sentence into parts.
+[10:38:39 - 11:22:10] Today, we're going to be dividing up the sentence
+[11:22:10 - 12:08:44] into subject and predicate.
+[12:08:44 - 12:47:00] Paige, what is the subject of a sentence?
+[12:47:00 - 13:36:16] - [Paige] The subject is a noun or a pronoun
+[13:36:16 - 14:31:49] that is doing the action in the sentence
+[15:08:53 - 15:37:51] or performing the verb.
+[15:37:51 - 16:08:39] - [David] What does that mean to perform a verb?
+[16:08:39 - 16:57:37] - [Paige] Right, so a verb isn't always an action, right?
+[16:57:37 - 17:19:58] That's why I wanted to clarify.
+[17:19:58 - 17:33:51] - [David] Mm-hmm.
+[17:33:51 - 18:06:10] - [Paige] Because you can say, "I am happy."
+[18:06:10 - 19:06:04] Am is a verb, but that's not an action that I'm doing.
+[19:06:04 - 19:44:54] - [David] Right, you can't just actively am.
+[19:44:54 - 20:02:31] - [Paige] Right. (laughs)
+[20:02:31 - 20:39:04] - [David] But in the sentence, "I am happy,"
+[20:39:04 - 21:45:56] the subject I is performing the verb to be, or am.
+[21:45:56 - 21:59:49] - [Paige] Right.
+[21:59:49 - 22:13:42] - [David] Gotcha.
+[22:13:42 - 22:40:19] What is a predicate?
+[22:40:19 - 23:36:20] - [Paige] A predicate is all of the rest of the sentence
+[23:36:20 - 23:57:49] that isn't the subject.
+[23:57:49 - 24:27:32] What it really is is the verb
+[24:27:32 - 25:30:07] and all of the parts that are related to the verb.
+[25:30:07 - 26:02:16] Yeah, verb and its pals, that's good.
+[26:02:16 - 26:45:28] - [David] Let's apply that approach to goblin hat sentence.
+[26:45:28 - 26:59:21] - [Paige] Mm-hmm.
+[26:59:21 - 27:48:46] - [David] Okay, so I'm looking for a noun or pronoun
+[27:48:46 - 28:24:39] that performs a verb in the sentence.
+[28:24:39 - 28:58:22] Well, I found the verb and the verb is bought.
+[28:58:22 - 29:20:02] Who's doing the buying?
+[29:20:02 - 29:35:07] I am.
+[29:35:07 - 29:49:00] - [Paige] Right.
+[29:49:00 - 30:03:40] - [David] So our subject is I.
+[30:03:40 - 30:23:51] - [Paige] Yeah.
+[30:23:51 - 31:03:10] - [David] Then predicate is basically
+[31:03:10 - 31:27:01] everything else, right?
+[31:27:01 - 32:00:41] It's bought, what did I buy?
+[32:00:41 - 32:30:40] A crate of goblin hats.
+[32:30:40 - 32:50:59] - [Paige] Right.
+[32:50:59 - 33:16:32] You can see that a crate of goblin hats
+[33:16:32 - 33:46:11] is also a noun, right?
+[33:46:11 - 34:23:55] But it's not doing anything in the sentence.
+[34:23:55 - 34:37:48] I am buying.
+[34:37:48 - 35:00:28] - [David] Just because there's a noun,
+[35:00:28 - 35:34:33] just because there's another noun in the sentence,
+[35:34:33 - 36:22:36] like crate or goblin hats, doesn't necessarily mean
+[36:22:36 - 37:05:26] that it's the subject.
+[37:05:26 - 37:19:19] - [Paige] Right.
+[37:19:19 - 38:00:29] - [David] So you have to look for the thing that is
+[38:00:29 - 38:24:59] performing the verb.
+[38:24:59 - 38:41:55] - [Paige] Exactly.
+[38:41:55 - 39:19:53] - [David] Paige, I think that covers everything except
+[39:19:53 - 40:28:57] exactly what a goblin hat is, but we can talk about that
+[40:28:57 - 40:44:32] some other time.
+[40:44:32 - 41:01:07] - [Paige] Yeah.
+[41:01:07 - 41:32:36] - [David] That's identifying subjects and predicates.
+[41:32:36 - 42:00:20] You can learn anything.
+[42:00:20 - 42:14:13] David out.
+[42:14:13 - 42:31:48] - [Paige] Paige out.

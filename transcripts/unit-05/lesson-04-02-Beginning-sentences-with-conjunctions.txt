@@ -1,0 +1,155 @@
+Title: Beginning sentences with conjunctions 
+Unit: Parts of speech: the preposition and the conjunction
+Lesson: Correlative conjunctions and starting sentences
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-preposition-and-the-conjunction/correlative-conjunctions-and-starting-sentences/v/beginning-sentences-with-conjunctions-the-conjunction-the-parts-of-speech-grammar
+
+Transcript:
+- [Voiceover] Hey grammarians. Some of you may have been raised like me, with the superstition that it wasn't okay to start a sentence with a conjunction. Like for, or and, or nor, or but. But I'm here to tell you, not to bury the lead, totally fine. Like, you may do this. There is nothing ungrammatical about this construction. Let me show you what I mean and what sort of sentences have historically been regarded, by some people, as unacceptable. So let's start by looking at this two sentence paragraph. "Ginny looked at the painting suspiciously. But, as she turned away, she didn't see it look at her." Or, just starting something on its own, without connecting it to, you know, you can start a paragraph with it like, "But the question remains, what is art?" There's this, there's this superstition that says that you can't begin sentences with conjunctions, that it's ungrammatical or weak writing, and I don't think either of these things are true. In fact, I think is a conflation, or a confusion of a couple separate issues in writing. But sometimes you wanna punctuate a sentence by beginning with a conjunction. There's a kind of dramatic tension you can access by beginning a sentence like that, kind of unexpectedly leaping into action. What I like about sentence initial "But" here is that it kind of, you think the sentence is over, and it is, but then this other thing happens, and putting it after a piece of terminal punctuation like a period really serves to bring into sharp relief whatever it is you're trying to say after the "But." I think this an awfully useful technique, and I'm not alone. Brian Garner, the author of the usage manual that I use most of the time, Garner's Modern American Usage, says that about 9% of sentences by, what he calls, first-rate writers begin with "and," "but" and "so" or other words in the FANBOYS mnenomic, if you remember FANBOYS. And that's "for," "and," "nor," "but," "or," "yet," "so." And then those are the coordinating conjunctions. And it's not just Garner, 'cause that's a relatively recent publication, but we're talking about language authorities going back to like, Anglo-Saxon times?! I've never had a problem with starting sentences with conjunctions. I think where the prohibition has traditionally come from, where this language superstition comes from, is a conflation with another problem. Let's get to that on the next screen. Alright, consider the following utterance. "Because I said so." Is this a sentence? No, actually this is what's called a sentence fragment. "Because I said so." is a dependent clause, it can't stand on its own in a sentence. "Because" is what we'd call a subordinating conjunction. So dependent clauses follow subordinating conjunctions, which means that they grant context, but they can't stand on their own as sentences. If you remember the analogy I used previously, an independent clause, you know, is like a tree. And, a subordinating conjunction marking a dependent clause is like a ladder leaning up against that tree. You can have the tree without the ladder, but without the tree to lean on, the ladder's not gonna stand up. Now it's totally fine to begin a sentence with "because," as long as it's attached to an independent clause. So, you know, you could say, "Because I told them to," comma, the goblins built me a sandcastle." Very nice, so the little goblins do that. So, I think because of that fear of just ending the sentence as "Because I told them to," of creating the sentence fragment, I think it's pretty easy to simplify all that down into just saying, oh, don't start sentences with conjunctions, just generally. So this is really less about how you start an utterance, and more about how you end it. If you're gonna start a sentence with a conjunction of any kind, you have to make sure that you're actually producing a sentence. So think about your follow through, is ultimately the take away here. If you start a sentence with a conjunction, make sure you're building towards some kind of independent clause. Now don't get me wrong, sentence fragments definitely have their place, but, not in formal writing. You would use this maybe for rhetorical effect, or, to approach a kind of realism in dialogue, but not in essay writing, not for the newspaper. I just wanna repeat, there's not really a rule against beginning sentences with a conjunction. It's a superstition, frankly. And in practice, the rule is generally ignored. So I read this paper from like 1994, or so, that analyzed the frequency of the word "but" in newspapers, and found that 60% of the time it was used at the beginnings of sentences. Which is way more often than certainly I expected! But it makes sense for that medium. It's punchy, it's dramatic. But, it gets a little stale if you use it too often, I think. But, again, you can absolutely begin sentences with conjunctions. It's just that if you start a sentence with a conjunction, you have to follow through, and actually make it a sentence. If you begin a sentence with a subordinating conjunction, you're writing a dependent clause that needs to be followed up by an independent clause, right? So if you're beginning with a subordinating clause, you're making the ladder and you need to follow it up with a tree to lean on. But if you begin a sentence with a coordinating conjunction, like one of the FANBOYS conjunctions, you're in good shape. Just try not to overuse it, as you'd avoid overusing anything. Moderation in all things! So, take away? Write full sentences, and put your best "but" forward. You can learn anything. David out.
+
+Timestamped transcript:
+[03:26 - 28:53] - [Voiceover] Hey grammarians.
+[28:53 - 01:03:24] Some of you may have been raised like me,
+[01:03:24 - 01:23:50] with the superstition
+[01:23:50 - 02:22:39] that it wasn't okay to start a sentence with a conjunction.
+[02:22:39 - 03:08:35] Like for, or and, or nor, or but.
+[03:08:35 - 03:36:58] But I'm here to tell you,
+[03:36:58 - 04:10:14] not to bury the lead, totally fine.
+[04:10:14 - 04:37:09] Like, you may do this.
+[04:37:09 - 05:36:09] There is nothing ungrammatical about this construction.
+[05:36:09 - 06:14:05] Let me show you what I mean
+[06:14:05 - 07:17:33] and what sort of sentences have historically been regarded,
+[07:17:33 - 08:05:09] by some people, as unacceptable.
+[08:05:09 - 09:06:18] So let's start by looking at this two sentence paragraph.
+[09:06:18 - 09:55:50] "Ginny looked at the painting suspiciously.
+[09:55:50 - 10:56:59] But, as she turned away, she didn't see it look at her."
+[10:56:59 - 11:42:39] Or, just starting something on its own,
+[11:42:39 - 12:24:26] without connecting it to, you know,
+[12:24:26 - 12:55:47] you can start a paragraph with it like,
+[12:55:47 - 13:53:27] "But the question remains, what is art?"
+[13:53:27 - 14:33:19] There's this, there's this superstition
+[14:33:19 - 15:18:12] that says that you can't begin sentences with conjunctions,
+[15:18:12 - 15:56:31] that it's ungrammatical or weak writing,
+[15:56:31 - 16:27:52] and I don't think either of these things are true.
+[16:27:52 - 17:12:22] In fact, I think is a conflation,
+[17:12:22 - 18:15:27] or a confusion of a couple separate issues in writing.
+[18:15:27 - 19:01:53] But sometimes you wanna punctuate a sentence
+[19:01:53 - 19:26:39] by beginning with a conjunction.
+[19:26:39 - 20:15:02] There's a kind of dramatic tension you can access
+[20:15:02 - 20:36:19] by beginning a sentence like that,
+[20:36:19 - 21:16:57] kind of unexpectedly leaping into action.
+[21:16:57 - 22:07:39] What I like about sentence initial "But" here
+[22:07:39 - 23:05:17] is that it kind of, you think the sentence is over,
+[23:05:17 - 23:20:33] and it is,
+[23:20:33 - 23:58:43] but then this other thing happens,
+[23:58:43 - 24:51:44] and putting it after a piece of terminal punctuation
+[24:51:44 - 25:48:38] like a period really serves to bring into
+[25:48:38 - 26:41:29] sharp relief whatever it is you're trying to say
+[26:41:29 - 27:06:48] after the "But."
+[27:06:48 - 27:50:32] I think this an awfully useful technique,
+[27:50:32 - 28:10:39] and I'm not alone.
+[28:10:39 - 28:58:38] Brian Garner, the author of the usage manual
+[28:58:38 - 29:19:09] that I use most of the time,
+[29:19:09 - 29:56:19] Garner's Modern American Usage,
+[29:56:19 - 30:40:02] says that about 9% of sentences
+[30:40:02 - 31:15:15] by, what he calls, first-rate writers
+[31:15:15 - 32:03:14] begin with "and," "but" and "so" or other words
+[32:03:14 - 33:14:04] in the FANBOYS mnenomic, if you remember FANBOYS.
+[33:14:04 - 33:43:22] And that's "for,"
+[33:43:22 - 34:01:25] "and," "nor,"
+[34:15:58 - 34:32:38] "but," "or,"
+[34:54:51 - 35:11:31] "yet," "so."
+[35:27:34 - 36:10:16] And then those are the coordinating conjunctions.
+[36:10:16 - 36:38:19] And it's not just Garner,
+[36:38:19 - 37:09:39] 'cause that's a relatively recent publication,
+[37:09:39 - 37:53:14] but we're talking about language authorities
+[37:53:14 - 38:27:27] going back to like, Anglo-Saxon times?!
+[38:27:27 - 38:43:42] I've never had a problem
+[38:43:42 - 39:42:37] with starting sentences with conjunctions.
+[39:42:37 - 40:44:03] I think where the prohibition has traditionally come from,
+[40:44:03 - 41:34:45] where this language superstition comes from,
+[41:34:45 - 42:24:40] is a conflation with another problem.
+[42:24:40 - 43:03:24] Let's get to that on the next screen.
+[43:03:24 - 43:50:12] Alright, consider the following utterance.
+[43:50:12 - 44:16:31] "Because I said so."
+[44:16:31 - 44:38:11] Is this a sentence?
+[44:38:11 - 45:39:43] No, actually this is what's called a sentence fragment.
+[45:39:43 - 46:31:12] "Because I said so." is a dependent clause,
+[46:31:12 - 47:11:50] it can't stand on its own in a sentence.
+[47:11:50 - 48:13:22] "Because" is what we'd call a subordinating conjunction.
+[48:13:22 - 49:01:21] So dependent clauses follow subordinating conjunctions,
+[49:01:21 - 49:47:47] which means that they grant context,
+[49:47:47 - 50:28:49] but they can't stand on their own as sentences.
+[50:28:49 - 51:11:23] If you remember the analogy I used previously,
+[51:11:23 - 52:31:06] an independent clause, you know, is like a tree.
+[52:31:06 - 53:29:32] And, a subordinating conjunction marking a dependent clause
+[53:29:32 - 54:07:05] is like a ladder leaning up against that tree.
+[54:07:05 - 54:38:26] You can have the tree without the ladder,
+[54:38:26 - 55:05:31] but without the tree to lean on,
+[55:05:31 - 55:50:48] the ladder's not gonna stand up.
+[55:50:48 - 56:50:00] Now it's totally fine to begin a sentence with "because,"
+[56:50:00 - 57:50:23] as long as it's attached to an independent clause.
+[57:50:23 - 58:15:17] So, you know, you could say,
+[58:15:17 - 58:50:00] "Because I told them to,"
+[60:02:55 - 60:25:26] comma,
+[60:25:26 - 61:15:29] the goblins built me a sandcastle."
+[61:15:29 - 62:05:01] Very nice, so the little goblins do that.
+[62:05:01 - 62:49:28] So, I think because of that fear
+[63:05:24 - 64:03:27] of just ending the sentence as "Because I told them to,"
+[64:03:27 - 64:38:40] of creating the sentence fragment,
+[64:38:40 - 65:52:37] I think it's pretty easy to simplify all that down
+[65:52:37 - 66:32:03] into just saying, oh, don't start sentences
+[66:32:03 - 67:19:16] with conjunctions, just generally.
+[67:40:50 - 68:36:40] So this is really less about how you start an utterance,
+[68:36:40 - 69:06:05] and more about how you end it.
+[69:06:05 - 69:28:31] If you're gonna start a sentence
+[69:28:31 - 70:07:37] with a conjunction of any kind,
+[70:07:37 - 70:24:47] you have to make sure
+[70:24:47 - 71:06:26] that you're actually producing a sentence.
+[71:06:26 - 71:29:39] So think about your follow through,
+[71:29:39 - 72:18:48] is ultimately the take away here.
+[72:18:48 - 73:04:05] If you start a sentence with a conjunction,
+[73:04:05 - 73:45:03] make sure you're building towards
+[73:45:03 - 74:29:37] some kind of independent clause.
+[74:29:37 - 74:46:38] Now don't get me wrong,
+[74:46:38 - 75:34:38] sentence fragments definitely have their place,
+[75:34:38 - 76:19:54] but, not in formal writing.
+[76:19:54 - 76:59:46] You would use this maybe for rhetorical effect,
+[76:59:46 - 78:14:21] or, to approach a kind of realism in dialogue,
+[78:14:21 - 79:24:30] but not in essay writing, not for the newspaper.
+[79:24:30 - 80:05:55] I just wanna repeat, there's not really a rule
+[80:05:55 - 81:04:44] against beginning sentences with a conjunction.
+[81:04:44 - 81:43:26] It's a superstition, frankly.
+[81:43:26 - 82:32:35] And in practice, the rule is generally ignored.
+[82:32:35 - 83:17:52] So I read this paper from like 1994, or so,
+[83:17:52 - 83:57:29] that analyzed the frequency
+[83:57:29 - 84:33:20] of the word "but" in newspapers,
+[84:33:20 - 85:13:58] and found that 60% of the time
+[85:13:58 - 86:00:01] it was used at the beginnings of sentences.
+[86:00:01 - 87:00:23] Which is way more often than certainly I expected!
+[87:00:23 - 87:23:36] But it makes sense for that medium.
+[87:23:36 - 88:00:46] It's punchy, it's dramatic.
+[88:00:46 - 88:38:16] But, it gets a little stale
+[88:59:58 - 89:42:33] if you use it too often, I think.
+[89:42:33 - 90:21:14] But, again, you can absolutely begin
+[90:21:14 - 90:50:39] sentences with conjunctions.
+[90:50:39 - 91:37:29] It's just that if you start a sentence with a conjunction,
+[91:37:29 - 91:56:50] you have to follow through,
+[91:56:50 - 92:33:59] and actually make it a sentence.
+[92:33:59 - 93:15:23] If you begin a sentence with a subordinating conjunction,
+[93:15:23 - 93:41:42] you're writing a dependent clause
+[93:41:42 - 94:00:17] that needs to be followed up
+[94:00:17 - 94:32:01] by an independent clause, right?
+[94:32:01 - 95:03:22] So if you're beginning with a subordinating clause,
+[95:03:22 - 95:28:31] you're making the ladder
+[95:28:31 - 96:25:04] and you need to follow it up with a tree to lean on.
+[96:25:04 - 97:04:30] But if you begin a sentence with a coordinating conjunction,
+[97:04:30 - 97:28:53] like one of the FANBOYS conjunctions,
+[97:28:53 - 97:52:52] you're in good shape.
+[97:52:52 - 98:24:13] Just try not to overuse it,
+[98:24:13 - 99:07:57] as you'd avoid overusing anything.
+[99:07:57 - 99:40:27] Moderation in all things!
+[99:40:27 - 100:01:21] So, take away?
+[100:01:21 - 100:44:19] Write full sentences,
+[100:44:19 - 101:21:28] and put your best "but" forward.
+[101:21:28 - 101:47:00] You can learn anything.
+[101:47:00 - 102:00:53] David out.

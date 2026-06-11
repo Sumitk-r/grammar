@@ -1,0 +1,122 @@
+Title: Commas and adjectives
+Unit: Parts of speech: the modifier
+Lesson: Adjective order and commas with adjectives
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-modifier/adjective-order-and-commas-with-adjectives/v/commas-and-adjectives
+
+Transcript:
+- [David] Hey grammarians, hey Paige. - [Paige] Hi David. - [David] Hey, so Paige, I went to the grocery store yesterday and I got this apple and I put it in the fridge. And this morning, when I opened the fridge, the apple was all gross and sticky and mushy and I really wanna write a letter to the grocery store and say, "Hey, you sold me a gross apple." - [Paige] Yeah. - [David] But I'm stuck. - [Paige] Okay? - [David] I feel like I ought to put a comma in here. So, here's the sentence I've got so far. "You sold me a mushy, sticky apple!" - [Paige] Gross. - [David] Gross. - [David] Unacceptable. - [Paige] Totally. - [David] "So, I would like my $1.38 back." (Paige laughs) But in another draft of the letter, I wrote, "You sold me a mushy green apple!" - [Paige] Okay, so mushy, sticky or mushy green. - [David] Yeah, and I feel like, and I don't know how to put this into words yet, but we're gonna put it into words 'cause that's our job, (Paige laughs) whether or not there should be a comma between mushy and green or mushy and sticky, 'cause these feel different to me. - [Paige] Right, right. Yeah, so there's actually a couple tests that you can do on these sentences to see if you need a comma between the adjectives or not. - [David] So, Paige, what distinguishes a pair like mushy and sticky from mushy and green? - [Paige] There's this sort of hierarchy or order that you put adjectives in when you have multiple of them in a sentence, and it is called DOSASCOMP. - [David] DOSASCOMP? All together now, D - [Both] Determiner! - [David] O. - [Both] Opinion! - [David] S. - [Both] Size! - [David] A. - [Both] Age! - [David] S again. - [Both] Shape! - [David] C. - [Both] Color! - [David] O. - [Both] Origin! - [David] M. - [Both] Material! - [David] And P. - [Both] Purpose! - [David] Oh, okay. So, mushy and sticky are both opinion adjectives. - [Paige] Yeah. - [David] So, these are kinda in the same class, whereas mushy and green, that's an opinion and a color. - [Paige] Yeah, they're in two different classes. - [David] Right, so DOSASCOMP helps determine adjective order, right? - [Paige] Yeah, yeah. - [David] So, it's the order in which you would use, if in which you were stacking these adjectives you would use them in this DOSASCOMP order. - [Paige] Right, so like in the second sentence, mushy is an opinion, like you said, and green is a color. And in DOSASCOMP, opinion comes before color, so that's the order that you write them in. So, like in the first sentence, when you have mushy and sticky, which are both opinion adjectives, these are called coordinate adjectives. They're in the same category of DOSASCOMP. And if you wanted to, you could reverse the order. You could say, "Sticky, mushy apple." - [David] Well, let's try that. - [Paige] Yeah. - [David] Looks good to me. Sticky, mushy, mushy, sticky. - [Paige] Same thing. - [David] Okay, so if we're trying to determine whether or not we have coordinate adjectives, I guess the first thing we would do is consult DOSASCOMP, right? So that's step one. And what is a dosa, Paige? - [Paige] Oh, it's like a pancake, right? - [David] Yeah, it's like a South Indian pancake. - [Paige] That's pretty cool. - [David] And to scomp is a word we made up that means, "to eat." - [Paige] Sure, eat some pancakes. - [David] Scomp on 'em. So, that's step one. Step two, try the reversal method. - [Paige] Right, and that's like changing it from mushy, sticky to sticky, mushy. - [David] And step three is stick an "and" in there. - [Paige] Mm-hmm. If you can reverse the order of the adjectives and you can put "and" in between the two of them, then they're coordinate adjectives. - [David] And if they're coordinate adjectives, you need to separate them with a comma. - [Paige] Exactly. And that's why, in the case of the second sentence, with mushy green apple, you don't put a comma between them. They're in different categories in DOSASCOMP, and so they must stay in that order and there's no need for a comma. - [David] Thanks, Paige. I'm gonna get back to drafting my angry letter. (Paige laughs) You can learn anything. - [David] David out. - [Paige] Paige out.
+
+Timestamped transcript:
+[04:09 - 29:28] - [David] Hey grammarians, hey Paige.
+[29:28 - 43:21] - [Paige] Hi David.
+[43:21 - 57:14] - [David] Hey, so Paige,
+[57:14 - 01:25:55] I went to the grocery store yesterday
+[01:25:55 - 02:18:45] and I got this apple and I put it in the fridge.
+[02:18:45 - 02:48:25] And this morning, when I opened the fridge,
+[02:48:25 - 03:58:45] the apple was all gross and sticky and mushy
+[03:58:45 - 04:35:44] and I really wanna write a letter to the grocery store
+[04:35:44 - 05:21:45] and say, "Hey, you sold me a gross apple."
+[05:21:45 - 05:39:31] - [Paige] Yeah.
+[05:39:31 - 05:59:34] - [David] But I'm stuck.
+[05:59:34 - 06:14:32] - [Paige] Okay?
+[06:14:32 - 07:25:13] - [David] I feel like I ought to put a comma in here.
+[07:25:13 - 08:18:14] So, here's the sentence I've got so far.
+[08:18:14 - 09:03:09] "You sold me a mushy, sticky apple!"
+[09:03:09 - 09:25:40] - [Paige] Gross. - [David] Gross.
+[09:25:40 - 09:48:40] - [David] Unacceptable. - [Paige] Totally.
+[09:48:40 - 10:29:11] - [David] "So, I would like my $1.38 back."
+[10:29:11 - 10:55:09] (Paige laughs)
+[10:55:09 - 11:44:58] But in another draft of the letter, I wrote,
+[11:44:58 - 12:22:05] "You sold me a mushy green apple!"
+[12:22:05 - 13:05:13] - [Paige] Okay, so mushy, sticky or mushy green.
+[13:05:13 - 13:35:08] - [David] Yeah, and I feel like,
+[13:35:08 - 14:06:50] and I don't know how to put this into words yet,
+[14:06:50 - 14:36:34] but we're gonna put it into words 'cause that's our job,
+[14:36:34 - 14:52:57] (Paige laughs)
+[14:52:57 - 15:08:01] whether or not there should be
+[15:08:01 - 16:22:16] a comma between mushy and green or mushy and sticky,
+[16:22:16 - 16:57:35] 'cause these feel different to me.
+[16:57:35 - 17:36:11] - [Paige] Right, right.
+[17:36:11 - 18:15:08] Yeah, so there's actually a couple tests
+[18:15:08 - 18:39:26] that you can do on these sentences
+[18:39:26 - 19:47:07] to see if you need a comma between the adjectives or not.
+[19:47:07 - 20:15:45] - [David] So, Paige, what distinguishes
+[20:15:45 - 21:18:07] a pair like mushy and sticky from mushy and green?
+[21:18:07 - 21:52:37] - [Paige] There's this sort of hierarchy
+[21:52:37 - 22:40:07] or order that you put adjectives in
+[22:40:07 - 23:13:50] when you have multiple of them in a sentence,
+[23:13:50 - 23:47:01] and it is called DOSASCOMP.
+[23:47:01 - 24:11:51] - [David] DOSASCOMP?
+[24:11:51 - 24:46:19] All together now, D
+[24:46:19 - 25:06:21] - [Both] Determiner!
+[25:06:21 - 25:42:12] - [David] O. - [Both] Opinion!
+[25:42:12 - 26:14:16] - [David] S. - [Both] Size!
+[26:14:16 - 26:45:03] - [David] A. - [Both] Age!
+[26:45:03 - 27:14:48] - [David] S again. - [Both] Shape!
+[27:14:48 - 27:44:37] - [David] C. - [Both] Color!
+[27:44:37 - 28:17:37] - [David] O. - [Both] Origin!
+[28:17:37 - 28:52:49] - [David] M. - [Both] Material!
+[28:52:49 - 29:31:23] - [David] And P. - [Both] Purpose!
+[29:31:23 - 29:45:16] - [David] Oh, okay.
+[29:45:16 - 31:06:30] So, mushy and sticky are both opinion adjectives.
+[31:06:30 - 31:20:23] - [Paige] Yeah.
+[31:20:23 - 31:45:09] - [David] So, these are kinda in the same class,
+[31:45:09 - 32:57:14] whereas mushy and green, that's an opinion and a color.
+[32:57:14 - 33:21:31] - [Paige] Yeah, they're in two different classes.
+[33:21:31 - 33:52:09] - [David] Right, so DOSASCOMP helps
+[33:52:09 - 34:26:48] determine adjective order, right?
+[34:26:48 - 34:40:41] - [Paige] Yeah, yeah.
+[34:40:41 - 35:04:33] - [David] So, it's the order in which you would use,
+[35:04:33 - 35:36:57] if in which you were stacking these adjectives
+[35:36:57 - 36:15:54] you would use them in this DOSASCOMP order.
+[36:15:54 - 36:50:09] - [Paige] Right, so like in the second sentence,
+[36:50:09 - 37:43:16] mushy is an opinion, like you said, and green is a color.
+[37:43:16 - 38:46:34] And in DOSASCOMP, opinion comes before color,
+[38:46:34 - 39:24:16] so that's the order that you write them in.
+[39:24:16 - 39:47:05] So, like in the first sentence,
+[39:47:05 - 40:12:32] when you have mushy and sticky,
+[40:12:32 - 40:48:02] which are both opinion adjectives,
+[40:48:02 - 41:26:27] these are called coordinate adjectives.
+[41:26:27 - 42:17:29] They're in the same category of DOSASCOMP.
+[42:17:29 - 42:57:49] And if you wanted to, you could reverse the order.
+[42:57:49 - 43:20:45] You could say, "Sticky, mushy apple."
+[43:20:45 - 43:38:23] - [David] Well, let's try that.
+[43:38:23 - 43:59:13] - [Paige] Yeah.
+[44:14:50 - 44:28:43] - [David] Looks good to me.
+[44:28:43 - 44:57:48] Sticky, mushy, mushy, sticky.
+[44:57:48 - 45:19:50] - [Paige] Same thing.
+[45:19:50 - 45:58:51] - [David] Okay, so if we're trying to determine
+[45:58:51 - 46:46:33] whether or not we have coordinate adjectives,
+[46:46:33 - 47:10:42] I guess the first thing we would do
+[47:10:42 - 47:41:50] is consult DOSASCOMP, right?
+[47:41:50 - 48:04:16] So that's step one.
+[48:04:16 - 48:32:13] And what is a dosa, Paige?
+[48:32:13 - 48:59:58] - [Paige] Oh, it's like a pancake, right?
+[48:59:58 - 49:30:27] - [David] Yeah, it's like a South Indian pancake.
+[49:30:27 - 49:44:20] - [Paige] That's pretty cool.
+[49:44:20 - 50:07:14] - [David] And to scomp is a word we made up
+[50:07:14 - 50:27:06] that means, "to eat."
+[50:27:06 - 50:56:22] - [Paige] Sure, eat some pancakes.
+[50:56:22 - 51:21:41] - [David] Scomp on 'em.
+[51:21:41 - 51:43:01] So, that's step one.
+[51:43:01 - 52:36:24] Step two, try the reversal method.
+[52:36:24 - 53:08:01] - [Paige] Right, and that's like changing it
+[53:08:01 - 54:05:56] from mushy, sticky to sticky, mushy.
+[54:05:56 - 55:03:08] - [David] And step three is stick an "and" in there.
+[55:03:08 - 55:19:47] - [Paige] Mm-hmm.
+[55:19:47 - 55:53:33] If you can reverse the order of the adjectives
+[55:53:33 - 56:36:52] and you can put "and" in between the two of them,
+[56:36:52 - 57:11:28] then they're coordinate adjectives.
+[57:11:28 - 57:38:11] - [David] And if they're coordinate adjectives,
+[57:38:11 - 58:03:57] you need to separate them with a comma.
+[58:03:57 - 58:23:31] - [Paige] Exactly.
+[58:23:31 - 58:51:11] And that's why, in the case of the second sentence,
+[58:51:11 - 59:40:39] with mushy green apple, you don't put a comma between them.
+[59:40:39 - 60:18:21] They're in different categories in DOSASCOMP,
+[60:18:21 - 61:09:12] and so they must stay in that order
+[61:09:12 - 61:38:58] and there's no need for a comma.
+[61:38:58 - 61:53:22] - [David] Thanks, Paige.
+[61:53:22 - 62:26:47] I'm gonna get back to drafting my angry letter.
+[62:26:47 - 62:52:36] (Paige laughs)
+[62:52:36 - 63:12:42] You can learn anything.
+[63:12:42 - 63:39:37] - [David] David out. - [Paige] Paige out.

@@ -1,0 +1,156 @@
+Title: BONUS VIDEO – Origin of the mutant plural
+Unit: Parts of speech: the noun
+Lesson: Irregular plural nouns: mutant and foreign plurals
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-noun/irregular-plural-nouns-mutant-and-foreign-plurals/v/bonus-video-origin-of-the-mutant-plural-the-parts-of-speech-grammar
+
+Transcript:
+- [Voiceover] Hello, grammarians! I wanted to talk to you again about mutant plurals. So to review a mutant plural is, there are only seven of them in English, and they all change sound when they pluralize. You don't add an -s, you don't add an -en, you don't change the ending, you change the vowel, and there are only seven to go like this. There's man, woman, tooth, foot, mouse, louse, and goose. And these words become in the plural men, women, teeth, feet, mice, lice, and geese. Now the reason that we have these seven weird mutant plurals in English is kind of complicated, but I'm lucky enough to be able to work with an actual linguist. Hello, Jake! - [Voiceover] Hey, grammarians! - [Voiceover] Jake, is it true that you're a linguist? - [Voiceover] Yep, it's true. - [Voiceover] All right, so Jake, what is the deal with feet? Where do these mutant plurals come from? If we take the word foot and we drag it through history, how do we get to the plural as feet? What's the deal with that? - [Voiceover] So if you look at a lot of Germanic languages that are around today, you find similar words to the word, the English word foot. In German we have the word Fuss, in Dutch we have the word voet. And when you have a lot of different languages with slight variations of a word, it means there is some old, old word out there that all these words are coming from. So we can pretty much be sure that there's some Proto-Germanic word that sounds something like foot. Now back in those days there was a different way to form the plural, and that was to add an i sound at the end of a word. So if the word was foot, then the plural was maybe footi. That means many foots. Now there's a tendency in language that you have to understand here. It's called vowel harmony. Basically it means that vowels within a given word, they like to sound like each other. So if you have two syllables those syllables will start, the vowels in those syllables will start to converge. And in Germanic languages especially, there's one typical kind of vowel harmony which is-- - [Voiceover] Okay. - [Voiceover] When you have two vowels in a word, the first vowel will try to sound more like the second vowel, if that second vowel is the i sound, just like in the plural formation of nouns. - [Voiceover] So you're saying that the suffix -i at the end of this proposed word footi, the u sound tried to sound more like the i sound. - [Voiceover] Right. - [Voiceover] This is just a pattern that we find in Germanic languages. - [Voiceover] Exactly. It's very prevalent in Germanic languages, also exists in some Romance languages, some tiny Romance languages. - [Voiceover] So what happens when you combine the u sound with the i sound? What sound do you get? - [Voiceover] Well, strangely you get the ü sound. - [Voiceover] Are you, what is that? - [Voiceover] The ü sound. - [Voiceover] Are you okay? - [Voiceover] I think I am okay. You know, we linguists have to deal with this kind of thing all the time. - [Voiceover] (laughs) Sorry. - [Voiceover] We have very strong stomachs. - [Voiceover] Uh-huh. - [Voiceover] You still get this sound in languages like German and Dutch. - [Voiceover] So then that's what this ü is, right? So this sound, or I guess, so the plural of German Fuss is what you said? Füsse? Okay, so bring this home for me. So at some point in the development of English, or of all these Germanic languages, we had this word foot and then it turned into footi, and then it turned into what? It turned into füti? - [Voiceover] Something like füti, right. - [Voiceover] Okay. - [Voiceover] Now eventually that ü sound dropped out of English, which is why it's so hard for us to pronounce, and it was replaced in pretty much all cases with the ii sound. So we get the word feeti and then the i drops off, and we're left with foot as the singular and feet as the plural. - [Voiceover] Cool. So it goes from foot to feeti. - [Voiceover] Now the same exact thing happened with the word mouse, which probably used to be moos, because in Frisian, which is the closest cousin to English, the word for mouse still is Muus. - [Voiceover] Moos? - [Voiceover] And you find similar things in a lot of Germanic languages like muis in Dutch and Maus in German. The plural became muusi, and then eventually meesi, then you get mees. Then a few hundred year later, during the Great Vowel Shift that mees becomes mice. A lot of ii vowels in the Great Vowel Shift about 500 years ago became ai vowels. - [Voiceover] So this is sort of a broad pattern these mutant words all take. It's this umlaut mutation, right? Because these little, these double dots that go over a, oh it looks like a smiley face, that go over a vowel change its color, right? They change its meaning. - [Voiceover] And that process is called either umlaut mutation or i-mutation, not eye like the sight organ, i like the letter in English. - [Voiceover] Cool. Well, I hope that cleared some things up for you. You can learn anything. David out. - [Voiceover] Jake out. (clap) - [Voiceover] That was a high five, not a slap.
+
+Timestamped transcript:
+[04:09 - 18:16] - [Voiceover] Hello, grammarians!
+[18:16 - 01:06:00] I wanted to talk to you again about mutant plurals.
+[01:06:00 - 01:40:56] So to review a mutant plural is,
+[01:40:56 - 02:21:18] there are only seven of them in English,
+[02:21:18 - 03:19:04] and they all change sound when they pluralize.
+[03:19:04 - 03:58:22] You don't add an -s, you don't add an -en,
+[03:58:22 - 04:50:30] you don't change the ending, you change the vowel,
+[04:50:30 - 05:29:24] and there are only seven to go like this.
+[06:44:18 - 07:21:32] There's man,
+[07:21:32 - 08:00:55] woman,
+[08:00:55 - 08:39:30] tooth,
+[08:39:30 - 09:29:06] foot,
+[09:29:06 - 10:14:18] mouse,
+[10:14:18 - 11:19:39] louse,
+[11:19:39 - 11:48:36] and goose.
+[12:25:36 - 13:17:45] And these words become in the plural
+[13:17:45 - 14:05:07] men,
+[14:05:07 - 15:00:41] women,
+[15:00:41 - 15:52:50] teeth,
+[15:52:50 - 16:41:37] feet,
+[16:41:37 - 17:38:35] mice,
+[17:38:35 - 18:30:58] lice,
+[18:30:58 - 19:01:39] and geese.
+[19:27:51 - 20:33:42] Now the reason that we have these seven weird mutant plurals
+[20:33:42 - 21:25:31] in English is kind of complicated, but I'm lucky enough
+[21:25:31 - 22:08:46] to be able to work with an actual linguist.
+[22:08:46 - 22:21:32] Hello, Jake!
+[22:21:32 - 22:42:35] - [Voiceover] Hey, grammarians!
+[22:42:35 - 23:16:10] - [Voiceover] Jake, is it true that you're a linguist?
+[23:16:10 - 23:35:24] - [Voiceover] Yep, it's true.
+[23:35:24 - 24:01:28] - [Voiceover] All right, so Jake, what is the deal
+[24:01:28 - 24:23:48] with feet?
+[24:23:48 - 24:51:55] Where do these mutant plurals come from?
+[24:51:55 - 26:00:40] If we take the word foot and we drag it through history,
+[26:00:40 - 26:50:46] how do we get to the plural as feet?
+[26:50:46 - 27:13:48] What's the deal with that?
+[27:13:48 - 27:45:17] - [Voiceover] So if you look at a lot of Germanic languages
+[27:45:17 - 28:36:22] that are around today, you find similar words to the word,
+[28:36:22 - 28:59:07] the English word foot.
+[28:59:07 - 29:30:37] In German we have the word Fuss,
+[29:30:37 - 30:06:30] in Dutch we have the word voet.
+[30:06:30 - 30:34:22] And when you have a lot of different languages
+[30:34:22 - 31:05:04] with slight variations of a word,
+[31:05:04 - 31:53:29] it means there is some old, old word out there
+[31:53:29 - 33:00:12] that all these words are coming from.
+[33:00:12 - 33:19:58] So we can pretty much be sure
+[33:19:58 - 34:06:22] that there's some Proto-Germanic word
+[34:06:22 - 34:44:34] that sounds something like foot.
+[34:44:34 - 35:16:07] Now back in those days
+[35:16:07 - 35:45:53] there was a different way to form the plural,
+[35:45:53 - 36:38:36] and that was to add an i sound at the end of a word.
+[36:38:36 - 37:50:25] So if the word was foot, then the plural was maybe footi.
+[37:50:25 - 38:24:12] That means many foots.
+[38:43:54 - 39:26:22] Now there's a tendency in language
+[39:26:22 - 39:51:37] that you have to understand here.
+[39:51:37 - 40:29:53] It's called vowel harmony.
+[40:29:53 - 41:40:55] Basically it means that vowels within a given word,
+[41:40:55 - 42:10:47] they like to sound like each other.
+[42:10:47 - 42:59:55] So if you have two syllables those syllables will start,
+[42:59:55 - 44:17:33] the vowels in those syllables will start to converge.
+[44:17:33 - 45:00:40] And in Germanic languages especially,
+[45:00:40 - 45:45:08] there's one typical kind of vowel harmony
+[45:45:08 - 46:08:41] which is-- - [Voiceover] Okay.
+[46:08:41 - 47:03:42] - [Voiceover] When you have two vowels in a word,
+[47:03:42 - 47:41:37] the first vowel will try to sound
+[47:41:37 - 48:12:22] more like the second vowel,
+[48:12:22 - 48:57:28] if that second vowel is the i sound,
+[48:57:28 - 50:09:56] just like in the plural formation of nouns.
+[50:09:56 - 50:58:02] - [Voiceover] So you're saying that the suffix -i
+[50:58:02 - 52:09:14] at the end of this proposed word footi,
+[52:29:54 - 53:18:42] the u sound tried to sound more like the i sound.
+[53:18:42 - 53:29:23] - [Voiceover] Right.
+[53:29:23 - 53:51:44] - [Voiceover] This is just a pattern that we find
+[53:51:44 - 54:19:09] in Germanic languages.
+[54:19:09 - 54:29:19] - [Voiceover] Exactly.
+[54:29:19 - 54:59:13] It's very prevalent in Germanic languages,
+[54:59:13 - 55:36:43] also exists in some Romance languages,
+[55:36:43 - 56:00:04] some tiny Romance languages.
+[56:00:04 - 56:43:53] - [Voiceover] So what happens when you combine the u sound
+[56:43:53 - 56:56:16] with the i sound?
+[56:56:16 - 57:14:54] What sound do you get?
+[57:14:54 - 58:16:50] - [Voiceover] Well, strangely you get the ü sound.
+[58:16:50 - 58:41:01] - [Voiceover] Are you, what is that?
+[58:41:01 - 59:05:19] - [Voiceover] The ü sound.
+[59:05:19 - 59:20:38] - [Voiceover] Are you okay?
+[59:20:38 - 59:39:17] - [Voiceover] I think I am okay.
+[59:39:17 - 60:01:10] You know, we linguists have to deal
+[60:01:10 - 60:20:56] with this kind of thing all the time.
+[60:20:56 - 60:32:03] - [Voiceover] (laughs) Sorry.
+[60:32:03 - 60:50:15] - [Voiceover] We have very strong stomachs.
+[60:50:15 - 61:10:25] - [Voiceover] Uh-huh.
+[61:10:25 - 61:39:12] - [Voiceover] You still get this sound in languages
+[61:39:12 - 62:13:52] like German and Dutch.
+[62:13:52 - 63:14:03] - [Voiceover] So then that's what this ü is, right?
+[63:14:03 - 64:02:16] So this sound, or I guess,
+[64:02:16 - 64:48:26] so the plural of German Fuss
+[64:48:26 - 65:32:23] is what you said?
+[65:32:23 - 66:10:33] Füsse?
+[66:10:33 - 66:46:49] Okay, so bring this home for me.
+[66:46:49 - 68:00:27] So at some point in the development of English,
+[68:00:27 - 68:47:58] or of all these Germanic languages,
+[68:47:58 - 69:55:34] we had this word foot and then it turned into footi,
+[69:55:34 - 70:15:04] and then it turned into what?
+[70:15:04 - 70:49:21] It turned into füti?
+[70:49:21 - 71:12:50] - [Voiceover] Something like füti, right.
+[71:12:50 - 71:25:46] - [Voiceover] Okay.
+[71:25:46 - 71:56:24] - [Voiceover] Now eventually that ü sound
+[71:56:24 - 72:12:46] dropped out of English,
+[72:12:46 - 72:45:45] which is why it's so hard for us to pronounce,
+[72:45:45 - 73:20:36] and it was replaced in pretty much all cases
+[73:20:36 - 73:58:54] with the ii sound.
+[73:58:54 - 74:59:30] So we get the word feeti and then the i drops off,
+[74:59:30 - 75:28:56] and we're left with foot as the singular
+[75:28:56 - 75:52:41] and feet as the plural.
+[75:52:41 - 76:03:09] - [Voiceover] Cool.
+[76:03:09 - 77:18:50] So it goes from foot to feeti.
+[77:18:50 - 77:48:06] - [Voiceover] Now the same exact thing happened
+[77:48:06 - 78:53:45] with the word mouse, which probably used to be moos,
+[78:53:45 - 79:47:32] because in Frisian, which is the closest cousin to English,
+[79:47:32 - 80:24:14] the word for mouse still is Muus.
+[80:24:14 - 80:36:26] - [Voiceover] Moos?
+[80:36:26 - 81:04:12] - [Voiceover] And you find similar things
+[81:04:12 - 81:38:03] in a lot of Germanic languages
+[81:38:03 - 82:45:54] like muis in Dutch and Maus in German.
+[83:04:24 - 84:20:09] The plural became muusi, and then eventually meesi,
+[84:20:09 - 84:43:20] then you get mees.
+[84:43:20 - 85:12:53] Then a few hundred year later,
+[85:12:53 - 86:15:58] during the Great Vowel Shift that mees becomes mice.
+[86:15:58 - 87:13:25] A lot of ii vowels in the Great Vowel Shift
+[87:13:25 - 88:15:48] about 500 years ago became ai vowels.
+[88:15:48 - 88:45:23] - [Voiceover] So this is sort of a broad pattern
+[88:45:23 - 89:23:57] these mutant words all take.
+[89:23:57 - 89:57:57] It's this umlaut mutation, right?
+[89:57:57 - 91:02:48] Because these little, these double dots that go over a,
+[91:02:48 - 91:31:23] oh it looks like a smiley face,
+[91:31:23 - 92:24:45] that go over a vowel change its color, right?
+[92:24:45 - 92:40:44] They change its meaning.
+[92:40:44 - 93:14:21] - [Voiceover] And that process is called
+[93:14:21 - 94:01:37] either umlaut mutation or i-mutation,
+[94:01:37 - 94:58:34] not eye like the sight organ, i like the letter in English.
+[94:58:34 - 95:11:45] - [Voiceover] Cool.
+[95:11:45 - 96:01:16] Well, I hope that cleared some things up for you.
+[96:01:16 - 96:27:20] You can learn anything.
+[96:27:20 - 96:46:05] David out.
+[96:46:05 - 97:08:48] - [Voiceover] Jake out.
+[97:08:48 - 97:21:28] (clap)
+[97:21:28 - 97:56:07] - [Voiceover] That was a high five, not a slap.

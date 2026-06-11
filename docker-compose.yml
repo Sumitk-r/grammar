@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: grammar
+      POSTGRES_USER: grammar
+      POSTGRES_PASSWORD: grammar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U grammar"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://grammar:grammar@db:5432/grammar
+      KHAN_COUNTRY_CODE: US
+      REQUEST_DELAY_SECONDS: 0.25
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  worker:
+    build: .
+    command: ["python", "-m", "app.worker"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://grammar:grammar@db:5432/grammar
+      KHAN_COUNTRY_CODE: US
+      REQUEST_DELAY_SECONDS: 0.25
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+

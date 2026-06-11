@@ -1,0 +1,145 @@
+Title: Terminal prepositions
+Unit: Parts of speech: the preposition and the conjunction
+Lesson: Types of prepositions and phrases
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-preposition-and-the-conjunction/types-of-prepositions-and-phrases/v/terminal-prepositions-prepositions-the-parts-of-speech-grammar
+
+Transcript:
+- [Voiceover] Hello grammarians. Today, I wanna talk about ending sentences with prepositions, and I wanna tell you, straight up, it is totally okay. Like, it is perfectly grammatically correct and sensible and fine to end sentences with prepositions in English. And if you don't know what I mean, that's fine. Let me throw out some examples. "It's a crazy world we live in," for example, is a sentence that ends in "in," which is a preposition. And for years, for hundreds of years, there have been people, language authorities that have been telling you it's not okay to end a sentence with a preposition. Let me tell you, by the power vested in me, it is totally okay. This is one of those language superstitions that will not die. Taking away the terminal preposition takes away sentences like, "That's not behavior I'll put up with." And, in fact, some of you have maybe heard the statement that is supposedly attributed to Winston Churchill where he says, "That is something with which up I will not put," which kinda emphasizes how clunky that is, you know? If that's supposed to be formal high language, it sounds really inarticulate. Not a fan. This is ultimately a question not of grammar but of style because there's nothing about "It's a crazy world we live in," that doesn't make sense that doesn't function as a sentence. Indeed, there's nothing grammatically incorrect with, "This is behavior with which up I will not put," it's just needlessly verbose and twisting back on itself for the sake of avoiding something that doesn't need to be avoided. And we can trace all of this back to Robert Lowth, a man who was the Bishop of London during part of the 18th century, and he wrote about terminal prepositions in his 1762 "Short Introduction to English Grammar," which reads in part, "This is an idiom "which our language is strongly inclined to; "it prevails in common conversation "and suits very well with the familiar style in writing; "but the placing of the preposition "before the relative is more graceful, "and agrees much better with the solemn and elevated style." But, Bishop Lowth, may I direct your attention to this part of your statement? "This is an idiom which our language "is strongly inclined to." Even when Bishop Lowth is using what he calls this solemn and elevated style, he himself can not avoid ending a clause, boom, with a preposition. Game, set, match, sir. The question is, why did Lowth have such a bee in his bonnet about prepositions at the end of sentences? And the answer can be found in Latin. Follow me over to the next screen. Here is the deal with Latin. In Latin, prepositions have a very particular function, similar to how they work in English. But let's break apart what the word preposition is. In Latin, the word "preposition" comes from "prae positio," which means "placed before," right here, placed before, because here's something cool about Latin: Latin's word order rules are different than English's word order rules. I'll explain. You know, in English, we have this expression, "To put the cart before the horse," which means to embark on a project before you're really ready. And this is a very ancient expression, in fact, one that can be attested in Latin like so. "Ante equum carrum ponere," right? Okay, so this is, "Before the horse, the cart to put." Here's the thing about prepositions in Latin is that in Latin, this, "ante," before, always has to be positioned before the word it's attached to, so before the horse. But in Latin, you can rearrange this sentence any way you like. So, you could say, "Carrum ponere ante equum." And just because of the way Latin works, because of its case endings and because of this prepositional relationship, we can always tell, no matter what order the words are in, how the sentence parts relate to one another. Or we could also switch it around: "Ponere carrum ante equum," right? It could in any order, as long as ante was before equum. Now, admittedly, in English, if you wanted to end this with a preposition, it would still sound pretty awkward, like, "The cart is the thing that the horse is before," but it is still grammatical. If you move this thing, if you move "ante" out of order, there's no way to tell what's going on in this sentence. Latin, during the time that Lowth was Bishop of London, was the language of scholarship, right? It was this language that enabled people all over the European continent to communicate with each other in a common language of knowledge. It was the language of religion and philosophy. And all of that added up to make Latin really cool, and also very powerful. And because of the history of the English language, which basically entails people in boats coming over the North Sea to beat the tar out of Celts and Anglo-Saxons and leave Latin- or Norse- or French-shaped dents in their language, English has this kind of uncomfortable relationship with Latin. English scholars kinda had an inferiority complex. And so, during the 17th and 18th century, you really see this move towards Latinizing English, trying to make English grammar behave more like Latin grammar. But English comes from a different language heritage; it's a Germanic language. And that doesn't mean it's better or worse than Latin, it just means it's different, and it behaves differently. We shouldn't try to treat English as though it were anything other than English. So, if anyone ever tells you that you can't end a sentence with a preposition, send them this page. Or if you prefer, you know where to send them to, which is here on Khan Academy, where you can learn anything. David out.
+
+Timestamped transcript:
+[15:39 - 37:27] - [Voiceover] Hello grammarians.
+[37:27 - 56:09] Today, I wanna talk about
+[56:09 - 01:31:12] ending sentences with prepositions,
+[01:31:12 - 02:24:09] and I wanna tell you, straight up, it is totally okay.
+[02:24:09 - 03:22:54] Like, it is perfectly grammatically correct and sensible
+[03:22:54 - 04:32:21] and fine to end sentences with prepositions in English.
+[04:51:01 - 05:42:39] And if you don't know what I mean, that's fine.
+[05:42:39 - 06:37:17] Let me throw out some examples.
+[06:37:17 - 07:18:07] "It's a crazy world we live in," for example,
+[07:18:07 - 08:10:37] is a sentence that ends in "in," which is a preposition.
+[08:10:37 - 09:02:00] And for years, for hundreds of years,
+[09:19:10 - 09:55:13] there have been people, language authorities
+[09:55:13 - 10:35:16] that have been telling you it's not okay
+[10:35:16 - 11:05:58] to end a sentence with a preposition.
+[11:05:58 - 11:37:08] Let me tell you, by the power vested in me,
+[11:37:08 - 11:58:29] it is totally okay.
+[11:58:29 - 12:40:13] This is one of those language superstitions
+[12:40:13 - 13:05:13] that will not die.
+[13:19:49 - 13:49:39] Taking away the terminal preposition
+[13:49:39 - 14:14:34] takes away sentences like,
+[14:14:34 - 14:53:17] "That's not behavior I'll put up with."
+[14:53:17 - 15:29:20] And, in fact, some of you have maybe heard
+[15:29:20 - 16:34:45] the statement that is supposedly attributed
+[16:34:45 - 17:23:22] to Winston Churchill where he says,
+[17:38:24 - 18:20:14] "That is something with which up I will not put,"
+[18:20:14 - 19:38:00] which kinda emphasizes how clunky that is, you know?
+[19:38:00 - 20:20:17] If that's supposed to be formal high language,
+[20:20:17 - 20:59:47] it sounds really inarticulate.
+[20:59:47 - 21:21:09] Not a fan.
+[21:21:09 - 22:30:36] This is ultimately a question not of grammar but of style
+[22:52:43 - 23:21:12] because there's nothing about
+[23:21:12 - 24:20:23] "It's a crazy world we live in," that doesn't make sense
+[24:20:23 - 25:08:27] that doesn't function as a sentence.
+[25:08:27 - 25:49:24] Indeed, there's nothing grammatically incorrect
+[25:49:24 - 26:47:15] with, "This is behavior with which up I will not put,"
+[26:47:15 - 28:07:48] it's just needlessly verbose and twisting back on itself
+[28:07:48 - 28:39:24] for the sake of avoiding something
+[28:39:24 - 29:27:01] that doesn't need to be avoided.
+[29:27:01 - 30:06:05] And we can trace all of this back to Robert Lowth,
+[30:06:05 - 30:44:21] a man who was the Bishop of London
+[30:44:21 - 31:20:24] during part of the 18th century,
+[31:20:24 - 32:20:29] and he wrote about terminal prepositions
+[32:20:29 - 33:32:55] in his 1762 "Short Introduction to English Grammar,"
+[33:32:55 - 34:24:06] which reads in part, "This is an idiom
+[34:24:06 - 35:09:29] "which our language is strongly inclined to;
+[35:09:29 - 35:40:39] "it prevails in common conversation
+[35:40:39 - 36:27:22] "and suits very well with the familiar style in writing;
+[36:27:22 - 36:54:31] "but the placing of the preposition
+[36:54:31 - 37:31:54] "before the relative is more graceful,
+[37:31:54 - 38:29:46] "and agrees much better with the solemn and elevated style."
+[38:29:46 - 39:18:10] But, Bishop Lowth, may I direct your attention
+[39:18:10 - 40:08:14] to this part of your statement?
+[40:08:14 - 40:32:42] "This is an idiom which our language
+[40:32:42 - 41:09:59] "is strongly inclined to."
+[41:09:59 - 42:07:17] Even when Bishop Lowth is using what he calls
+[42:07:17 - 42:41:06] this solemn and elevated style,
+[42:41:06 - 43:34:57] he himself can not avoid ending a clause,
+[43:34:57 - 44:00:13] boom, with a preposition.
+[44:00:13 - 44:30:46] Game, set, match, sir.
+[45:00:44 - 45:53:42] The question is, why did Lowth have such a bee in his bonnet
+[45:53:42 - 46:31:58] about prepositions at the end of sentences?
+[46:31:58 - 47:16:02] And the answer can be found in Latin.
+[47:16:02 - 47:59:12] Follow me over to the next screen.
+[47:59:12 - 48:22:14] Here is the deal with Latin.
+[48:22:14 - 49:15:38] In Latin, prepositions have a very particular function,
+[49:15:38 - 50:15:10] similar to how they work in English.
+[50:15:10 - 51:24:37] But let's break apart what the word preposition is.
+[51:41:03 - 52:50:30] In Latin, the word "preposition" comes from "prae positio,"
+[53:20:38 - 54:35:25] which means "placed before," right here, placed before,
+[54:35:25 - 55:29:43] because here's something cool about Latin:
+[55:29:43 - 56:17:43] Latin's word order rules are different
+[56:17:43 - 56:50:01] than English's word order rules.
+[56:50:01 - 57:12:43] I'll explain.
+[57:12:43 - 57:58:27] You know, in English, we have this expression,
+[57:58:27 - 58:26:56] "To put the cart before the horse,"
+[58:26:56 - 59:04:46] which means to embark on a project
+[59:04:46 - 59:38:48] before you're really ready.
+[59:38:48 - 60:37:33] And this is a very ancient expression, in fact,
+[60:37:33 - 61:35:53] one that can be attested in Latin like so.
+[62:01:33 - 62:58:31] "Ante equum carrum ponere," right?
+[62:58:31 - 64:07:58] Okay, so this is, "Before the horse, the cart to put."
+[64:26:38 - 65:12:02] Here's the thing about prepositions in Latin
+[65:12:02 - 66:07:13] is that in Latin, this, "ante," before,
+[66:07:13 - 66:44:43] always has to be positioned
+[67:02:18 - 68:11:45] before the word it's attached to, so before the horse.
+[68:38:25 - 69:30:03] But in Latin, you can rearrange
+[69:30:03 - 69:57:12] this sentence any way you like.
+[69:57:12 - 71:01:05] So, you could say, "Carrum ponere ante equum."
+[72:55:13 - 73:26:09] And just because of the way Latin works,
+[73:26:09 - 73:47:57] because of its case endings
+[73:47:57 - 74:48:29] and because of this prepositional relationship,
+[74:48:29 - 75:46:47] we can always tell, no matter what order the words are in,
+[75:46:47 - 76:44:32] how the sentence parts relate to one another.
+[76:44:32 - 77:26:48] Or we could also switch it around:
+[77:26:48 - 78:01:45] "Ponere carrum ante equum," right?
+[78:01:45 - 79:11:12] It could in any order, as long as ante was before equum.
+[79:53:20 - 80:33:50] Now, admittedly, in English, if you wanted to end this
+[80:33:50 - 81:16:07] with a preposition, it would still sound pretty awkward,
+[81:16:07 - 82:23:39] like, "The cart is the thing that the horse is before,"
+[82:23:39 - 82:57:02] but it is still grammatical.
+[82:57:02 - 84:07:41] If you move this thing, if you move "ante" out of order,
+[84:07:41 - 85:04:39] there's no way to tell what's going on in this sentence.
+[85:04:39 - 85:56:43] Latin, during the time that Lowth was Bishop of London,
+[85:56:43 - 86:45:40] was the language of scholarship, right?
+[86:45:40 - 87:21:43] It was this language that enabled people
+[87:21:43 - 87:48:52] all over the European continent
+[87:48:52 - 88:09:47] to communicate with each other
+[88:09:47 - 88:45:30] in a common language of knowledge.
+[88:45:30 - 89:50:47] It was the language of religion and philosophy.
+[90:13:10 - 91:22:37] And all of that added up to make Latin really cool,
+[91:38:37 - 92:14:34] and also very powerful.
+[92:14:34 - 93:06:31] And because of the history of the English language,
+[93:06:31 - 93:50:35] which basically entails people in boats
+[93:50:35 - 94:14:10] coming over the North Sea
+[94:14:10 - 95:00:00] to beat the tar out of Celts and Anglo-Saxons
+[95:00:00 - 95:42:44] and leave Latin- or Norse-
+[95:42:44 - 96:47:09] or French-shaped dents in their language,
+[96:47:09 - 97:24:59] English has this kind of
+[97:24:59 - 98:21:30] uncomfortable relationship with Latin.
+[98:21:30 - 99:30:57] English scholars kinda had an inferiority complex.
+[99:46:30 - 100:28:21] And so, during the 17th and 18th century,
+[100:28:21 - 101:35:06] you really see this move towards Latinizing English,
+[101:35:06 - 102:20:03] trying to make English grammar
+[102:20:03 - 103:11:14] behave more like Latin grammar.
+[103:11:14 - 104:08:12] But English comes from a different language heritage;
+[104:08:12 - 104:35:47] it's a Germanic language.
+[104:35:47 - 105:09:10] And that doesn't mean it's better or worse than Latin,
+[105:09:10 - 105:55:54] it just means it's different, and it behaves differently.
+[105:55:54 - 106:44:51] We shouldn't try to treat English
+[106:44:51 - 107:53:50] as though it were anything other than English.
+[107:53:50 - 108:20:32] So, if anyone ever tells you
+[108:20:32 - 109:12:10] that you can't end a sentence with a preposition,
+[109:12:10 - 109:41:59] send them this page.
+[109:41:59 - 110:42:24] Or if you prefer, you know where to send them to,
+[110:42:24 - 111:46:56] which is here on Khan Academy, where you can learn anything.
+[111:46:56 - 112:00:49] David out.

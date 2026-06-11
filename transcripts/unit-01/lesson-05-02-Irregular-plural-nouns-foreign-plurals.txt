@@ -1,0 +1,120 @@
+Title: Irregular plural nouns: foreign plurals
+Unit: Parts of speech: the noun
+Lesson: Irregular plural nouns: mutant and foreign plurals
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-noun/irregular-plural-nouns-mutant-and-foreign-plurals/v/foreign-plurals-grammar
+
+Transcript:
+- [Voiceover] Hello grammarians! Today we're talking about another kind of irregular plural noun, and that is the foreign plural. Those are words that are borrowed into English from some other language. Words like fungus, or cactus, or thesis, or criteria. And these words come from Latin and Greek, respectively, but don't get the idea that you need to learn to be able to speak Latin or Greek in order to speak English. No, not at all. But while some words that got borrowed into English have lost their language-specific plurals, some have not. Some have maintained those plurals. And it kind of depends on which situation you're using them in. So, for example, in an informal context, it would be perfectly acceptable for you or me to say funguses, like that. But if I was talking to a biologist, she would probably say fungi if she were talking about them in a scientific context. Just like it's okay in informal speech to talk about cactuses. You're driving along a road in Arizona, you see a lot of cactuses. But, again, if you studied cactuses for a living, you would probably call them cacti. It's more precise, it's more formal. If you like, it's more polite. Now, my feeling is, that as fungus and cactus get more and more entrenched into English eventually these formal endings are going to fall away and we're just gonna have this regular plural. But for now there are still some pluralizing rules for other languages that it helps to know. So let's go through those. So I made this little chart to go over the six most common Latin and Greek irregular plurals that you're going to encounter in English. So the first one is final -a to final -ae. So you take a word like larva in the singular, which is like a little baby bug, like an ant larva, or a caterpillar larva, and the traditional irregular plural, the Latin plural of that, is larvae, -ae. But the regular plural that will probably get more popular over time is larvas. But this is the first one, -a to -ae. Larva to larvae. Just like antenna becomes antennae. Secondly the ending change from final -us to final -i, which we find in a word like fungus, is the singular, and then the irregular plural of that is fungi. And, as I said before, there are some people who use funguses, but again, that regular plural is more informal. This next one is also Latin and it's the change from final -um to final -a. So we take a word like datum, which is a single unit of data, so the plural of data, so we change singular datum to plural data and there is no accepted, you wouldn't say the datas, that is not an accepted regular plural. I think what's going to happen instead is that datum is gonna fall away. But, again, it hasn't really happened yet. Not in a formal context, anyway. This next one is also Latin, and it's final -ex or final -ix to final -ices. So if you take a word like index, or matrix, the plural of that is not indexes, but indices. Indexes is, again, the informal regular plural, but indices is the more formal irregular plural. Likewise, matrices. This one is Greek and it's the change from final -is to final -es, as in the word thesis in the singular becoming theses in the irregular plural. The regular plural of this I do not care for because it is thesises, and I think that sounds silly. But thinking something is silly is no reason to stand athwart the tide of linguistic change, grumble grumble. This last one is also Greek, and it's the change from singular -on to plural -a. So we this word like criterion, or phenomenon, and in the plural it is criteria or phenomena. (singing) Do do do do do. And as with datum, there isn't really a regular plural form for criteria. Nobody says criterions, because the word criteria is so much better known. Anyway, so these are six little ending rules, but, like I said, you don't need to learn Latin or Greek in order to make sense of English. But having these six rules in your tool belt, if you use them judiciously, will probably come in handy. But, for real, if you see a word and you don't know it's derivation, just trust your instincts and give it a regular plural. Just tack on an -s. You know, the world's not gonna end, not harm will come to you. And if you're curious, you can look it up later. You can learn anything. David out.
+
+Timestamped transcript:
+[10:04 - 28:38] - [Voiceover] Hello grammarians!
+[28:38 - 52:38] Today we're talking about another kind
+[52:38 - 01:20:06] of irregular plural noun,
+[01:20:06 - 01:56:29] and that is the foreign plural.
+[01:56:29 - 02:42:32] Those are words that are borrowed into English
+[02:42:32 - 03:07:18] from some other language.
+[03:07:18 - 04:06:30] Words like fungus, or cactus,
+[04:06:30 - 04:52:10] or thesis, or criteria.
+[04:52:10 - 05:27:46] And these words come from Latin
+[05:27:46 - 06:02:59] and Greek, respectively,
+[06:02:59 - 06:33:57] but don't get the idea that you need to learn
+[06:33:57 - 07:09:33] to be able to speak Latin or Greek
+[07:09:33 - 07:29:40] in order to speak English.
+[07:29:40 - 07:42:27] No, not at all.
+[07:42:27 - 08:16:07] But while some words that got borrowed into English
+[08:16:07 - 09:26:56] have lost their language-specific plurals,
+[09:26:56 - 09:52:05] some have not.
+[09:52:05 - 10:25:45] Some have maintained those plurals.
+[10:25:45 - 11:09:52] And it kind of depends on which situation
+[11:09:52 - 11:30:23] you're using them in.
+[11:30:23 - 12:21:51] So, for example, in an informal context,
+[12:21:51 - 12:42:45] it would be perfectly acceptable
+[12:42:45 - 13:41:11] for you or me to say funguses, like that.
+[13:41:11 - 14:22:12] But if I was talking to a biologist,
+[14:22:12 - 15:00:30] she would probably say fungi
+[15:00:30 - 16:17:08] if she were talking about them in a scientific context.
+[16:17:08 - 16:50:01] Just like it's okay in informal speech
+[16:50:01 - 17:17:53] to talk about cactuses.
+[17:17:53 - 17:41:06] You're driving along a road in Arizona,
+[17:41:06 - 18:03:56] you see a lot of cactuses.
+[18:03:56 - 19:00:03] But, again, if you studied cactuses for a living,
+[19:00:03 - 19:46:06] you would probably call them cacti.
+[19:46:06 - 20:20:33] It's more precise, it's more formal.
+[20:20:33 - 21:02:43] If you like, it's more polite.
+[21:02:43 - 21:57:43] Now, my feeling is, that as fungus and cactus
+[21:57:43 - 22:49:34] get more and more entrenched into English
+[22:49:34 - 23:58:51] eventually these formal endings are going to fall away
+[23:58:51 - 24:35:13] and we're just gonna have this regular plural.
+[24:35:13 - 25:27:51] But for now there are still some pluralizing rules
+[25:27:51 - 26:21:15] for other languages that it helps to know.
+[26:21:15 - 26:45:38] So let's go through those.
+[26:45:38 - 27:08:05] So I made this little chart to go over
+[27:08:05 - 28:25:05] the six most common Latin and Greek irregular plurals
+[28:25:05 - 29:03:01] that you're going to encounter in English.
+[29:03:01 - 29:59:13] So the first one is final -a to final -ae.
+[29:59:13 - 30:44:30] So you take a word like larva in the singular,
+[30:44:30 - 31:07:19] which is like a little baby bug,
+[31:07:19 - 31:54:55] like an ant larva, or a caterpillar larva,
+[31:54:55 - 32:37:06] and the traditional irregular plural,
+[32:37:06 - 33:34:46] the Latin plural of that, is larvae, -ae.
+[33:34:46 - 34:11:32] But the regular plural that will probably get
+[34:11:32 - 35:11:08] more popular over time is larvas.
+[35:11:08 - 35:53:28] But this is the first one, -a to -ae.
+[35:53:28 - 36:19:23] Larva to larvae.
+[36:19:23 - 37:22:05] Just like antenna becomes antennae.
+[37:22:05 - 38:31:14] Secondly the ending change from final -us to final -i,
+[38:31:14 - 39:22:42] which we find in a word like fungus, is the singular,
+[39:22:42 - 40:38:56] and then the irregular plural of that is fungi.
+[40:38:56 - 41:12:59] And, as I said before, there are some people
+[41:12:59 - 41:50:32] who use funguses, but again, that regular plural
+[41:50:32 - 42:58:38] is more informal.
+[42:58:38 - 43:31:55] This next one is also Latin
+[43:31:55 - 44:22:28] and it's the change from final -um to final -a.
+[44:22:28 - 45:12:00] So we take a word like datum, which is a single unit
+[45:12:00 - 46:12:45] of data, so the plural of data,
+[46:12:45 - 47:13:07] so we change singular datum to plural data
+[47:13:07 - 48:03:49] and there is no accepted, you wouldn't say the datas,
+[48:03:49 - 48:46:00] that is not an accepted regular plural.
+[48:46:00 - 49:20:03] I think what's going to happen instead is that datum
+[49:20:03 - 49:41:43] is gonna fall away.
+[49:41:43 - 50:21:35] But, again, it hasn't really happened yet.
+[50:21:35 - 51:37:03] Not in a formal context, anyway.
+[51:37:03 - 53:00:23] This next one is also Latin, and it's final -ex or final -ix
+[53:00:38 - 53:42:25] to final -ices.
+[53:42:25 - 54:53:37] So if you take a word like index, or matrix,
+[54:53:37 - 56:08:19] the plural of that is not indexes, but indices.
+[56:08:19 - 57:20:41] Indexes is, again, the informal regular plural,
+[57:20:41 - 58:17:11] but indices is the more formal irregular plural.
+[58:17:11 - 58:55:06] Likewise, matrices.
+[58:55:06 - 59:26:04] This one is Greek and it's the change
+[59:26:04 - 60:45:24] from final -is to final -es, as in the word thesis
+[60:45:24 - 62:00:51] in the singular becoming theses in the irregular plural.
+[62:00:51 - 62:47:41] The regular plural of this I do not care for
+[62:47:41 - 63:54:14] because it is thesises, and I think that sounds silly.
+[63:54:14 - 64:27:31] But thinking something is silly is no reason
+[64:27:31 - 65:13:11] to stand athwart the tide of linguistic change,
+[65:13:11 - 65:39:30] grumble grumble.
+[65:39:30 - 66:23:14] This last one is also Greek, and it's the change from
+[66:23:14 - 67:03:05] singular -on to plural -a.
+[67:03:05 - 68:21:03] So we this word like criterion, or phenomenon,
+[68:21:03 - 69:42:34] and in the plural it is criteria or phenomena.
+[69:42:34 - 70:17:09] (singing) Do do do do do.
+[70:17:09 - 70:49:16] And as with datum, there isn't really
+[70:49:16 - 71:46:09] a regular plural form for criteria.
+[71:46:09 - 72:28:14] Nobody says criterions, because the word criteria
+[72:28:14 - 73:04:36] is so much better known.
+[73:04:36 - 74:11:33] Anyway, so these are six little ending rules,
+[74:11:33 - 75:01:05] but, like I said, you don't need to learn Latin or Greek
+[75:01:05 - 75:33:59] in order to make sense of English.
+[75:33:59 - 76:15:46] But having these six rules in your tool belt,
+[76:15:46 - 76:49:26] if you use them judiciously,
+[76:49:26 - 77:17:18] will probably come in handy.
+[77:17:18 - 77:56:00] But, for real, if you see a word and you don't know
+[77:56:00 - 78:41:40] it's derivation, just trust your instincts
+[78:41:40 - 79:10:41] and give it a regular plural.
+[79:10:41 - 79:38:10] Just tack on an -s.
+[79:38:10 - 80:11:50] You know, the world's not gonna end,
+[80:11:50 - 80:42:24] not harm will come to you.
+[80:42:24 - 81:26:31] And if you're curious, you can look it up later.
+[81:26:31 - 81:53:37] You can learn anything.
+[81:53:37 - 82:14:38] David out.

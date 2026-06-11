@@ -1,0 +1,133 @@
+Title: Subordinating conjunctions
+Unit: Parts of speech: the preposition and the conjunction
+Lesson: Introduction to conjunctions
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-preposition-and-the-conjunction/introduction-to-conjunctions/v/subordinating-conjunctions
+
+Transcript:
+- [Voiceover] Hey, grammarians. Today let's start talking about subordinating conjunctions. Words like, although and after and because. It's a pretty complicated topic, because in order to understand subordinating conjunctions, you have to understand the difference between an independent, and a dependent clause. Because that's what subordinating conjunctions do, is they unite independent and dependent clauses. That's what subordinating conjunctions do. But, what are these? You know, what is an independent and a dependent clause? Well okay so first of all, let's back up again. What is a clause? A clause is just a language chunk that has a subject and a verb. That's what a clause does. All sentences are clauses, but not all clauses are sentences. I'll write that down. So, all sentences are clauses, but not all clauses are sentences. It's possible to have something that has both a subject and a verb, that doesn't stand on its own, and that's a dependent clause. We'd call that a sentence fragment. What a dependent clause does, is provide extra information that isn't necessary to the understanding of the sentence, right. But an independent clause has to be able to stand on its own. So, let's take a look at the sentence here. Herbert performed his irresponsible experiments because he was curious. And this sentence is composed of two clauses. In red, we've got this independent clause, Herbert performed his irresponsible experiments. And in green, we have this dependent clause, because he was curious. Now, we know that because he was curious, is the dependent clause. Because, it explains more of why Herbert did what he did. Right, it is explaining the reason for his performing irresponsible experiments. But, because he was curious on its own, doesn't work as a sentence, he was curious does. That's a sentence. But, because he was curious asks more questions than it answers. Because he was curious, what? You know, if a clause causes you to ask. Yeah, so what? Then it's probably a dependent clause, write that down. Put that in the doctrine. So, a dependent clause should cause you to ask, yeah so what? Because a dependent clause leans against an independent clause. It's like a ladder laid up against the tree. The tree is still gonna be standing there whether or not the ladder is there or not. But, the ladder is useful because it allows you to get up further into the tree and explore its leaves, if that makes sense. It allows you to get further context and further understanding. But the tree could just as easily, it's still a tree without the ladder. Right, you don't have to have a ladder in order to be a tree. All right so, another thing about the difference between a coordinating and a subordinating conjunction, is that coordinating conjunctions only unite independent clauses with each other. Which means, any sentence that has a coordinating conjunction like, but or anything else in fanboys,. Which is for and nor, but, or yet so, right. Can be separated into two sentences, two separate sentences. Look at this, so Jimothy liked to wash the dishes, but Beckany preferred to sweep the floor. Now these can each be their own sentences. Jimothy liked to wash the dishes. Beckany preferred to sweep the floor. We can combine these if we want to and, we have. Whereas, this subordinating conjunction sentence that begins with although, cannot be separated into two sentences. Although she loved Sir Reginald, Lady Penelope hated his pranks. So, Lady Penelope hated his pranks, that's a sentence. Although she loved Sir Reginald, that's not a sentence. This is a dependent clause so, this can be split. (mouth sound effects) This cannot be split, because although she loved Sir Reginald, doesn't stand on its own, it just grants additional context and detail to the fact that Lady Penelope hated Sir Reginald's pranks. So, with that in mind, here are some of the most common subordinating conjunctions in English. And some of these you might recognize as being adverbs or prepositions in other contexts, but you could also use them to unite dependent and independent clauses. So, here we go. After, although, as, as if, because, before, even if, even though, if, if only, like, rather than, since, that, though, unless, until, when, where, whereas, wherever, whether, which, and, while. All of these words have the power to unite independent and dependent clauses. You may notice some of them like, after and before, are prepositions. They can be used in many ways. English is complicated, but I am confident that you can figure this out because you can learn anything. These are some of the subordinating conjunctions of English. David out.
+
+Timestamped transcript:
+[11:50 - 25:43] - [Voiceover] Hey, grammarians.
+[25:43 - 01:18:06] Today let's start talking about subordinating conjunctions.
+[01:18:06 - 02:25:34] Words like, although and after and because.
+[02:25:34 - 03:03:48] It's a pretty complicated topic,
+[03:03:48 - 03:47:56] because in order to understand subordinating conjunctions,
+[03:47:56 - 04:23:55] you have to understand the difference
+[04:23:55 - 05:25:05] between an independent, and a dependent clause.
+[05:25:05 - 05:57:40] Because that's what subordinating conjunctions do,
+[05:57:40 - 07:12:38] is they unite independent and dependent clauses.
+[07:12:38 - 07:43:38] That's what subordinating conjunctions do.
+[07:43:38 - 08:11:25] But, what are these?
+[08:30:00 - 09:23:20] You know, what is an independent and a dependent clause?
+[09:23:20 - 10:12:57] Well okay so first of all, let's back up again.
+[10:12:57 - 10:26:50] What is a clause?
+[10:26:50 - 10:54:28] A clause is just a language chunk
+[10:54:28 - 11:50:01] that has a subject and a verb.
+[11:50:01 - 12:29:02] That's what a clause does.
+[12:29:02 - 13:02:19] All sentences are clauses,
+[13:02:19 - 13:41:25] but not all clauses are sentences.
+[13:41:25 - 13:59:00] I'll write that down.
+[13:59:00 - 14:41:12] So, all sentences are clauses,
+[14:41:12 - 15:31:53] but not all clauses are sentences.
+[15:31:53 - 15:57:33] It's possible to have something that has both
+[15:57:33 - 16:49:35] a subject and a verb, that doesn't stand on its own,
+[16:49:35 - 17:11:07] and that's a dependent clause.
+[17:11:07 - 17:37:01] We'd call that a sentence fragment.
+[17:37:01 - 18:17:18] What a dependent clause does,
+[18:43:48 - 19:51:35] is provide extra information that isn't necessary
+[19:51:35 - 20:42:15] to the understanding of the sentence, right.
+[20:42:15 - 21:14:11] But an independent clause has
+[21:14:11 - 21:53:27] to be able to stand on its own.
+[21:53:27 - 22:19:13] So, let's take a look at the sentence here.
+[22:19:13 - 23:04:04] Herbert performed his irresponsible experiments
+[23:04:04 - 23:41:36] because he was curious.
+[23:41:36 - 24:32:59] And this sentence is composed of two clauses.
+[24:32:59 - 25:01:27] In red, we've got this independent clause,
+[25:01:27 - 25:51:51] Herbert performed his irresponsible experiments.
+[25:51:51 - 26:42:23] And in green, we have this dependent clause,
+[26:42:23 - 27:12:55] because he was curious.
+[27:12:55 - 27:45:15] Now, we know that because he was curious,
+[27:45:15 - 28:10:22] is the dependent clause.
+[28:10:22 - 29:19:49] Because, it explains more of why Herbert did what he did.
+[29:39:47 - 30:15:15] Right, it is explaining the reason
+[30:15:15 - 31:18:14] for his performing irresponsible experiments.
+[31:18:14 - 32:17:30] But, because he was curious on its own,
+[32:17:30 - 33:23:00] doesn't work as a sentence, he was curious does.
+[33:23:00 - 33:36:53] That's a sentence.
+[33:36:53 - 34:07:10] But, because he was curious
+[34:07:10 - 34:58:43] asks more questions than it answers.
+[34:58:43 - 35:38:46] Because he was curious, what?
+[35:38:46 - 36:37:28] You know, if a clause causes you to ask.
+[36:37:28 - 37:03:08] Yeah, so what?
+[37:03:08 - 37:59:17] Then it's probably a dependent clause, write that down.
+[37:59:17 - 38:35:26] Put that in the doctrine.
+[38:35:26 - 39:03:02] So, a dependent clause should
+[39:03:02 - 39:52:39] cause you to ask, yeah so what?
+[39:52:39 - 40:21:00] Because a dependent clause leans
+[40:21:00 - 40:50:49] against an independent clause.
+[40:50:49 - 41:35:12] It's like a ladder laid up against the tree.
+[41:35:12 - 41:57:26] The tree is still gonna be standing there
+[41:57:26 - 42:16:48] whether or not the ladder is there or not.
+[42:16:48 - 43:06:52] But, the ladder is useful because it allows you to get up
+[43:06:52 - 43:57:18] further into the tree and explore its leaves,
+[43:57:18 - 44:11:11] if that makes sense.
+[44:11:11 - 44:27:58] It allows you to get further context
+[44:27:58 - 45:13:58] and further understanding.
+[45:13:58 - 45:41:55] But the tree could just as easily,
+[45:41:55 - 46:03:43] it's still a tree without the ladder.
+[46:03:43 - 46:20:56] Right, you don't have to have
+[46:20:56 - 47:03:59] a ladder in order to be a tree.
+[48:43:20 - 49:23:04] All right so, another thing about the difference
+[49:23:04 - 50:31:34] between a coordinating and a subordinating conjunction,
+[50:31:34 - 50:59:21] is that coordinating conjunctions
+[50:59:21 - 52:05:09] only unite independent clauses with each other.
+[52:05:09 - 52:43:13] Which means, any sentence that has
+[52:43:13 - 53:03:35] a coordinating conjunction like,
+[53:03:35 - 53:59:04] but or anything else in fanboys,.
+[53:59:04 - 55:07:23] Which is for and nor, but, or yet so, right.
+[55:07:23 - 56:16:57] Can be separated into two sentences, two separate sentences.
+[56:16:57 - 57:10:38] Look at this, so Jimothy liked to wash the dishes,
+[57:10:38 - 57:50:54] but Beckany preferred to sweep the floor.
+[57:50:54 - 58:27:09] Now these can each be their own sentences.
+[58:27:09 - 58:50:40] Jimothy liked to wash the dishes.
+[58:50:40 - 59:25:54] Beckany preferred to sweep the floor.
+[59:25:54 - 60:33:02] We can combine these if we want to and, we have.
+[60:33:02 - 61:27:49] Whereas, this subordinating conjunction sentence
+[61:27:49 - 62:03:56] that begins with although,
+[62:29:38 - 63:29:06] cannot be separated into two sentences.
+[63:29:06 - 63:56:51] Although she loved Sir Reginald,
+[63:56:51 - 64:28:21] Lady Penelope hated his pranks.
+[64:28:21 - 65:17:00] So, Lady Penelope hated his pranks, that's a sentence.
+[65:17:00 - 66:03:04] Although she loved Sir Reginald, that's not a sentence.
+[66:03:04 - 67:14:39] This is a dependent clause so, this can be split.
+[67:14:39 - 67:44:31] (mouth sound effects)
+[67:44:31 - 68:09:44] This cannot be split,
+[68:09:44 - 68:35:32] because although she loved Sir Reginald,
+[68:35:32 - 69:37:14] doesn't stand on its own, it just grants additional context
+[69:37:14 - 70:01:30] and detail to the fact that Lady Penelope
+[70:01:30 - 70:40:23] hated Sir Reginald's pranks.
+[71:05:40 - 71:21:37] So, with that in mind,
+[71:21:37 - 71:44:20] here are some of the most
+[71:44:20 - 72:42:08] common subordinating conjunctions in English.
+[72:42:08 - 73:33:54] And some of these you might recognize as being adverbs
+[73:33:54 - 74:24:28] or prepositions in other contexts,
+[74:24:28 - 74:56:40] but you could also use them
+[74:56:40 - 75:48:31] to unite dependent and independent clauses.
+[75:48:31 - 76:09:21] So, here we go.
+[76:35:00 - 77:25:00] After, although, as, as if, because,
+[77:44:58 - 78:25:15] before, even if, even though,
+[78:51:33 - 79:28:30] if, if only, like,
+[79:28:30 - 80:03:13] rather than, since, that,
+[80:26:20 - 81:09:09] though, unless, until,
+[81:09:09 - 81:38:19] when, where, whereas,
+[82:19:49 - 83:11:12] wherever, whether, which, and, while.
+[83:55:55 - 84:16:29] All of these words have the power
+[84:16:29 - 85:16:12] to unite independent and dependent clauses.
+[85:34:52 - 85:56:14] You may notice some of them like,
+[85:56:14 - 86:45:08] after and before, are prepositions.
+[86:45:08 - 87:14:44] They can be used in many ways.
+[87:14:44 - 87:53:19] English is complicated, but I am confident
+[87:53:19 - 88:18:20] that you can figure this out
+[88:18:20 - 89:02:05] because you can learn anything.
+[89:02:05 - 89:58:09] These are some of the subordinating conjunctions of English.
+[89:58:09 - 90:12:02] David out.

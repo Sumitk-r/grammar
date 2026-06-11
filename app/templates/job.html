@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Job {{ job.id[:8] }} · Khan Transcript Library{% endblock %}
+{% block content %}
+<section class="page-shell narrow" data-job-id="{{ job.id }}">
+  <a class="back-link" href="/">← Back to dashboard</a>
+  <div class="page-title-row">
+    <div>
+      <div class="eyebrow">Scrape job {{ job.id[:8] }}</div>
+      <h1>Course processing</h1>
+      <p class="muted break-word">{{ job.submitted_url }}</p>
+    </div>
+    <span id="status-badge" class="badge badge-{{ job.status.value }}">{{ job.status.value|replace("_", " ") }}</span>
+  </div>
+
+  <div class="progress-card">
+    <div class="progress-meta"><strong id="current-step">{{ job.current_step }}</strong><span id="progress-label">{{ job.progress_percent }}%</span></div>
+    <div class="progress-track"><div id="progress-bar" class="progress-bar" style="width: {{ job.progress_percent }}%"></div></div>
+    <div class="stat-grid">
+      <div><span>Total videos</span><strong id="total-videos">{{ job.total_videos }}</strong></div>
+      <div><span>Processed</span><strong id="processed-videos">{{ job.processed_videos }}</strong></div>
+      <div><span>Failed</span><strong id="failed-videos">{{ job.failed_videos }}</strong></div>
+    </div>
+    <p id="error-message" class="error-panel" {% if not job.error_message %}hidden{% endif %}>{{ job.error_message or "" }}</p>
+    <div class="action-row">
+      <a id="results-link" class="button-link" href="/courses/{{ job.course_id }}" {% if not job.course_id %}hidden{% endif %}>View course results</a>
+      {% if job.status.value in ["queued", "running"] %}
+      <button id="cancel-button" class="button-secondary" type="button">Cancel job</button>
+      {% endif %}
+    </div>
+  </div>
+
+  <section class="event-section">
+    <div class="eyebrow">Activity</div>
+    <h2>Job events</h2>
+    <div class="event-list">
+      {% for event in job.events|reverse %}
+      <div class="event">
+        <span class="event-dot event-{{ event.level }}"></span>
+        <div><strong>{{ event.message }}</strong><small>{{ event.created_at.strftime("%b %d, %H:%M:%S") }}</small></div>
+      </div>
+      {% else %}
+      <div class="empty-state">The worker has not picked up this job yet.</div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const shell = document.querySelector("[data-job-id]");
+const jobId = shell.dataset.jobId;
+const terminalStatuses = ["completed", "completed_with_errors", "failed", "cancelled"];
+
+function statusLabel(value) { return value.replaceAll("_", " "); }
+async function refreshJob() {
+  const response = await fetch(`/api/jobs/${jobId}`);
+  if (!response.ok) return;
+  const job = await response.json();
+  const badge = document.getElementById("status-badge");
+  badge.className = `badge badge-${job.status}`;
+  badge.textContent = statusLabel(job.status);
+  document.getElementById("current-step").textContent = job.current_step;
+  document.getElementById("progress-label").textContent = `${job.progress_percent}%`;
+  document.getElementById("progress-bar").style.width = `${job.progress_percent}%`;
+  document.getElementById("total-videos").textContent = job.total_videos;
+  document.getElementById("processed-videos").textContent = job.processed_videos;
+  document.getElementById("failed-videos").textContent = job.failed_videos;
+  const error = document.getElementById("error-message");
+  error.hidden = !job.error_message;
+  error.textContent = job.error_message || "";
+  const results = document.getElementById("results-link");
+  if (job.course_id) {
+    results.hidden = false;
+    results.href = `/courses/${job.course_id}`;
+  }
+  if (terminalStatuses.includes(job.status)) {
+    clearInterval(poll);
+    setTimeout(() => window.location.reload(), 700);
+  }
+}
+const poll = terminalStatuses.includes("{{ job.status.value }}") ? null : setInterval(refreshJob, 2000);
+document.getElementById("cancel-button")?.addEventListener("click", async () => {
+  await fetch(`/api/jobs/${jobId}/cancel`, {method: "POST"});
+  refreshJob();
+});
+</script>
+{% endblock %}
+

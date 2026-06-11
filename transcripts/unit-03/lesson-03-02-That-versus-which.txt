@@ -1,0 +1,139 @@
+Title: "That" versus "which"
+Unit: Parts of speech: the pronoun
+Lesson: Relative pronouns
+URL: https://www.khanacademy.org/humanities/grammar/parts-of-speech-the-pronoun/relative-pronouns/v/that-versus-which-the-parts-of-speech-grammar
+
+Transcript:
+- [Voiceover] Hello grammarians, we're gonna talk about that versus which but I would like to start off by saying that in the study of grammar there's basically this long, on-going fight between two camps and it's between the prescriptivists, who believe that language has concrete rules that need to be abided by, and the descriptivists, who also believe that language has rules, but see language as more subject to change than the prescriptivists would like. Now I find myself to be right in-between these two camps which frequently makes me feel like I want to stick out my hands and say, "You guys stop fighting. "You're both right." All of this is to say that Bryan Garner, the prescriptive author of my main usage manual, Garner's Modern American Usage, is not a fan of the word which. He thinks it's ruined more sentences than any other word in English through its overuse. On the other hand Geoffrey Pullum, one of the editors of my descriptive Cambridge Grammar of English says that this position of Garner's is utter bunkum and nonsense and that upon review of the entire body of English literature, the rules about which and that are largely made up. This is why it's so hard to get a good straight answer to that versus which on the Internet because everyone is arguing at once. Because half the people say that there are definite rules and then half the other people say, "The rules don't matter dude." But a prolonged study of both camps has led me to determine that there are distinctions in usage. There is a time to use that and a time to use which. From this entire argument, from these generations of just bickering, I have sussed out two distinctions. Distinction one, that is bad with commas. Distinction two, which is bad with people. So, let's start with distinction number one that that is bad with commas. Now Bryan Garner says that most of the time, nine times out of ten in fact, he says if you want to use a relative pronoun and you're trying to choose between that and which you should probably use that and the one time out of ten that you do want to use which, you're supposed to use a comma first. So, a comma, which, as in, "The carrot, which was orange, was tasty." So you can write it that way with this little comma-net, but you can also write it without, as in "The carrot which was orange was tasty." Now the distinction between these two sentences is the distinction between non-restrictive and restrictive relative clauses. Because the carrot, comma, which was orange, comma, was tasty means that you could take out the comma-bracketed clause without changing the meaning of the sentence. "The carrot was tasty." But, the carrot, no comma, which was orange, no comma, was tasty that which part is a restrictive clause. The fact that the carrot is orange is essential to the sentence. "The carrot which was orange was tasty," doesn't preclude the idea that there might have been a non-orange, non-tasty carrot involved somewhere else. However, if we try to use that in a non-restrictive way, to say, "The carrot, that was orange, was tasty," it, to me, and to other native English speakers, that just sounds a little weird. It's not ungrammatical, per se. There's nothing about the word that or which that says, "This is what it must be used for." But, of all the combinations that could be made using either which or that or commas or not commas, that, with commas, is the least common, and that is why to me, as a speaker and writer of standard-American English, it doesn't look regular. And to try that once more, without commas, now we have, "The carrot that was orange was tasty." This is restrictive usage again. And this one works. So, number one works. Number two works. Number three is weird, and number four is fine. So, the distinction here is that that just doesn't play well with commas. That's distinction number one. Okay, so distinction number two, which is bad with people. So the way I like to remember this is that I imagine a witch who does not like other people. So I just imagine a kind of a cranky witch who lives all alone in a house in the woods, and anytime someone comes up to her house and asks her if she wants a subscription to a magazine, or does she want to come over for dinner, she says, "Blah!", and she slams the door. The which witch doesn't like people. So the way this shakes out is that which doesn't refer to people, and that can refer to anything. This is also really strange and it portrays a prejudice, in English, toward human beings. Check this out. To prove this, let me throw some sentence fragments at you. "The dog that I saw, the snow that fell, "the woman that boarded the plane," all of these are fine. Let's try them again with which. "The dog which I saw, the snow which fell, "the woman which boarded the plane," now, this to me, as a native speaker of English, doesn't sound right. It should either be who or that. And again, this isn't because of some kind of rule of official grammar. This is just the way that the language has shaken out. Which just doesn't have a connotation of human beings. So that's the essential distinction. That doesn't like commas. Which is bad with people. You can learn anything. David out.
+
+Timestamped transcript:
+[09:22 - 35:53] - [Voiceover] Hello grammarians, we're gonna talk
+[35:53 - 01:10:20] about that versus which but I would like
+[01:10:20 - 01:50:00] to start off by saying that in the study of grammar
+[01:50:00 - 02:58:29] there's basically this long, on-going fight
+[02:58:29 - 03:54:40] between two camps and it's between the prescriptivists,
+[03:54:40 - 04:48:54] who believe that language has concrete rules
+[04:48:54 - 05:19:45] that need to be abided by,
+[05:19:45 - 05:51:40] and the descriptivists, who also believe
+[05:51:40 - 06:18:00] that language has rules,
+[06:18:00 - 07:04:26] but see language as more subject to change
+[07:04:26 - 07:41:00] than the prescriptivists would like.
+[07:41:00 - 08:39:49] Now I find myself to be right in-between these two camps
+[08:39:49 - 09:13:17] which frequently makes me feel like I want to stick out
+[09:13:17 - 09:51:28] my hands and say, "You guys stop fighting.
+[09:51:28 - 10:19:03] "You're both right."
+[10:19:03 - 11:01:14] All of this is to say that Bryan Garner,
+[11:01:14 - 11:54:39] the prescriptive author of my main usage manual,
+[11:54:39 - 12:25:01] Garner's Modern American Usage,
+[12:25:01 - 13:00:03] is not a fan of the word which.
+[13:00:03 - 13:40:41] He thinks it's ruined more sentences
+[13:40:41 - 14:46:28] than any other word in English through its overuse.
+[14:46:28 - 15:34:15] On the other hand Geoffrey Pullum, one of the editors
+[15:34:15 - 16:21:29] of my descriptive Cambridge Grammar of English
+[16:21:29 - 17:14:07] says that this position of Garner's is utter bunkum
+[17:14:07 - 18:05:11] and nonsense and that upon review of the entire body
+[18:05:11 - 19:00:32] of English literature, the rules about which and that
+[19:00:32 - 19:39:03] are largely made up.
+[19:39:03 - 20:25:52] This is why it's so hard to get a good straight answer
+[20:25:52 - 21:01:51] to that versus which on the Internet
+[21:01:51 - 21:52:45] because everyone is arguing at once.
+[21:52:45 - 22:42:04] Because half the people say that there are definite rules
+[22:42:04 - 23:04:44] and then half the other people say,
+[23:04:44 - 23:32:48] "The rules don't matter dude."
+[23:32:48 - 24:32:55] But a prolonged study of both camps has led me
+[24:32:55 - 25:25:12] to determine that there are distinctions in usage.
+[25:25:12 - 26:13:24] There is a time to use that and a time to use which.
+[26:13:24 - 26:45:03] From this entire argument,
+[26:45:03 - 27:35:23] from these generations of just bickering,
+[27:35:23 - 28:24:43] I have sussed out two distinctions.
+[28:24:43 - 29:25:12] Distinction one, that is bad with commas.
+[29:25:12 - 30:25:13] Distinction two, which is bad with people.
+[31:22:13 - 31:54:32] So, let's start with distinction number one that
+[31:54:32 - 32:40:59] that is bad with commas.
+[32:40:59 - 33:14:50] Now Bryan Garner says that most of the time,
+[33:14:50 - 33:44:27] nine times out of ten in fact, he says
+[33:44:27 - 34:31:16] if you want to use a relative pronoun
+[34:31:16 - 35:14:49] and you're trying to choose between that and which
+[35:14:49 - 36:02:16] you should probably use that and the one time out
+[36:02:16 - 36:35:41] of ten that you do want to use which,
+[36:35:41 - 37:18:04] you're supposed to use a comma first.
+[37:18:04 - 37:58:07] So, a comma, which, as in,
+[37:58:07 - 39:02:22] "The carrot, which was orange, was tasty."
+[39:02:22 - 39:47:50] So you can write it that way with this little comma-net,
+[39:47:50 - 40:25:23] but you can also write it without, as in
+[40:25:23 - 41:02:43] "The carrot which was orange was tasty."
+[41:02:43 - 41:31:22] Now the distinction between these two sentences
+[41:31:22 - 42:33:28] is the distinction between non-restrictive
+[42:33:28 - 43:13:31] and restrictive relative clauses.
+[43:13:31 - 43:59:23] Because the carrot, comma, which was orange, comma,
+[43:59:23 - 44:28:48] was tasty means that you could take
+[44:28:48 - 44:54:09] out the comma-bracketed clause
+[44:54:09 - 45:32:04] without changing the meaning of the sentence.
+[45:32:04 - 45:49:41] "The carrot was tasty."
+[45:49:41 - 46:27:20] But, the carrot, no comma, which was orange,
+[46:27:20 - 47:12:51] no comma, was tasty that
+[47:12:51 - 47:47:50] which part is a restrictive clause.
+[47:47:50 - 48:21:30] The fact that the carrot is orange is essential
+[48:21:30 - 48:49:57] to the sentence.
+[48:49:57 - 49:20:32] "The carrot which was orange was tasty,"
+[49:20:32 - 49:54:31] doesn't preclude the idea that there might have been
+[49:54:31 - 50:58:38] a non-orange, non-tasty carrot involved somewhere else.
+[50:58:38 - 52:08:17] However, if we try to use that in a non-restrictive way,
+[52:08:17 - 53:02:17] to say, "The carrot, that was orange, was tasty,"
+[53:02:17 - 53:51:37] it, to me, and to other native English speakers,
+[53:51:37 - 54:19:52] that just sounds a little weird.
+[54:19:52 - 54:59:56] It's not ungrammatical, per se.
+[54:59:56 - 55:48:39] There's nothing about the word that or which that says,
+[55:48:39 - 56:28:49] "This is what it must be used for."
+[56:28:49 - 57:19:30] But, of all the combinations that could be made
+[57:19:30 - 58:01:30] using either which or that or commas
+[58:01:30 - 59:06:22] or not commas, that, with commas,
+[59:06:22 - 59:51:09] is the least common, and that is why to me,
+[59:51:09 - 60:36:06] as a speaker and writer of standard-American English,
+[60:36:06 - 61:20:36] it doesn't look regular.
+[61:20:36 - 61:49:26] And to try that once more, without commas,
+[61:49:26 - 62:39:44] now we have, "The carrot that was orange was tasty."
+[62:39:44 - 63:23:32] This is restrictive usage again.
+[63:52:42 - 64:20:45] And this one works.
+[64:20:45 - 64:56:44] So, number one works.
+[64:56:44 - 65:15:43] Number two works.
+[65:15:43 - 66:19:45] Number three is weird, and number four is fine.
+[66:19:45 - 67:03:46] So, the distinction here is that
+[67:03:46 - 67:56:42] that just doesn't play well with commas.
+[67:56:42 - 68:44:07] That's distinction number one.
+[68:44:07 - 69:26:52] Okay, so distinction number two,
+[69:26:52 - 70:14:28] which is bad with people.
+[70:14:28 - 70:45:26] So the way I like to remember this
+[70:45:26 - 71:55:06] is that I imagine a witch who does not like other people.
+[71:55:06 - 72:31:51] So I just imagine a kind of a cranky witch
+[72:31:51 - 73:06:27] who lives all alone in a house in the woods,
+[73:06:27 - 73:39:54] and anytime someone comes up to her house
+[73:39:54 - 74:18:51] and asks her if she wants a subscription to a magazine,
+[74:18:51 - 74:40:32] or does she want to come over for dinner,
+[74:40:32 - 75:21:33] she says, "Blah!", and she slams the door.
+[75:21:33 - 76:17:05] The which witch doesn't like people.
+[76:17:05 - 77:06:14] So the way this shakes out is that which
+[77:06:14 - 77:33:08] doesn't refer to people,
+[77:33:08 - 78:21:31] and that can refer to anything.
+[78:21:31 - 79:12:12] This is also really strange and it portrays a prejudice,
+[79:12:12 - 80:01:32] in English, toward human beings.
+[80:01:32 - 80:18:46] Check this out.
+[80:18:46 - 81:20:07] To prove this, let me throw some sentence fragments at you.
+[81:20:07 - 82:12:10] "The dog that I saw, the snow that fell,
+[82:12:10 - 82:43:31] "the woman that boarded the plane,"
+[82:43:31 - 83:11:33] all of these are fine.
+[83:11:33 - 83:57:26] Let's try them again with which.
+[83:57:26 - 84:53:44] "The dog which I saw, the snow which fell,
+[84:53:44 - 85:27:24] "the woman which boarded the plane,"
+[85:27:24 - 85:58:42] now, this to me, as a native speaker of English,
+[85:58:42 - 86:25:04] doesn't sound right.
+[86:25:04 - 87:18:52] It should either be who or that.
+[87:43:52 - 88:33:10] And again, this isn't because of some kind of rule
+[88:33:10 - 89:01:25] of official grammar.
+[89:01:25 - 90:13:23] This is just the way that the language has shaken out.
+[90:13:23 - 91:25:38] Which just doesn't have a connotation of human beings.
+[91:40:28 - 92:21:52] So that's the essential distinction.
+[92:21:52 - 92:58:50] That doesn't like commas.
+[92:58:50 - 93:51:51] Which is bad with people.
+[93:51:51 - 94:16:14] You can learn anything.
+[94:16:14 - 94:37:17] David out.

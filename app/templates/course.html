@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} · Khan Transcript Library{% endblock %}
+{% block content %}
+<section class="course-hero">
+  <a class="back-link" href="/">← Back to dashboard</a>
+  <div class="eyebrow">Course library</div>
+  <h1>{{ course.title }}</h1>
+  <p>{{ course.description or "Browse the complete course structure and available transcripts." }}</p>
+  <div class="course-meta">
+    <span><strong>{{ course.units|length }}</strong> units</span>
+    <span><strong>{{ video_count }}</strong> videos</span>
+    <span><strong>{{ transcript_count }}</strong> transcripts</span>
+  </div>
+  <div class="action-row">
+    <a class="button-link" href="/api/courses/{{ course.id }}/export.csv">Export CSV</a>
+    <a class="button-secondary link-button" href="/api/courses/{{ course.id }}/export.json">Export JSON</a>
+    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on Khan Academy ↗</a>
+  </div>
+</section>
+
+<section class="browser-shell">
+  <aside class="course-nav">
+    <label for="course-search">Search transcripts</label>
+    <input id="course-search" type="search" placeholder="Try “pronoun” or “comma”">
+    <div id="search-results" class="search-results" hidden></div>
+    <nav id="unit-navigation">
+      {% for unit in course.units %}
+      <a href="#unit-{{ unit.id }}"><span>{{ "%02d"|format(unit.unit_index) }}</span>{{ unit.title }}</a>
+      {% endfor %}
+    </nav>
+  </aside>
+  <div class="unit-list" id="course-content">
+    {% for unit in course.units %}
+    <section class="unit-block" id="unit-{{ unit.id }}">
+      <div class="unit-number">Unit {{ "%02d"|format(unit.unit_index) }}</div>
+      <h2>{{ unit.title }}</h2>
+      {% for lesson in unit.lessons %}
+      <div class="lesson-block">
+        <h3>{{ lesson.title }}</h3>
+        <div class="video-list">
+          {% for video in lesson.videos %}
+          <a class="video-row" href="/videos/{{ video.id }}">
+            <span class="play-icon">▶</span>
+            <span class="video-copy">
+              <strong>{{ video.title }}</strong>
+              <small>
+                {% if video.duration_seconds %}{{ video.duration_seconds // 60 }}:{{ "%02d"|format(video.duration_seconds % 60) }} · {% endif %}
+                {{ video.scrape_status|replace("_", " ") }}
+              </small>
+            </span>
+            <span aria-hidden="true">→</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const search = document.getElementById("course-search");
+const results = document.getElementById("search-results");
+let timer;
+search.addEventListener("input", () => {
+  clearTimeout(timer);
+  const query = search.value.trim();
+  if (!query) {
+    results.hidden = true;
+    results.innerHTML = "";
+    return;
+  }
+  timer = setTimeout(async () => {
+    const response = await fetch(`/api/search?course_id={{ course.id }}&q=${encodeURIComponent(query)}&limit=30`);
+    const items = await response.json();
+    results.hidden = false;
+    results.innerHTML = items.length ? items.map(item => `
+      <a href="/videos/${item.video_id}">
+        <strong>${escapeHtml(item.video_title)}</strong>
+        <small>${escapeHtml(item.unit_title)} · ${escapeHtml(item.lesson_title)}</small>
+        <p>${escapeHtml(item.excerpt)}</p>
+      </a>`).join("") : `<div class="empty-state small">No matching transcripts.</div>`;
+  }, 250);
+});
+function escapeHtml(value) {
+  const node = document.createElement("div");
+  node.textContent = value || "";
+  return node.innerHTML;
+}
+</script>
+{% endblock %}
+

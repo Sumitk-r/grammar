@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ video.title }} · Khan Transcript Library{% endblock %}
+{% block content %}
+<section class="page-shell transcript-page">
+  <a class="back-link" href="/courses/{{ video.lesson.unit.course_id }}">← Back to {{ video.lesson.unit.course.title if video.lesson.unit.course else "course" }}</a>
+  <div class="transcript-heading">
+    <div>
+      <div class="eyebrow">{{ video.lesson.unit.title }} · {{ video.lesson.title }}</div>
+      <h1>{{ video.title }}</h1>
+      <div class="video-facts">
+        <span class="badge badge-{{ video.scrape_status }}">{{ video.scrape_status|replace("_", " ") }}</span>
+        {% if video.duration_seconds %}<span>{{ video.duration_seconds // 60 }}:{{ "%02d"|format(video.duration_seconds % 60) }}</span>{% endif %}
+        {% if video.youtube_id %}<span>YouTube {{ video.youtube_id }}</span>{% endif %}
+      </div>
+    </div>
+    <a class="button-secondary link-button" href="{{ video.full_url }}" target="_blank" rel="noreferrer">Watch source ↗</a>
+  </div>
+
+  {% if video.transcript %}
+  <article class="transcript-card">
+    <div class="transcript-tools">
+      <span>Transcript</span>
+      <button id="copy-transcript" class="text-button" type="button">Copy text</button>
+    </div>
+    <div id="transcript-text" class="transcript-text">{{ video.transcript.plain_text }}</div>
+  </article>
+  {% else %}
+  <div class="empty-state transcript-empty">
+    <h2>No transcript available</h2>
+    <p>{{ video.scrape_error or "Khan Academy did not return subtitles for this video." }}</p>
+  </div>
+  {% endif %}
+
+  {% if video.transcript and video.transcript.segments %}
+  <details class="segments-card">
+    <summary>Timestamped segments ({{ video.transcript.segments|length }})</summary>
+    {% for segment in video.transcript.segments %}
+    <div class="segment">
+      <time>
+        {% if segment.start_time_seconds is not none %}
+        {{ "%02d"|format((segment.start_time_seconds // 60)|int) }}:{{ "%02d"|format((segment.start_time_seconds % 60)|int) }}
+        {% else %}--:--{% endif %}
+      </time>
+      <p>{{ segment.text }}</p>
+    </div>
+    {% endfor %}
+  </details>
+  {% endif %}
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+document.getElementById("copy-transcript")?.addEventListener("click", async (event) => {
+  await navigator.clipboard.writeText(document.getElementById("transcript-text").textContent.trim());
+  event.currentTarget.textContent = "Copied";
+  setTimeout(() => event.currentTarget.textContent = "Copy text", 1500);
+});
+</script>
+{% endblock %}
+

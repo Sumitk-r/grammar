@@ -1,0 +1,165 @@
+Title: Dependent and independent clauses
+Unit: Syntax: sentences and clauses
+Lesson: Phrases and clauses
+URL: https://www.khanacademy.org/humanities/grammar/syntax-sentences-and-clauses/phrases-and-clauses/v/dependent-and-independent-clauses-syntax-khan-academy
+
+Transcript:
+- [Voiceover] Hello, grammarians. Hello, Rosie. - [Voiceover] Hello, David. - [Voiceover] We're gonna talk about dependent and independent clauses. Full disclosure, this is a relatively advanced part of grammar, but it is important to understand, because mastering dependent and independent clauses and being able to say why a clause is dependent or independent will help you become a better writer, will help you become a stronger writer, and give your sentences vim and vigor and strength. So with all that out of the way. Let's start with independent clauses, because an independent clause is basically a sentence. We established previously that all a clause is is just a collection of phrases with a subject and a verb. So, for example, the sentence, I ate the pineapple, period, is an independent clause. So, it's a couple of phrases, we've got this noun phrase I, we've got this verb phrase ate the pineapple, and together that becomes a subject and verb or a predicate. So, Rosie, what is a dependent clause? - [Voiceover] So dependent clause is different from an independent clause in that it can't stand on its own as a sentence. So it includes a subject and a verb, but it can't be its own sentence. And sometimes it might look like a sentence, it could start with something like a subordinating conjunction, like the word because, for example, because it was delicious. - [Voiceover] Okay. And let's be clear here, you know, obviously, this is an utterance that people say. You know, if you ask me why did you eat the pizza, I would respond by saying, because it was delicious. Why do we climb the mountain? Because it is there, you know. I'm not saying that this is not, not an utterance that is made by native speaking English speakers. It is, of course it is. But you have to be aware that it is a dependent clause and therefore a sentence fragment. And part of natural informal speech is that we do use a lot of sentence fragments. And sentence fragments are not as common in formal writing. You may sometimes use them for effect, but I want you to remember that these videos are about standard American English, and a kind of formal version of standard American English. And so, we're trying to teach you to distinguish between independent and dependent clauses so that you can use them skillfully in the full knowledge and mastery of your choices. You gotta learn your scales before you can improvise. - [Voiceover] Right. - [Voiceover] Dig? - [Voiceover] Dig. - [Voiceover] So because it was delicious, not a sentence. This is a dependent clause, because it begins with this subordinating conjunction because. You could also work in something like although, or while, and any of these would make it a dependent clause. Now, if it was just on its own, it was delicious, yeah, of course, that is a sentence. The part that makes it dependent is this subordinating conjunction. You put that onto the front of it and all of a sudden it needs an independent clause to lean up against. I know this is confusing, so let's take a look at a couple more examples of independent and dependent clauses. So, the following are independent clauses, Rosie. - [Voiceover] The bear roared. Maureen pointed out the monster. That's not our pet rabbit. - [Voiceover] And let's do some dependent clauses, and then you can see that we'll be able to combine them into sentences. - [Voiceover] While the salmon flopped. That she saw last night. Unless I'm mistaken. - [Voiceover] So you can see that these are all clauses, right, we've established that, you know, each one has a subject and a verb. The bear roared, the salmon flopped. But all of these have some kind of, everything in orange has something that's either a subordinating conjunction like while or unless, or a relative pronoun like that. So while the salmon flopped. You can see in this context the bear roared while the salmon flopped, you can kind of understand why this is called the dependent clause, because by the context of this sentence, while the salmon flopped, something else was going on, right. This is kind of like background information. And it's in fact not necessary for comprehending the first sentence or the first clause, the independent clause, the bear roared. And if we did combine these, you would realize that the salmon flopped is just background information. - [Voiceover] Right. - [Voiceover] Right. But we need to know what else is going on for there to be a while. - [Voiceover] So the bear roared is a perfectly sensical sentence on its own. - [Voiceover] Right. - [Voiceover] And while the salmon flopped is providing us with this extra information. The bear is roaring while the salmon flopped. But if we were just to see the sentence while the salmon flopped on its own, like say, we didn't have the bear roared, it would make less sense. - [Voiceover] Right, because the presence of this word while indicates that something else is also going on, that's what makes it dependent. So we need to have the bear roared. Likewise, Maureen pointed out the monster, that sentence works fine on its own. That she saw last night, sure there's a subject and there's a verb, she and saw, right, she saw something, she saw that, but this relative pronoun needs to refer back to something, and that makes it dependent on the monster. So this last one's a little tricky, right, because you might be looking and saying, well, unless I'm mistaken, where's the verb? Well, the verb is kind of hiding in here. So unless I am mistaken, right. So, the presence of this subordinating conjunction unless makes this into a dependent clause. So unless means it's kind of hinging on some other information. So the other information is that's not our pet rabbit, unless I'm mistaken. I feel that there should be a comma here, so I'm gonna put one in. That's not our pet rabbit, unless I'm mistaken. I hope this has cleared some stuff up. So an independent clause is a subject and a verb and it can be a sentence. A dependent clause is a subject and a verb, but also a subordinating conjunction and it cannot be a sentence. You can learn anything, David out. - [Voiceover] Rosie out.
+
+Timestamped transcript:
+[09:22 - 23:15] - [Voiceover] Hello, grammarians.
+[23:15 - 37:08] Hello, Rosie.
+[37:08 - 51:01] - [Voiceover] Hello, David.
+[51:01 - 01:07:01] - [Voiceover] We're gonna talk about dependent
+[01:07:01 - 01:31:38] and independent clauses.
+[01:31:38 - 02:34:11] Full disclosure, this is a relatively advanced
+[02:34:11 - 03:31:57] part of grammar, but it is important to understand,
+[03:31:57 - 04:20:14] because mastering dependent and independent clauses
+[04:20:14 - 04:47:47] and being able to say
+[04:47:47 - 05:50:59] why a clause is dependent or independent
+[05:50:59 - 06:30:49] will help you become a better writer,
+[06:30:49 - 07:26:49] will help you become a stronger writer,
+[07:26:49 - 08:24:20] and give your sentences vim and vigor and strength.
+[08:24:20 - 08:49:21] So with all that out of the way.
+[08:49:21 - 09:30:24] Let's start with independent clauses,
+[09:30:24 - 10:21:45] because an independent clause is basically a sentence.
+[10:21:45 - 11:20:17] We established previously that all a clause is
+[11:20:17 - 12:29:44] is just a collection of phrases with a subject and a verb.
+[12:47:07 - 13:54:47] So, for example, the sentence, I ate the pineapple, period,
+[13:54:47 - 14:27:41] is an independent clause.
+[14:27:41 - 15:27:09] So, it's a couple of phrases, we've got this noun phrase I,
+[15:27:09 - 16:02:37] we've got this verb phrase ate the pineapple,
+[16:02:37 - 16:59:21] and together that becomes a subject
+[16:59:21 - 17:42:28] and verb or a predicate.
+[17:42:28 - 18:25:41] So, Rosie, what is a dependent clause?
+[18:25:41 - 19:07:19] - [Voiceover] So dependent clause is different
+[19:07:19 - 19:32:08] from an independent clause in that
+[19:32:08 - 20:38:00] it can't stand on its own as a sentence.
+[20:38:00 - 21:20:16] So it includes a subject and a verb,
+[21:20:16 - 22:09:23] but it can't be its own sentence.
+[22:09:23 - 23:10:30] And sometimes it might look like a sentence,
+[23:35:51 - 24:00:10] it could start with something
+[24:00:10 - 25:09:37] like a subordinating conjunction, like the word because,
+[25:28:08 - 26:13:23] for example, because it was delicious.
+[26:13:23 - 26:52:54] - [Voiceover] Okay.
+[26:52:54 - 27:17:33] And let's be clear here, you know,
+[27:17:33 - 28:21:59] obviously, this is an utterance that people say.
+[28:21:59 - 28:51:04] You know, if you ask me why did you eat the pizza,
+[28:51:04 - 29:42:39] I would respond by saying, because it was delicious.
+[29:42:39 - 30:06:41] Why do we climb the mountain?
+[30:06:41 - 30:54:00] Because it is there, you know.
+[30:54:00 - 31:36:40] I'm not saying that this is not,
+[31:36:40 - 32:04:01] not an utterance that is made
+[32:04:01 - 32:45:41] by native speaking English speakers.
+[32:45:41 - 33:03:09] It is, of course it is.
+[33:03:09 - 33:46:14] But you have to be aware that it is a dependent clause
+[33:46:14 - 34:17:43] and therefore a sentence fragment.
+[34:17:43 - 35:06:20] And part of natural informal speech
+[35:21:48 - 36:04:06] is that we do use a lot of sentence fragments.
+[36:04:06 - 36:59:55] And sentence fragments are not as common
+[36:59:55 - 37:28:39] in formal writing.
+[37:28:39 - 38:17:16] You may sometimes use them for effect,
+[38:17:16 - 38:57:42] but I want you to remember that these videos are
+[38:57:42 - 39:49:20] about standard American English,
+[39:49:20 - 41:01:44] and a kind of formal version of standard American English.
+[41:01:44 - 41:33:39] And so, we're trying to teach you to distinguish
+[41:33:39 - 42:30:36] between independent and dependent clauses
+[42:44:41 - 43:31:26] so that you can use them skillfully
+[43:31:26 - 44:27:45] in the full knowledge and mastery of your choices.
+[44:27:45 - 45:04:15] You gotta learn your scales before you can improvise.
+[45:04:15 - 45:18:08] - [Voiceover] Right.
+[45:18:08 - 45:32:01] - [Voiceover] Dig?
+[45:32:01 - 45:45:54] - [Voiceover] Dig.
+[45:45:54 - 46:39:56] - [Voiceover] So because it was delicious, not a sentence.
+[46:39:56 - 47:12:46] This is a dependent clause, because it begins
+[47:12:46 - 48:23:45] with this subordinating conjunction because.
+[48:23:45 - 49:33:30] You could also work in something like although,
+[49:33:30 - 50:42:57] or while, and any of these would make it a dependent clause.
+[51:05:44 - 51:56:07] Now, if it was just on its own, it was delicious,
+[51:56:07 - 52:36:07] yeah, of course, that is a sentence.
+[52:36:07 - 53:32:19] The part that makes it dependent is
+[53:32:19 - 54:19:00] this subordinating conjunction.
+[54:19:00 - 54:38:34] You put that onto the front of it
+[54:38:34 - 55:13:43] and all of a sudden it needs an independent clause
+[55:13:43 - 55:50:47] to lean up against.
+[55:50:47 - 56:23:40] I know this is confusing, so let's take a look
+[56:23:40 - 57:01:51] at a couple more examples
+[57:01:51 - 57:57:17] of independent and dependent clauses.
+[57:57:17 - 58:56:44] So, the following are independent clauses, Rosie.
+[58:56:44 - 59:35:46] - [Voiceover] The bear roared.
+[59:35:46 - 60:20:13] Maureen pointed out the monster.
+[60:34:45 - 61:17:07] That's not our pet rabbit.
+[61:17:07 - 62:36:49] - [Voiceover] And let's do some dependent clauses,
+[62:36:49 - 63:11:57] and then you can see
+[63:11:57 - 64:12:15] that we'll be able to combine them into sentences.
+[64:12:15 - 65:00:51] - [Voiceover] While the salmon flopped.
+[65:00:51 - 65:34:11] That she saw last night.
+[65:51:09 - 66:18:56] Unless I'm mistaken.
+[67:13:23 - 67:39:22] - [Voiceover] So you can see that these are all clauses,
+[67:39:22 - 68:04:25] right, we've established that, you know,
+[68:04:25 - 68:40:09] each one has a subject and a verb.
+[68:40:09 - 69:09:32] The bear roared, the salmon flopped.
+[69:09:32 - 69:57:25] But all of these have some kind of,
+[69:57:25 - 70:44:38] everything in orange has something
+[71:30:09 - 72:16:26] that's either a subordinating conjunction
+[72:16:26 - 73:27:53] like while or unless, or a relative pronoun like that.
+[73:27:53 - 73:47:50] So while the salmon flopped.
+[73:47:50 - 74:09:58] You can see in this context
+[74:09:58 - 74:49:30] the bear roared while the salmon flopped,
+[74:49:30 - 75:44:47] you can kind of understand why this is called
+[75:44:47 - 76:45:54] the dependent clause, because by the context
+[77:00:24 - 77:40:20] of this sentence, while the salmon flopped,
+[77:40:20 - 78:14:47] something else was going on, right.
+[78:14:47 - 79:00:11] This is kind of like background information.
+[79:00:11 - 79:43:37] And it's in fact not necessary
+[79:43:37 - 80:53:42] for comprehending the first sentence or the first clause,
+[80:53:42 - 81:57:04] the independent clause, the bear roared.
+[81:57:04 - 82:53:08] And if we did combine these, you would realize
+[82:53:08 - 84:07:03] that the salmon flopped is just background information.
+[84:07:03 - 84:20:56] - [Voiceover] Right.
+[84:20:56 - 84:34:49] - [Voiceover] Right.
+[84:34:49 - 85:17:26] But we need to know what else is going on
+[85:17:26 - 85:56:38] for there to be a while.
+[85:56:38 - 86:15:02] - [Voiceover] So the bear roared
+[86:15:02 - 87:27:20] is a perfectly sensical sentence on its own.
+[87:27:20 - 87:41:13] - [Voiceover] Right.
+[87:41:13 - 88:19:07] - [Voiceover] And while the salmon flopped is providing us
+[88:19:07 - 88:55:08] with this extra information.
+[88:55:08 - 89:43:13] The bear is roaring while the salmon flopped.
+[89:43:13 - 90:14:34] But if we were just to see the sentence
+[90:14:34 - 90:53:10] while the salmon flopped on its own,
+[90:53:10 - 91:50:07] like say, we didn't have the bear roared,
+[92:08:01 - 92:36:39] it would make less sense.
+[92:36:39 - 93:34:25] - [Voiceover] Right, because the presence of this word while
+[93:34:25 - 94:17:23] indicates that something else is also going on,
+[94:17:23 - 94:46:50] that's what makes it dependent.
+[94:46:50 - 95:44:27] So we need to have the bear roared.
+[95:44:27 - 96:26:08] Likewise, Maureen pointed out the monster,
+[96:26:08 - 96:56:10] that sentence works fine on its own.
+[96:56:10 - 98:01:27] That she saw last night, sure there's a subject
+[98:23:07 - 99:03:23] and there's a verb, she and saw, right,
+[99:03:23 - 99:47:27] she saw something, she saw that,
+[99:47:27 - 100:39:42] but this relative pronoun needs to refer back to something,
+[100:39:42 - 101:47:46] and that makes it dependent on the monster.
+[101:47:46 - 102:29:34] So this last one's a little tricky, right,
+[102:29:34 - 102:52:09] because you might be looking and saying,
+[102:52:09 - 103:33:27] well, unless I'm mistaken, where's the verb?
+[103:33:27 - 104:06:58] Well, the verb is kind of hiding in here.
+[104:06:58 - 104:50:01] So unless I am mistaken, right.
+[105:23:49 - 106:17:32] So, the presence of this subordinating conjunction unless
+[106:17:32 - 106:52:31] makes this into a dependent clause.
+[106:52:31 - 107:41:09] So unless means it's kind of hinging
+[107:41:09 - 108:15:11] on some other information.
+[108:15:11 - 108:57:35] So the other information is that's not our pet rabbit,
+[108:57:35 - 109:24:34] unless I'm mistaken.
+[109:24:34 - 109:43:51] I feel that there should be a comma here,
+[109:43:51 - 110:05:03] so I'm gonna put one in.
+[110:05:03 - 110:54:24] That's not our pet rabbit, unless I'm mistaken.
+[110:54:24 - 111:25:34] I hope this has cleared some stuff up.
+[111:25:34 - 112:31:28] So an independent clause is a subject and a verb
+[112:31:28 - 113:07:31] and it can be a sentence.
+[113:07:31 - 114:07:14] A dependent clause is a subject and a verb,
+[114:21:31 - 115:11:31] but also a subordinating conjunction
+[115:41:22 - 116:20:15] and it cannot be a sentence.
+[116:46:05 - 117:23:52] You can learn anything, David out.
+[117:23:52 - 117:42:17] - [Voiceover] Rosie out.
