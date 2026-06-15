@@ -42,10 +42,12 @@ def test_imported_course_is_browsable_and_exportable(client):
 
     assert page.status_code == 200
     assert "Introduction to grammar" in page.text
+    assert "Imported" in page.text
     assert search.status_code == 200
     assert search.json()[0]["video_title"] == "Introduction to grammar"
     assert transcript.status_code == 200
     assert transcript.json()["plain_text"].startswith("- [Voiceover]")
+    assert transcript.json()["source"] == "csv_import"
     assert csv_export.status_code == 200
     assert "text/csv" in csv_export.headers["content-type"]
     assert json_export.status_code == 200

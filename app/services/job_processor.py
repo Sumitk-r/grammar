@@ -22,6 +22,10 @@ from app.models import (
     Video,
 )
 from app.services.khan_client import KhanClient, VideoCandidate, full_url
+from app.services.youtube_client import (
+    YouTubeCaptionClient,
+    YouTubeCaptionUnavailable,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -150,6 +154,8 @@ def _replace_transcript(
     video: Video,
     plain_text: str,
     segments: list[dict[str, Any]],
+    source: str = "khan_subtitles",
+    language_code: str = "en",
 ) -> None:
     transcript = video.transcript
     if transcript is None:
@@ -158,15 +164,26 @@ def _replace_transcript(
     else:
         transcript.plain_text = plain_text
         transcript.segments.clear()
-    transcript.source = "khan_subtitles"
-    transcript.language_code = "en"
+    transcript.source = source
+    transcript.language_code = language_code
     db.flush()
     for segment in segments:
         transcript.segments.append(TranscriptSegment(**segment))
 
 
-def process_job(job_id: str, client: KhanClient | None = None) -> None:
+def process_job(
+    job_id: str,
+    client: KhanClient | None = None,
+    youtube_client: YouTubeCaptionClient | None = None,
+) -> None:
     client = client or KhanClient(settings.khan_country_code, settings.khan_cookie)
+    if youtube_client is None and settings.youtube_fallback_enabled:
+        languages = [
+            language.strip()
+            for language in settings.youtube_languages.split(",")
+            if language.strip()
+        ]
+        youtube_client = YouTubeCaptionClient(languages)
     db = SessionLocal()
     try:
         job = db.get(ScrapeJob, job_id)
@@ -222,6 +239,28 @@ def process_job(job_id: str, client: KhanClient | None = None) -> None:
                 if transcript_text:
                     _replace_transcript(db, video, transcript_text, segments)
                     video.scrape_status = "completed"
+                    video.scrape_error = None
+                elif video.youtube_id and youtube_client is not None:
+                    try:
+                        youtube_transcript = youtube_client.fetch(video.youtube_id)
+                        _replace_transcript(
+                            db,
+                            video,
+                            youtube_transcript.plain_text,
+                            youtube_transcript.segments,
+                            source="youtube_captions",
+                            language_code=youtube_transcript.language_code,
+                        )
+                        video.scrape_status = "completed"
+                        video.scrape_error = None
+                        add_event(
+                            db,
+                            job,
+                            f"Used YouTube captions for {candidate.title}",
+                        )
+                    except YouTubeCaptionUnavailable as exc:
+                        video.scrape_status = "no_transcript"
+                        video.scrape_error = f"YouTube captions unavailable: {exc}"
                 else:
                     video.scrape_status = "no_transcript"
                     video.scrape_error = None
@@ -274,4 +313,3 @@ def process_job(job_id: str, client: KhanClient | None = None) -> None:
             db.commit()
     finally:
         db.close()
-

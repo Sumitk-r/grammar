@@ -857,7 +857,10 @@ def timestamped_transcript_from_content(content: dict[str, Any]) -> str:
         if start is None or end is None:
             lines.append(text)
         else:
-            lines.append(f"[{format_seconds(start)} - {format_seconds(end)}] {text}")
+            lines.append(
+                f"[{format_seconds(float(start) / 1000)} - "
+                f"{format_seconds(float(end) / 1000)}] {text}"
+            )
     return "\n".join(lines)
 
 

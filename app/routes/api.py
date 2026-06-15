@@ -5,7 +5,7 @@ import io
 import json
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, status
 from fastapi.responses import Response, StreamingResponse
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session, selectinload
@@ -22,6 +22,7 @@ from app.models import (
 )
 from app.schemas import JobCreate, JobCreated, TranscriptRead
 from app.services.urls import InvalidCourseUrl, validate_course_url
+from app.services.youtube_backfill import backfill_missing_youtube_captions
 
 router = APIRouter(prefix="/api")
 
@@ -174,6 +175,20 @@ def get_course_units(course_id: str, db: Session = Depends(get_db)) -> list[dict
     ]
 
 
+@router.post("/courses/{course_id}/youtube-backfill", status_code=202)
+def start_youtube_backfill(
+    course_id: str,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db),
+) -> dict[str, str]:
+    get_or_404(db, Course, course_id)
+    background_tasks.add_task(backfill_missing_youtube_captions, course_id)
+    return {
+        "status": "started",
+        "message": "Fetching missing YouTube captions in the background.",
+    }
+
+
 @router.get("/units/{unit_id}/lessons")
 def get_unit_lessons(unit_id: str, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
     get_or_404(db, Unit, unit_id)
@@ -238,6 +253,8 @@ def get_transcript(video_id: str, db: Session = Depends(get_db)) -> TranscriptRe
         video_id=video.id,
         title=video.title,
         video_url=video.full_url,
+        language_code=video.transcript.language_code,
+        source=video.transcript.source,
         plain_text=video.transcript.plain_text,
         segments=[
             {
@@ -297,6 +314,7 @@ def search_transcripts(
             "lesson_id": lesson.id,
             "lesson_title": lesson.title,
             "scrape_status": video.scrape_status,
+            "transcript_source": transcript.source if transcript else None,
             "excerpt": transcript.plain_text[:320] if transcript else "",
         }
         for video, lesson, unit, transcript in rows
@@ -393,4 +411,3 @@ def export_course_json(course_id: str, db: Session = Depends(get_db)) -> Respons
             "Content-Disposition": f'attachment; filename="{course.slug or "course"}-transcripts.json"'
         },
     )
-

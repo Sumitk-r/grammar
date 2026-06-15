@@ -19,7 +19,17 @@
   {% if video.transcript %}
   <article class="transcript-card">
     <div class="transcript-tools">
-      <span>Transcript</span>
+      <span>
+        Transcript ·
+        {% if video.transcript.source == "youtube_captions" %}
+          YouTube captions
+        {% elif video.transcript.source == "csv_import" %}
+          Imported transcript
+        {% else %}
+          Khan subtitles
+        {% endif %}
+        · {{ video.transcript.language_code }}
+      </span>
       <button id="copy-transcript" class="text-button" type="button">Copy text</button>
     </div>
     <div id="transcript-text" class="transcript-text">{{ video.transcript.plain_text }}</div>
@@ -57,4 +67,3 @@ document.getElementById("copy-transcript")?.addEventListener("click", async (eve
 });
 </script>
 {% endblock %}
-

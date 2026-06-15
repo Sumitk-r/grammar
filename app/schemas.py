@@ -44,6 +44,7 @@ class TranscriptRead(BaseModel):
     video_id: str
     title: str
     video_url: str
+    language_code: str
+    source: str
     plain_text: str
     segments: list[SegmentRead]
-

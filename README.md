@@ -71,9 +71,17 @@ Copy `.env.example` to `.env` and adjust values as needed.
 - `REQUEST_DELAY_SECONDS`: delay between video requests
 - `WORKER_POLL_SECONDS`: idle worker polling interval
 - `MAX_VIDEOS_PER_JOB`: optional cap useful during development
+- `YOUTUBE_FALLBACK_ENABLED`: try YouTube captions when Khan subtitles are absent
+- `YOUTUBE_LANGUAGES`: preferred YouTube caption language codes
 
 Cookies are read only from server configuration and are never accepted through
 the public API or shown in the UI.
+
+The YouTube fallback supports manual and auto-generated captions. It uses an
+undocumented YouTube web endpoint, so it may stop working when YouTube changes
+its internals. YouTube also frequently blocks cloud-provider IP addresses; a
+local worker is generally more reliable than an Azure-hosted worker for this
+fallback.
 
 ## API
 
@@ -99,4 +107,3 @@ pytest
 The original `scrape_khan_grammar.py` remains available as a standalone CSV
 scraper. The web worker imports its current Khan Academy GraphQL operations and
 parsing helpers so both workflows use the same integration logic.
-

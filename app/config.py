@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     request_delay_seconds: float = 0.25
     worker_poll_seconds: float = 2.0
     max_videos_per_job: int | None = None
+    youtube_fallback_enabled: bool = True
+    youtube_languages: str = "en,en-IN,hi"
 
     model_config = SettingsConfigDict(env_file=".env", env_prefix="", extra="ignore")
 
@@ -21,4 +23,3 @@ def get_settings() -> Settings:
 
 
 settings = get_settings()
-

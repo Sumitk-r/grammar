@@ -47,12 +47,22 @@ class KhanClient:
             segments.append(
                 {
                     "segment_index": index,
-                    "start_time_seconds": subtitle.get("startTime"),
-                    "end_time_seconds": subtitle.get("endTime"),
+                    "start_time_seconds": KhanClient.subtitle_time_seconds(
+                        subtitle.get("startTime")
+                    ),
+                    "end_time_seconds": KhanClient.subtitle_time_seconds(
+                        subtitle.get("endTime")
+                    ),
                     "text": segment_text,
                 }
             )
         return text, segments
+
+    @staticmethod
+    def subtitle_time_seconds(value: Any) -> float | None:
+        if value is None:
+            return None
+        return float(value) / 1000
 
     @staticmethod
     def candidate_dict(candidate: VideoCandidate) -> dict[str, Any]:
@@ -60,4 +70,3 @@ class KhanClient:
 
 
 __all__ = ["KhanClient", "VideoCandidate", "full_url"]
-

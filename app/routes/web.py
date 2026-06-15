@@ -65,6 +65,16 @@ def course_page(course_id: str, request: Request, db: Session = Depends(get_db))
         .join(Unit)
         .where(Unit.course_id == course_id)
     )
+    source_counts = dict(
+        db.execute(
+            select(Transcript.source, func.count(Transcript.id))
+            .join(Video)
+            .join(Lesson)
+            .join(Unit)
+            .where(Unit.course_id == course_id)
+            .group_by(Transcript.source)
+        ).all()
+    )
     return templates.TemplateResponse(
         request,
         "course.html",
@@ -72,6 +82,7 @@ def course_page(course_id: str, request: Request, db: Session = Depends(get_db))
             "course": course,
             "video_count": video_count,
             "transcript_count": transcript_count,
+            "source_counts": source_counts,
         },
     )
 
@@ -89,4 +100,3 @@ def video_page(video_id: str, request: Request, db: Session = Depends(get_db)):
     if video is None:
         raise HTTPException(status_code=404, detail="Video not found")
     return templates.TemplateResponse(request, "video.html", {"video": video})
-
