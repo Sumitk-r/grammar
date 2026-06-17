@@ -89,6 +89,12 @@ button:hover, .button-link:hover { background: var(--green-dark); }
   border: 1px solid var(--line); background: var(--card); color: var(--ink);
 }
 .button-secondary:hover { background: #eeeae0; }
+.button-danger {
+  border: 1px solid rgba(255, 255, 255, .32);
+  background: #b7443e;
+  color: white;
+}
+.button-danger:hover { background: #96302b; }
 .link-button { display: inline-block; padding: 12px 18px; text-decoration: none; border-radius: 10px; font-weight: 700; }
 .form-message { margin: 10px 2px 0; color: var(--muted); font-size: .87rem; }
 .form-message.error { color: var(--red); }

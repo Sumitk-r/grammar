@@ -13,10 +13,12 @@ from sqlalchemy.orm import Session, selectinload
 from app.database import get_db
 from app.models import (
     Course,
+    JobEvent,
     JobStatus,
     Lesson,
     ScrapeJob,
     Transcript,
+    TranscriptSegment,
     Unit,
     Video,
 )
@@ -160,6 +162,77 @@ def get_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
         "description": course.description,
         "relative_url": course.relative_url,
         "source_url": course.source_url,
+    }
+
+
+@router.delete("/courses/{course_id}")
+def delete_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+    course = get_or_404(db, Course, course_id)
+    active_job = db.scalar(
+        select(ScrapeJob.id).where(
+            ScrapeJob.course_id == course_id,
+            ScrapeJob.status.in_([JobStatus.queued, JobStatus.running]),
+        )
+    )
+    if active_job:
+        raise HTTPException(
+            status_code=409,
+            detail="This course has an active job. Cancel or wait for it before deleting.",
+        )
+
+    unit_ids = db.scalars(select(Unit.id).where(Unit.course_id == course_id)).all()
+    lesson_ids = (
+        db.scalars(select(Lesson.id).where(Lesson.unit_id.in_(unit_ids))).all()
+        if unit_ids
+        else []
+    )
+    video_ids = (
+        db.scalars(select(Video.id).where(Video.lesson_id.in_(lesson_ids))).all()
+        if lesson_ids
+        else []
+    )
+    transcript_ids = (
+        db.scalars(select(Transcript.id).where(Transcript.video_id.in_(video_ids))).all()
+        if video_ids
+        else []
+    )
+    job_ids = db.scalars(select(ScrapeJob.id).where(ScrapeJob.course_id == course_id)).all()
+
+    if transcript_ids:
+        db.query(TranscriptSegment).filter(
+            TranscriptSegment.transcript_id.in_(transcript_ids)
+        ).delete(synchronize_session=False)
+        db.query(Transcript).filter(Transcript.id.in_(transcript_ids)).delete(
+            synchronize_session=False
+        )
+    if video_ids:
+        db.query(Video).filter(Video.id.in_(video_ids)).delete(synchronize_session=False)
+    if lesson_ids:
+        db.query(Lesson).filter(Lesson.id.in_(lesson_ids)).delete(
+            synchronize_session=False
+        )
+    if unit_ids:
+        db.query(Unit).filter(Unit.id.in_(unit_ids)).delete(synchronize_session=False)
+    if job_ids:
+        db.query(JobEvent).filter(JobEvent.job_id.in_(job_ids)).delete(
+            synchronize_session=False
+        )
+        db.query(ScrapeJob).filter(ScrapeJob.id.in_(job_ids)).delete(
+            synchronize_session=False
+        )
+
+    db.delete(course)
+    db.commit()
+    return {
+        "status": "deleted",
+        "course_id": course_id,
+        "deleted": {
+            "units": len(unit_ids),
+            "lessons": len(lesson_ids),
+            "videos": len(video_ids),
+            "transcripts": len(transcript_ids),
+            "jobs": len(job_ids),
+        },
     }
 
 

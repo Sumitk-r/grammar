@@ -55,7 +55,7 @@
           <td><a href="/jobs/{{ job.id }}">{{ job.normalized_path }}</a></td>
           <td><span class="badge badge-{{ job.status.value }}">{{ job.status.value|replace("_", " ") }}</span></td>
           <td>{{ job.progress_percent }}%</td>
-          <td>{{ job.created_at.strftime("%b %d, %Y %H:%M") }}</td>
+          <td>{{ job.created_at|local_datetime }}</td>
         </tr>
       {% endfor %}
       </tbody>
@@ -94,4 +94,3 @@ form.addEventListener("submit", async (event) => {
 });
 </script>
 {% endblock %}
-

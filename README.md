@@ -73,6 +73,7 @@ Copy `.env.example` to `.env` and adjust values as needed.
 - `MAX_VIDEOS_PER_JOB`: optional cap useful during development
 - `YOUTUBE_FALLBACK_ENABLED`: try YouTube captions when Khan subtitles are absent
 - `YOUTUBE_LANGUAGES`: preferred YouTube caption language codes
+- `DISPLAY_TIMEZONE`: timezone used for timestamps in the web UI
 
 Cookies are read only from server configuration and are never accepted through
 the public API or shown in the UI.

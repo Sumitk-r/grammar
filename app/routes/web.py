@@ -3,12 +3,35 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
+from datetime import timezone
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from app.config import settings
 from app.database import get_db
 from app.models import Course, Lesson, ScrapeJob, Transcript, Unit, Video
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
+
+
+def _display_zone() -> ZoneInfo:
+    try:
+        return ZoneInfo(settings.display_timezone)
+    except ZoneInfoNotFoundError:
+        return ZoneInfo("UTC")
+
+
+def local_datetime(value, fmt: str = "%b %d, %Y %H:%M") -> str:
+    if value is None:
+        return ""
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=timezone.utc)
+    local_value = value.astimezone(_display_zone())
+    zone_label = local_value.tzname() or settings.display_timezone
+    return f"{local_value.strftime(fmt)} {zone_label}"
+
+
+templates.env.filters["local_datetime"] = local_datetime
 
 
 @router.get("/", response_class=HTMLResponse)

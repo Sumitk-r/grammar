@@ -36,7 +36,7 @@
       {% for event in job.events|reverse %}
       <div class="event">
         <span class="event-dot event-{{ event.level }}"></span>
-        <div><strong>{{ event.message }}</strong><small>{{ event.created_at.strftime("%b %d, %H:%M:%S") }}</small></div>
+        <div><strong>{{ event.message }}</strong><small>{{ event.created_at|local_datetime("%b %d, %H:%M:%S") }}</small></div>
       </div>
       {% else %}
       <div class="empty-state">The worker has not picked up this job yet.</div>
@@ -85,4 +85,3 @@ document.getElementById("cancel-button")?.addEventListener("click", async () => 
 });
 </script>
 {% endblock %}
-

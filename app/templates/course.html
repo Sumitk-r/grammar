@@ -27,6 +27,7 @@
     <button id="youtube-backfill" class="button-secondary" type="button">Fetch missing YouTube captions</button>
     {% endif %}
     <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on Khan Academy ↗</a>
+    <button id="delete-course" class="button-danger" type="button">Delete course</button>
   </div>
   <p id="backfill-message" class="backfill-message" hidden></p>
 </section>
@@ -88,6 +89,7 @@
 const search = document.getElementById("course-search");
 const results = document.getElementById("search-results");
 const backfillButton = document.getElementById("youtube-backfill");
+const deleteButton = document.getElementById("delete-course");
 const backfillMessage = document.getElementById("backfill-message");
 let timer;
 backfillButton?.addEventListener("click", async () => {
@@ -101,6 +103,24 @@ backfillButton?.addEventListener("click", async () => {
   backfillMessage.textContent = response.ok
     ? "Caption fetch started. Refresh this page in a few minutes to see the results."
     : (data.detail || "Unable to start caption fetch.");
+});
+deleteButton?.addEventListener("click", async () => {
+  const confirmed = window.confirm(
+    "Delete this course and all related units, lessons, videos, transcripts, and jobs? This cannot be undone."
+  );
+  if (!confirmed) return;
+  deleteButton.disabled = true;
+  deleteButton.textContent = "Deleting...";
+  const response = await fetch("/api/courses/{{ course.id }}", {method: "DELETE"});
+  const data = await response.json();
+  if (response.ok) {
+    window.location.href = "/";
+  } else {
+    deleteButton.disabled = false;
+    deleteButton.textContent = "Delete course";
+    backfillMessage.hidden = false;
+    backfillMessage.textContent = data.detail || "Unable to delete course.";
+  }
 });
 search.addEventListener("input", () => {
   clearTimeout(timer);

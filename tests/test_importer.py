@@ -4,7 +4,7 @@ from sqlalchemy import func, select
 
 from app.database import SessionLocal
 from app.importer import import_transcript_csv
-from app.models import Course, Transcript, Video
+from app.models import Course, Lesson, Transcript, Unit, Video
 
 
 def test_importer_is_idempotent():
@@ -52,3 +52,21 @@ def test_imported_course_is_browsable_and_exportable(client):
     assert "text/csv" in csv_export.headers["content-type"]
     assert json_export.status_code == 200
     assert json_export.json()["course"]["title"] == "Grammar"
+
+
+def test_course_can_be_deleted_from_api(client):
+    path = Path(__file__).parents[1] / "sample_transcripts.csv"
+    with SessionLocal() as db:
+        course, _ = import_transcript_csv(db, path)
+        course_id = course.id
+
+    response = client.delete(f"/api/courses/{course_id}")
+
+    assert response.status_code == 200
+    assert response.json()["status"] == "deleted"
+    with SessionLocal() as db:
+        assert db.scalar(select(func.count(Course.id))) == 0
+        assert db.scalar(select(func.count(Unit.id))) == 0
+        assert db.scalar(select(func.count(Lesson.id))) == 0
+        assert db.scalar(select(func.count(Video.id))) == 0
+        assert db.scalar(select(func.count(Transcript.id))) == 0
