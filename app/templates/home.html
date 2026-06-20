@@ -104,10 +104,13 @@
 </section>
 {% endblock %}
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
 <script>
-if (window.Typed) {
+function initHeroTyped() {
+  if (!window.Typed) return;
   const heroTyped = document.getElementById("hero-typed");
+  if (!heroTyped || heroTyped.dataset.typedInitialized) return;
+  heroTyped.dataset.typedInitialized = "true";
   heroTyped.textContent = "";
   new Typed("#hero-typed", {
     strings: ["Turn courses and playlists into a searchable transcript library."],
@@ -118,6 +121,7 @@ if (window.Typed) {
     loop: false
   });
 }
+window.addEventListener("load", initHeroTyped);
 
 const form = document.getElementById("job-form");
 const categoryForm = document.getElementById("category-form");
