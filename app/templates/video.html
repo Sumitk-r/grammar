@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ video.title }} · Khan Transcript Library{% endblock %}
+{% block title %}{{ video.title }} · Aveti Transcripts{% endblock %}
 {% block content %}
 <section class="page-shell transcript-page">
   <a class="back-link" href="/courses/{{ video.lesson.unit.course_id }}">← Back to {{ video.lesson.unit.course.title if video.lesson.unit.course else "course" }}</a>
@@ -22,7 +22,7 @@
       <span>
         Transcript ·
         {% if video.transcript.source == "youtube_captions" %}
-          YouTube captions
+          YouTube transcript
         {% elif video.transcript.source == "csv_import" %}
           Imported transcript
         {% else %}

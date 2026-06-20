@@ -9,15 +9,24 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models import (
+    Category,
     Course,
     JobEvent,
     JobStatus,
     Lesson,
     ScrapeJob,
     Transcript,
+    TranscriptEmbedding,
     Unit,
     Video,
 )
+from app.services.embeddings import (
+    EMBEDDING_DIMENSIONS,
+    EMBEDDING_MODEL,
+    chunk_text,
+    embed_text,
+)
+from app.services.pgvector_search import sync_pgvector_embeddings
 
 
 def text_or_none(value: str | None) -> str | None:
@@ -30,6 +39,16 @@ def int_or_none(value: str | None) -> int | None:
     return int(float(value)) if value else None
 
 
+def get_or_create_category(db: Session, name: str) -> Category:
+    slug = name.strip().lower().replace(" ", "-")
+    category = db.scalar(select(Category).where(Category.slug == slug))
+    if category is None:
+        category = Category(name=name, slug=slug)
+        db.add(category)
+        db.flush()
+    return category
+
+
 def import_transcript_csv(
     db: Session,
     csv_path: str | Path,
@@ -38,9 +57,11 @@ def import_transcript_csv(
 ) -> tuple[Course, int]:
     csv_path = Path(csv_path)
     relative_url = urlparse(course_url).path.rstrip("/")
+    category = get_or_create_category(db, "Imported")
     course = db.scalar(select(Course).where(Course.relative_url == relative_url))
     if course is None:
         course = Course(
+            category=category,
             title=course_title,
             slug=relative_url.split("/")[-1],
             relative_url=relative_url,
@@ -49,6 +70,8 @@ def import_transcript_csv(
         )
         db.add(course)
         db.flush()
+    else:
+        course.category = category
 
     units: dict[int, Unit] = {}
     lessons: dict[tuple[int, int], Lesson] = {}
@@ -127,16 +150,30 @@ def import_transcript_csv(
             transcript_text = row.get("transcript", "").strip()
             if transcript_text:
                 if video.transcript is None:
-                    db.add(
-                        Transcript(
-                            video=video,
-                            plain_text=transcript_text,
-                            source="csv_import",
+                    transcript = Transcript(
+                        video=video,
+                        plain_text=transcript_text,
+                        source="csv_import",
+                    )
+                    db.add(transcript)
+                else:
+                    transcript = video.transcript
+                    transcript.plain_text = transcript_text
+                    transcript.source = "csv_import"
+                    transcript.embeddings.clear()
+                db.flush()
+                for chunk_index, chunk in enumerate(chunk_text(transcript_text)):
+                    transcript.embeddings.append(
+                        TranscriptEmbedding(
+                            chunk_index=chunk_index,
+                            text=chunk,
+                            model=EMBEDDING_MODEL,
+                            dimensions=EMBEDDING_DIMENSIONS,
+                            vector=embed_text(chunk),
                         )
                     )
-                else:
-                    video.transcript.plain_text = transcript_text
-                    video.transcript.source = "csv_import"
+                db.flush()
+                sync_pgvector_embeddings(db, transcript.embeddings)
                 imported += 1
 
     job = db.scalar(
@@ -174,4 +211,3 @@ def import_transcript_csv(
     db.commit()
     db.refresh(course)
     return course, imported
-

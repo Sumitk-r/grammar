@@ -1,32 +1,43 @@
 from __future__ import annotations
 
 import csv
+import hmac
 import io
 import json
+import re
 from typing import Any
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, status
+from fastapi import APIRouter, BackgroundTasks, Depends, Header, HTTPException, Query, status
 from fastapi.responses import Response, StreamingResponse
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session, selectinload
 
+from app.config import settings
 from app.database import get_db
 from app.models import (
+    Category,
     Course,
     JobEvent,
     JobStatus,
     Lesson,
     ScrapeJob,
     Transcript,
+    TranscriptEmbedding,
     TranscriptSegment,
     Unit,
     Video,
 )
-from app.schemas import JobCreate, JobCreated, TranscriptRead
+from app.schemas import CategoryCreate, CategoryRead, JobCreate, JobCreated, TranscriptRead
+from app.services.pgvector_search import hybrid_search_transcripts
 from app.services.urls import InvalidCourseUrl, validate_course_url
 from app.services.youtube_backfill import backfill_missing_youtube_captions
 
 router = APIRouter(prefix="/api")
+
+
+def slugify(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.strip().lower()).strip("-")
+    return slug or "category"
 
 
 def job_dict(job: ScrapeJob) -> dict[str, Any]:
@@ -41,6 +52,7 @@ def job_dict(job: ScrapeJob) -> dict[str, Any]:
         "processed_videos": job.processed_videos,
         "failed_videos": job.failed_videos,
         "error_message": job.error_message,
+        "category_id": job.category_id,
         "course_id": job.course_id,
         "created_at": job.created_at,
         "started_at": job.started_at,
@@ -55,8 +67,59 @@ def get_or_404(db: Session, model: type, item_id: str):
     return item
 
 
+def category_dict(category: Category) -> dict[str, Any]:
+    return {
+        "id": category.id,
+        "name": category.name,
+        "slug": category.slug,
+        "description": category.description,
+    }
+
+
+def require_admin(x_admin_key: str | None = Header(default=None)) -> None:
+    if not x_admin_key or not hmac.compare_digest(x_admin_key, settings.admin_key):
+        raise HTTPException(status_code=401, detail="Admin key is required.")
+
+
+@router.get("/categories", response_model=list[CategoryRead])
+def list_categories(db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+    categories = db.scalars(select(Category).order_by(Category.name)).all()
+    return [category_dict(category) for category in categories]
+
+
+@router.post("/categories", response_model=CategoryRead, status_code=status.HTTP_201_CREATED)
+def create_category(
+    payload: CategoryCreate,
+    _: None = Depends(require_admin),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
+    name = payload.name.strip()
+    slug = slugify(name)
+    existing = db.scalar(
+        select(Category).where(
+            or_(Category.name == name, Category.slug == slug),
+        )
+    )
+    if existing is not None:
+        raise HTTPException(status_code=409, detail="Category already exists.")
+
+    category = Category(
+        name=name,
+        slug=slug,
+        description=payload.description.strip() if payload.description else None,
+    )
+    db.add(category)
+    db.commit()
+    db.refresh(category)
+    return category_dict(category)
+
+
 @router.post("/jobs", response_model=JobCreated, status_code=status.HTTP_201_CREATED)
 def create_job(payload: JobCreate, db: Session = Depends(get_db)) -> JobCreated:
+    category = db.get(Category, payload.category_id)
+    if category is None:
+        raise HTTPException(status_code=404, detail="Category not found.")
+
     try:
         course_url = validate_course_url(payload.url)
     except InvalidCourseUrl as exc:
@@ -76,6 +139,7 @@ def create_job(payload: JobCreate, db: Session = Depends(get_db)) -> JobCreated:
     job = ScrapeJob(
         submitted_url=course_url.submitted_url,
         normalized_path=course_url.normalized_path,
+        category=category,
     )
     db.add(job)
     db.commit()
@@ -147,6 +211,7 @@ def list_courses(db: Session = Depends(get_db)) -> list[dict[str, Any]]:
             "title": course.title,
             "slug": course.slug,
             "source_url": course.source_url,
+            "category": category_dict(course.category) if course.category else None,
         }
         for course in courses
     ]
@@ -162,6 +227,7 @@ def get_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
         "description": course.description,
         "relative_url": course.relative_url,
         "source_url": course.source_url,
+        "category": category_dict(course.category) if course.category else None,
     }
 
 
@@ -199,6 +265,9 @@ def delete_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, An
     job_ids = db.scalars(select(ScrapeJob.id).where(ScrapeJob.course_id == course_id)).all()
 
     if transcript_ids:
+        db.query(TranscriptEmbedding).filter(
+            TranscriptEmbedding.transcript_id.in_(transcript_ids)
+        ).delete(synchronize_session=False)
         db.query(TranscriptSegment).filter(
             TranscriptSegment.transcript_id.in_(transcript_ids)
         ).delete(synchronize_session=False)
@@ -258,7 +327,7 @@ def start_youtube_backfill(
     background_tasks.add_task(backfill_missing_youtube_captions, course_id)
     return {
         "status": "started",
-        "message": "Fetching missing YouTube captions in the background.",
+        "message": "Fetching missing YouTube transcripts in the background.",
     }
 
 
@@ -351,6 +420,18 @@ def search_transcripts(
     db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
     get_or_404(db, Course, course_id)
+    if q.strip() and not failed_only:
+        hybrid_results = hybrid_search_transcripts(
+            db,
+            course_id=course_id,
+            query=q.strip(),
+            unit_id=unit_id,
+            lesson_id=lesson_id,
+            limit=limit,
+        )
+        if hybrid_results is not None:
+            return hybrid_results
+
     query = (
         select(Video, Lesson, Unit, Transcript)
         .join(Lesson, Video.lesson_id == Lesson.id)

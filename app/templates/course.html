@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ course.title }} · Khan Transcript Library{% endblock %}
+{% block title %}{{ course.title }} · Aveti Transcripts{% endblock %}
 {% block content %}
 <section class="course-hero">
   <a class="back-link" href="/">← Back to dashboard</a>
@@ -7,6 +7,7 @@
   <h1>{{ course.title }}</h1>
   <p>{{ course.description or "Browse the complete course structure and available transcripts." }}</p>
   <div class="course-meta">
+    <span><strong>{{ course.category.name if course.category else "Uncategorized" }}</strong> category</span>
     <span><strong>{{ course.units|length }}</strong> units</span>
     <span><strong>{{ video_count }}</strong> videos</span>
     <span><strong>{{ transcript_count }}</strong> transcripts</span>
@@ -24,9 +25,13 @@
     <a class="button-link" href="/api/courses/{{ course.id }}/export.csv">Export CSV</a>
     <a class="button-secondary link-button" href="/api/courses/{{ course.id }}/export.json">Export JSON</a>
     {% if transcript_count < video_count %}
-    <button id="youtube-backfill" class="button-secondary" type="button">Fetch missing YouTube captions</button>
+    <button id="youtube-backfill" class="button-secondary" type="button">Fetch missing YouTube transcripts</button>
     {% endif %}
+    {% if "youtube.com" in course.source_url or "youtu.be" in course.source_url %}
+    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on YouTube ↗</a>
+    {% else %}
     <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on Khan Academy ↗</a>
+    {% endif %}
     <button id="delete-course" class="button-danger" type="button">Delete course</button>
   </div>
   <p id="backfill-message" class="backfill-message" hidden></p>
@@ -64,7 +69,7 @@
             </span>
             {% if video.transcript %}
               {% if video.transcript.source == "youtube_captions" %}
-              <span class="source-chip source-youtube">YouTube captions</span>
+              <span class="source-chip source-youtube">YouTube transcript</span>
               {% elif video.transcript.source == "csv_import" %}
               <span class="source-chip source-import">Imported</span>
               {% else %}
@@ -94,14 +99,14 @@ const backfillMessage = document.getElementById("backfill-message");
 let timer;
 backfillButton?.addEventListener("click", async () => {
   backfillButton.disabled = true;
-  backfillButton.textContent = "Fetching captions...";
+  backfillButton.textContent = "Fetching transcripts...";
   const response = await fetch("/api/courses/{{ course.id }}/youtube-backfill", {
     method: "POST"
   });
   const data = await response.json();
   backfillMessage.hidden = false;
   backfillMessage.textContent = response.ok
-    ? "Caption fetch started. Refresh this page in a few minutes to see the results."
+    ? "Transcript fetch started. Refresh this page in a few minutes to see the results."
     : (data.detail || "Unable to start caption fetch.");
 });
 deleteButton?.addEventListener("click", async () => {
@@ -148,7 +153,7 @@ function escapeHtml(value) {
   return node.innerHTML;
 }
 function sourceLabel(source) {
-  if (source === "youtube_captions") return "YouTube captions";
+  if (source === "youtube_captions") return "YouTube transcript";
   if (source === "csv_import") return "Imported transcript";
   if (source === "khan_subtitles") return "Khan subtitles";
   return "No transcript";

@@ -22,7 +22,7 @@ body {
   line-height: 1.55;
 }
 a { color: inherit; }
-button, input { font: inherit; }
+button, input, select { font: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: wait; opacity: .7; }
 
@@ -66,6 +66,10 @@ h3 { letter-spacing: -.02em; }
   text-align: center;
 }
 .hero h1 { max-width: 980px; margin: 0 auto 24px; }
+.typed-cursor {
+  color: var(--orange);
+  font-weight: 700;
+}
 .hero-copy { max-width: 720px; margin: 0 auto 40px; color: var(--muted); font-size: 1.15rem; }
 .submit-card {
   max-width: 870px; margin: 0 auto; padding: 24px;
@@ -74,11 +78,11 @@ h3 { letter-spacing: -.02em; }
 }
 .submit-card label, .course-nav label { display: block; font-size: .82rem; font-weight: 700; margin-bottom: 8px; }
 .input-row { display: flex; gap: 10px; }
-input {
+input, select {
   width: 100%; min-width: 0; padding: 14px 16px;
   border: 1px solid #bdc6bf; border-radius: 10px; background: white; color: var(--ink);
 }
-input:focus { outline: 3px solid rgba(23, 107, 77, .16); border-color: var(--green); }
+input:focus, select:focus { outline: 3px solid rgba(23, 107, 77, .16); border-color: var(--green); }
 button, .button-link {
   border: 0; border-radius: 10px; padding: 14px 20px;
   background: var(--green); color: white; font-weight: 700; text-decoration: none;
@@ -98,6 +102,8 @@ button:hover, .button-link:hover { background: var(--green-dark); }
 .link-button { display: inline-block; padding: 12px 18px; text-decoration: none; border-radius: 10px; font-weight: 700; }
 .form-message { margin: 10px 2px 0; color: var(--muted); font-size: .87rem; }
 .form-message.error { color: var(--red); }
+.admin-card { margin-bottom: 16px; }
+.submit-card select { margin-bottom: 16px; }
 
 .content-section { padding: 80px 5vw; max-width: 1500px; margin: auto; }
 .content-section.compact { padding-top: 20px; }
@@ -110,9 +116,79 @@ button:hover, .button-link:hover { background: var(--green-dark); }
 }
 .course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .course-index { color: var(--orange); font-weight: 700; }
+.category-pill {
+  align-self: flex-start;
+  margin-top: 14px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--green-dark);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
 .course-card h3 { font-size: 1.45rem; margin: 25px 0 10px; }
 .course-card p { color: var(--muted); margin: 0 0 20px; }
 .course-card .text-link { margin-top: auto; }
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+.category-card {
+  padding: 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.category-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.category-count {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--green-dark);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.category-card h3 { font-size: 1.55rem; margin: 24px 0 10px; }
+.category-card > p { color: var(--muted); margin: 0 0 18px; }
+.category-course-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 20px;
+}
+.category-course-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfaf5;
+  text-decoration: none;
+}
+.category-course-row:hover { background: #f2f4ed; }
+.category-course-row strong,
+.category-course-row small {
+  display: block;
+}
+.category-course-row strong { color: var(--green-dark); }
+.category-course-row small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .78rem;
+  overflow-wrap: anywhere;
+}
 .empty-state { padding: 34px; border: 1px dashed #b8c0ba; border-radius: 14px; color: var(--muted); text-align: center; }
 .empty-state.small { padding: 18px; }
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }

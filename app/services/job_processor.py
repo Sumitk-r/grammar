@@ -17,14 +17,28 @@ from app.models import (
     Lesson,
     ScrapeJob,
     Transcript,
+    TranscriptEmbedding,
     TranscriptSegment,
     Unit,
     Video,
 )
+from app.services.embeddings import (
+    EMBEDDING_DIMENSIONS,
+    EMBEDDING_MODEL,
+    chunk_text,
+    embed_text,
+)
 from app.services.khan_client import KhanClient, VideoCandidate, full_url
+from app.services.pgvector_search import sync_pgvector_embeddings
+from app.services.urls import is_youtube_playlist_path, youtube_playlist_id_from_path
 from app.services.youtube_client import (
     YouTubeCaptionClient,
     YouTubeCaptionUnavailable,
+)
+from app.services.youtube_playlist_client import (
+    YouTubePlaylistClient,
+    YouTubePlaylistData,
+    YouTubePlaylistVideo,
 )
 
 logger = logging.getLogger(__name__)
@@ -51,13 +65,19 @@ def add_event(
     )
 
 
-def _upsert_course(db: Session, payload: dict[str, Any], path: str) -> Course:
+def _upsert_course(
+    db: Session,
+    payload: dict[str, Any],
+    path: str,
+    category_id: str | None,
+) -> Course:
     relative_url = payload.get("relativeUrl") or path
     course = db.scalar(select(Course).where(Course.relative_url == relative_url))
     if course is None:
         course = Course(relative_url=relative_url, source_url=full_url(relative_url))
         db.add(course)
     course.khan_course_id = payload.get("id")
+    course.category_id = category_id
     course.title = payload.get("translatedTitle") or payload.get("slug") or "Khan Academy course"
     course.slug = payload.get("slug") or relative_url.rstrip("/").split("/")[-1]
     course.description = payload.get("translatedDescription")
@@ -164,26 +184,240 @@ def _replace_transcript(
     else:
         transcript.plain_text = plain_text
         transcript.segments.clear()
+        transcript.embeddings.clear()
     transcript.source = source
     transcript.language_code = language_code
     db.flush()
     for segment in segments:
         transcript.segments.append(TranscriptSegment(**segment))
+    for chunk_index, chunk in enumerate(chunk_text(plain_text)):
+        transcript.embeddings.append(
+            TranscriptEmbedding(
+                chunk_index=chunk_index,
+                text=chunk,
+                model=EMBEDDING_MODEL,
+                dimensions=EMBEDDING_DIMENSIONS,
+                vector=embed_text(chunk),
+            )
+        )
+    db.flush()
+    sync_pgvector_embeddings(db, transcript.embeddings)
+
+
+def _youtube_languages() -> list[str]:
+    return [
+        language.strip()
+        for language in settings.youtube_languages.split(",")
+        if language.strip()
+    ]
+
+
+def _upsert_youtube_playlist_course(
+    db: Session,
+    playlist: YouTubePlaylistData,
+    category_id: str | None,
+) -> tuple[Course, Lesson]:
+    normalized_path = f"youtube_playlist:{playlist.playlist_id}"
+    course = db.scalar(select(Course).where(Course.relative_url == normalized_path))
+    if course is None:
+        course = Course(
+            relative_url=normalized_path,
+            source_url=playlist.source_url,
+            title=playlist.title,
+            slug=playlist.playlist_id,
+        )
+        db.add(course)
+    course.khan_course_id = None
+    course.category_id = category_id
+    course.title = playlist.title
+    course.slug = playlist.playlist_id
+    course.source_url = playlist.source_url
+    course.description = playlist.description or "YouTube playlist transcript collection."
+    db.flush()
+
+    unit = db.scalar(
+        select(Unit).where(
+            Unit.course_id == course.id,
+            Unit.unit_index == 1,
+        )
+    )
+    if unit is None:
+        unit = Unit(course=course, unit_index=1, title="YouTube playlist")
+        db.add(unit)
+    unit.khan_unit_id = None
+    unit.title = "YouTube playlist"
+    unit.slug = "youtube-playlist"
+    unit.relative_url = normalized_path
+    db.flush()
+
+    lesson = db.scalar(
+        select(Lesson).where(
+            Lesson.unit_id == unit.id,
+            Lesson.lesson_index == 1,
+        )
+    )
+    if lesson is None:
+        lesson = Lesson(unit=unit, lesson_index=1, title="Videos")
+        db.add(lesson)
+    lesson.khan_lesson_id = None
+    lesson.title = "Videos"
+    lesson.slug = "videos"
+    lesson.relative_url = normalized_path
+    db.flush()
+    return course, lesson
+
+
+def _upsert_youtube_playlist_video(
+    db: Session,
+    lesson: Lesson,
+    playlist_id: str,
+    playlist_video: YouTubePlaylistVideo,
+) -> Video:
+    relative_url = f"youtube:playlist:{playlist_id}:video:{playlist_video.video_id}"
+    video = db.scalar(select(Video).where(Video.relative_url == relative_url))
+    if video is None:
+        video = Video(
+            lesson=lesson,
+            video_index=playlist_video.video_index,
+            title=playlist_video.title,
+            relative_url=relative_url,
+            full_url=playlist_video.full_url,
+            youtube_id=playlist_video.video_id,
+            duration_seconds=playlist_video.duration_seconds,
+            content_kind="YouTubeVideo",
+        )
+        db.add(video)
+    else:
+        video.lesson = lesson
+        video.video_index = playlist_video.video_index
+    video.khan_video_id = None
+    video.title = playlist_video.title
+    video.full_url = playlist_video.full_url
+    video.youtube_id = playlist_video.video_id
+    video.duration_seconds = playlist_video.duration_seconds
+    video.content_kind = "YouTubeVideo"
+    return video
+
+
+def _process_youtube_playlist_job(
+    db: Session,
+    job_id: str,
+    youtube_client: YouTubeCaptionClient | None,
+    youtube_playlist_client: YouTubePlaylistClient | None,
+) -> None:
+    if youtube_client is None:
+        youtube_client = YouTubeCaptionClient(_youtube_languages())
+    youtube_playlist_client = youtube_playlist_client or YouTubePlaylistClient()
+
+    job = db.get(ScrapeJob, job_id)
+    playlist_id = youtube_playlist_id_from_path(job.normalized_path)
+    job.current_step = "Fetching YouTube playlist"
+    db.commit()
+
+    playlist = youtube_playlist_client.fetch_playlist(playlist_id)
+    if settings.max_videos_per_job is not None:
+        playlist = YouTubePlaylistData(
+            playlist_id=playlist.playlist_id,
+            title=playlist.title,
+            source_url=playlist.source_url,
+            description=playlist.description,
+            videos=playlist.videos[: settings.max_videos_per_job],
+        )
+
+    job = db.get(ScrapeJob, job_id)
+    course, lesson = _upsert_youtube_playlist_course(db, playlist, job.category_id)
+    job.course = course
+    job.total_videos = len(playlist.videos)
+    job.current_step = "Processing YouTube captions"
+    add_event(db, job, f"Found {len(playlist.videos)} YouTube playlist videos")
+    db.commit()
+
+    for index, playlist_video in enumerate(playlist.videos, 1):
+        job = db.get(ScrapeJob, job_id)
+        if job.status == JobStatus.cancelled:
+            job.current_step = "Cancelled"
+            job.finished_at = now()
+            add_event(db, job, "Job cancelled", "warning")
+            db.commit()
+            return
+
+        try:
+            video = _upsert_youtube_playlist_video(
+                db,
+                lesson,
+                playlist.playlist_id,
+                playlist_video,
+            )
+            try:
+                youtube_transcript = youtube_client.fetch(playlist_video.video_id)
+                _replace_transcript(
+                    db,
+                    video,
+                    youtube_transcript.plain_text,
+                    youtube_transcript.segments,
+                    source="youtube_captions",
+                    language_code=youtube_transcript.language_code,
+                )
+                video.scrape_status = "completed"
+                video.scrape_error = None
+                add_event(db, job, f"Processed {playlist_video.title}")
+            except YouTubeCaptionUnavailable as exc:
+                video.scrape_status = "no_transcript"
+                video.scrape_error = f"YouTube captions unavailable: {exc}"
+                add_event(db, job, f"No captions for {playlist_video.title}", "warning")
+            job.processed_videos += 1
+        except Exception as exc:
+            logger.exception(
+                "YouTube playlist video processing failed: %s",
+                playlist_video.video_id,
+            )
+            video = _upsert_youtube_playlist_video(
+                db,
+                lesson,
+                playlist.playlist_id,
+                playlist_video,
+            )
+            video.scrape_status = "failed"
+            video.scrape_error = str(exc)
+            job.failed_videos += 1
+            add_event(
+                db,
+                job,
+                f"Failed {playlist_video.title}: {exc}",
+                "error",
+                {"youtube_id": playlist_video.video_id},
+            )
+
+        attempted = job.processed_videos + job.failed_videos
+        job.progress_percent = (
+            round(attempted * 100 / job.total_videos) if job.total_videos else 100
+        )
+        job.current_step = f"Processed {attempted} of {job.total_videos} videos"
+        db.commit()
+        if settings.request_delay_seconds and index < len(playlist.videos):
+            time.sleep(settings.request_delay_seconds)
+
+    job = db.get(ScrapeJob, job_id)
+    job.progress_percent = 100
+    job.finished_at = now()
+    job.status = (
+        JobStatus.completed_with_errors
+        if job.failed_videos
+        else JobStatus.completed
+    )
+    job.current_step = "Finished"
+    add_event(db, job, f"Job finished with status {job.status.value}")
+    db.commit()
 
 
 def process_job(
     job_id: str,
     client: KhanClient | None = None,
     youtube_client: YouTubeCaptionClient | None = None,
+    youtube_playlist_client: YouTubePlaylistClient | None = None,
 ) -> None:
-    client = client or KhanClient(settings.khan_country_code, settings.khan_cookie)
     if youtube_client is None and settings.youtube_fallback_enabled:
-        languages = [
-            language.strip()
-            for language in settings.youtube_languages.split(",")
-            if language.strip()
-        ]
-        youtube_client = YouTubeCaptionClient(languages)
+        youtube_client = YouTubeCaptionClient(_youtube_languages())
     db = SessionLocal()
     try:
         job = db.get(ScrapeJob, job_id)
@@ -195,6 +429,16 @@ def process_job(
         add_event(db, job, "Job started")
         db.commit()
 
+        if is_youtube_playlist_path(job.normalized_path):
+            _process_youtube_playlist_job(
+                db,
+                job_id,
+                youtube_client,
+                youtube_playlist_client,
+            )
+            return
+
+        client = client or KhanClient(settings.khan_country_code, settings.khan_cookie)
         response = client.fetch_course(job.normalized_path)
         payload = client.course_payload(response)
         candidates = client.video_candidates(response)
@@ -202,7 +446,7 @@ def process_job(
             candidates = candidates[: settings.max_videos_per_job]
 
         job = db.get(ScrapeJob, job_id)
-        course = _upsert_course(db, payload, job.normalized_path)
+        course = _upsert_course(db, payload, job.normalized_path, job.category_id)
         db.flush()
         lesson_map = _upsert_structure(db, course, payload)
         job.course = course

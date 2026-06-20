@@ -7,12 +7,25 @@ from app.models import JobStatus
 
 class JobCreate(BaseModel):
     url: str = Field(min_length=1, max_length=2048)
+    category_id: str = Field(min_length=1, max_length=36)
 
 
 class JobCreated(BaseModel):
     job_id: str
     status: JobStatus
     reused: bool = False
+
+
+class CategoryCreate(BaseModel):
+    name: str = Field(min_length=1, max_length=255)
+    description: str | None = Field(default=None, max_length=2000)
+
+
+class CategoryRead(BaseModel):
+    id: str
+    name: str
+    slug: str
+    description: str | None = None
 
 
 class JobRead(BaseModel):

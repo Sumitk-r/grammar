@@ -1,2 +1,1 @@
-"""Khan Academy transcript scraper web application."""
-
+"""Transcript scraper web application."""

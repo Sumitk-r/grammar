@@ -17,7 +17,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(
     title=settings.app_name,
     version="1.0.0",
-    description="Database-backed Khan Academy transcript scraper.",
+    description="Database-backed transcript scraper for Khan Academy courses and YouTube playlists.",
     lifespan=lifespan,
 )
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -28,4 +28,3 @@ app.include_router(web.router)
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
-

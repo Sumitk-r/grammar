@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from app.config import settings
 from app.database import get_db
-from app.models import Course, Lesson, ScrapeJob, Transcript, Unit, Video
+from app.models import Category, Course, Lesson, ScrapeJob, Transcript, Unit, Video
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -39,13 +39,31 @@ def home(request: Request, db: Session = Depends(get_db)):
     jobs = db.scalars(
         select(ScrapeJob).order_by(ScrapeJob.created_at.desc()).limit(10)
     ).all()
-    courses = db.scalars(
-        select(Course).order_by(Course.updated_at.desc()).limit(6)
+    categories = db.scalars(
+        select(Category)
+        .options(selectinload(Category.courses))
+        .order_by(Category.name)
     ).all()
+    category_groups = [
+        {
+            "category": category,
+            "courses": sorted(
+                category.courses,
+                key=lambda course: course.updated_at,
+                reverse=True,
+            ),
+        }
+        for category in categories
+        if category.courses
+    ]
     return templates.TemplateResponse(
         request,
         "home.html",
-        {"jobs": jobs, "courses": courses},
+        {
+            "jobs": jobs,
+            "categories": categories,
+            "category_groups": category_groups,
+        },
     )
 
 
@@ -67,6 +85,7 @@ def course_page(course_id: str, request: Request, db: Session = Depends(get_db))
         select(Course)
         .where(Course.id == course_id)
         .options(
+            selectinload(Course.category),
             selectinload(Course.units)
             .selectinload(Unit.lessons)
             .selectinload(Lesson.videos)

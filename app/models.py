@@ -37,6 +37,22 @@ class JobStatus(str, enum.Enum):
     completed_with_errors = "completed_with_errors"
 
 
+class Category(Base):
+    __tablename__ = "categories"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=uuid_string)
+    name: Mapped[str] = mapped_column(String(255), unique=True, index=True)
+    slug: Mapped[str] = mapped_column(String(255), unique=True, index=True)
+    description: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
+
+    courses: Mapped[list[Course]] = relationship(back_populates="category")
+    jobs: Mapped[list[ScrapeJob]] = relationship(back_populates="category")
+
+
 class ScrapeJob(Base):
     __tablename__ = "scrape_jobs"
 
@@ -52,11 +68,13 @@ class ScrapeJob(Base):
     processed_videos: Mapped[int] = mapped_column(Integer, default=0)
     failed_videos: Mapped[int] = mapped_column(Integer, default=0)
     error_message: Mapped[str | None] = mapped_column(Text)
+    category_id: Mapped[str | None] = mapped_column(ForeignKey("categories.id"), index=True)
     course_id: Mapped[str | None] = mapped_column(ForeignKey("courses.id"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
+    category: Mapped[Category | None] = relationship(back_populates="jobs")
     course: Mapped[Course | None] = relationship(back_populates="jobs")
     events: Mapped[list[JobEvent]] = relationship(
         back_populates="job", cascade="all, delete-orphan", order_by="JobEvent.created_at"
@@ -67,6 +85,7 @@ class Course(Base):
     __tablename__ = "courses"
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=uuid_string)
+    category_id: Mapped[str | None] = mapped_column(ForeignKey("categories.id"), index=True)
     khan_course_id: Mapped[str | None] = mapped_column(String(255))
     title: Mapped[str] = mapped_column(String(500))
     slug: Mapped[str] = mapped_column(String(255))
@@ -78,6 +97,7 @@ class Course(Base):
         DateTime(timezone=True), default=utcnow, onupdate=utcnow
     )
 
+    category: Mapped[Category | None] = relationship(back_populates="courses")
     units: Mapped[list[Unit]] = relationship(
         back_populates="course", cascade="all, delete-orphan", order_by="Unit.unit_index"
     )
@@ -174,6 +194,11 @@ class Transcript(Base):
         cascade="all, delete-orphan",
         order_by="TranscriptSegment.segment_index",
     )
+    embeddings: Mapped[list[TranscriptEmbedding]] = relationship(
+        back_populates="transcript",
+        cascade="all, delete-orphan",
+        order_by="TranscriptEmbedding.chunk_index",
+    )
 
 
 class TranscriptSegment(Base):
@@ -190,6 +215,22 @@ class TranscriptSegment(Base):
     transcript: Mapped[Transcript] = relationship(back_populates="segments")
 
 
+class TranscriptEmbedding(Base):
+    __tablename__ = "transcript_embeddings"
+    __table_args__ = (UniqueConstraint("transcript_id", "chunk_index"),)
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=uuid_string)
+    transcript_id: Mapped[str] = mapped_column(ForeignKey("transcripts.id"), index=True)
+    chunk_index: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    model: Mapped[str] = mapped_column(String(64))
+    dimensions: Mapped[int] = mapped_column(Integer)
+    vector: Mapped[list[float]] = mapped_column(JSON)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+    transcript: Mapped[Transcript] = relationship(back_populates="embeddings")
+
+
 class JobEvent(Base):
     __tablename__ = "job_events"
 
@@ -201,4 +242,3 @@ class JobEvent(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
     job: Mapped[ScrapeJob] = relationship(back_populates="events")
-

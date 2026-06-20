@@ -4,7 +4,8 @@ from sqlalchemy import func, select
 
 from app.database import SessionLocal
 from app.importer import import_transcript_csv
-from app.models import Course, Lesson, Transcript, Unit, Video
+from app.models import Course, Lesson, Transcript, TranscriptEmbedding, Unit, Video
+from app.services.embeddings import chunk_text
 
 
 def test_importer_is_idempotent():
@@ -15,6 +16,8 @@ def test_importer_is_idempotent():
         course_count = db.scalar(select(func.count(Course.id)))
         video_count = db.scalar(select(func.count(Video.id)))
         transcript_count = db.scalar(select(func.count(Transcript.id)))
+        transcript_text = db.scalar(select(Transcript.plain_text))
+        embedding_count = db.scalar(select(func.count(TranscriptEmbedding.id)))
 
     assert course.title == "Grammar"
     assert first_count == 1
@@ -22,6 +25,7 @@ def test_importer_is_idempotent():
     assert course_count == 1
     assert video_count == 1
     assert transcript_count == 1
+    assert embedding_count == len(chunk_text(transcript_text))
 
 
 def test_imported_course_is_browsable_and_exportable(client):
@@ -70,3 +74,4 @@ def test_course_can_be_deleted_from_api(client):
         assert db.scalar(select(func.count(Lesson.id))) == 0
         assert db.scalar(select(func.count(Video.id))) == 0
         assert db.scalar(select(func.count(Transcript.id))) == 0
+        assert db.scalar(select(func.count(TranscriptEmbedding.id))) == 0

@@ -2,10 +2,12 @@ from sqlalchemy import func, select
 
 from app.database import SessionLocal
 from app.models import (
+    Category,
     Course,
     JobStatus,
     ScrapeJob,
     Transcript,
+    TranscriptEmbedding,
     TranscriptSegment,
     Unit,
     Video,
@@ -14,6 +16,7 @@ from app.services.job_processor import process_job
 from app.services.khan_client import VideoCandidate
 from app.services.youtube_client import YouTubeCaptionResult
 from app.services.youtube_backfill import backfill_missing_youtube_captions
+from app.services.youtube_playlist_client import YouTubePlaylistData, YouTubePlaylistVideo
 
 
 class FakeKhanClient:
@@ -107,6 +110,33 @@ class FakeYouTubeClient:
         )
 
 
+class FakeMissingYouTubeClient:
+    def fetch(self, video_id):
+        from app.services.youtube_client import YouTubeCaptionUnavailable
+
+        raise YouTubeCaptionUnavailable("captions disabled")
+
+
+class FakeYouTubePlaylistClient:
+    def fetch_playlist(self, playlist_id):
+        assert playlist_id == "PL123"
+        return YouTubePlaylistData(
+            playlist_id="PL123",
+            title="Grammar playlist",
+            source_url="https://www.youtube.com/playlist?list=PL123",
+            description="A playlist for grammar.",
+            videos=[
+                YouTubePlaylistVideo(
+                    video_index=1,
+                    video_id="abc123",
+                    title="Playlist video",
+                    full_url="https://www.youtube.com/watch?v=abc123",
+                    duration_seconds=42,
+                )
+            ],
+        )
+
+
 def test_khan_subtitle_times_are_converted_from_milliseconds():
     from app.services.khan_client import KhanClient
 
@@ -129,13 +159,18 @@ def test_khan_subtitle_times_are_converted_from_milliseconds():
 
 def test_worker_processes_a_job_end_to_end():
     with SessionLocal() as db:
+        category = Category(name="Grammar", slug="grammar")
+        db.add(category)
+        db.flush()
         job = ScrapeJob(
             submitted_url="https://www.khanacademy.org/humanities/grammar",
             normalized_path="/humanities/grammar",
+            category=category,
         )
         db.add(job)
         db.commit()
         job_id = job.id
+        category_id = category.id
 
     process_job(job_id, client=FakeKhanClient())
 
@@ -146,10 +181,12 @@ def test_worker_processes_a_job_end_to_end():
         assert job.total_videos == 1
         assert job.processed_videos == 1
         assert db.scalar(select(func.count(Course.id))) == 1
+        assert db.scalar(select(Course.category_id)) == category_id
         assert db.scalar(select(func.count(Unit.id))) == 1
         assert db.scalar(select(func.count(Video.id))) == 1
         assert db.scalar(select(func.count(Transcript.id))) == 1
         assert db.scalar(select(func.count(TranscriptSegment.id))) == 1
+        assert db.scalar(select(func.count(TranscriptEmbedding.id))) == 1
 
 
 def test_worker_uses_youtube_when_khan_has_no_transcript():
@@ -174,6 +211,68 @@ def test_worker_uses_youtube_when_khan_has_no_transcript():
         assert video.transcript.plain_text == "A caption supplied by YouTube."
         assert video.transcript.source == "youtube_captions"
         assert video.transcript.segments[0].start_time_seconds == 1.5
+        assert video.transcript.embeddings[0].model == "local-hash-v1"
+        assert len(video.transcript.embeddings[0].vector) == 128
+
+
+def test_worker_processes_youtube_playlist_job():
+    with SessionLocal() as db:
+        job = ScrapeJob(
+            submitted_url="https://www.youtube.com/playlist?list=PL123",
+            normalized_path="youtube_playlist:PL123",
+        )
+        db.add(job)
+        db.commit()
+        job_id = job.id
+
+    process_job(
+        job_id,
+        youtube_client=FakeYouTubeClient(),
+        youtube_playlist_client=FakeYouTubePlaylistClient(),
+    )
+
+    with SessionLocal() as db:
+        job = db.get(ScrapeJob, job_id)
+        course = db.scalar(select(Course))
+        video = db.scalar(select(Video))
+
+        assert job.status == JobStatus.completed
+        assert job.progress_percent == 100
+        assert job.total_videos == 1
+        assert job.processed_videos == 1
+        assert course.relative_url == "youtube_playlist:PL123"
+        assert course.source_url == "https://www.youtube.com/playlist?list=PL123"
+        assert video.content_kind == "YouTubeVideo"
+        assert video.youtube_id == "abc123"
+        assert video.transcript.plain_text == "A caption supplied by YouTube."
+        assert video.transcript.source == "youtube_captions"
+        assert len(video.transcript.embeddings) == 1
+
+
+def test_worker_marks_youtube_playlist_video_no_transcript_when_caption_api_fails():
+    with SessionLocal() as db:
+        job = ScrapeJob(
+            submitted_url="https://www.youtube.com/playlist?list=PL123",
+            normalized_path="youtube_playlist:PL123",
+        )
+        db.add(job)
+        db.commit()
+        job_id = job.id
+
+    process_job(
+        job_id,
+        youtube_client=FakeMissingYouTubeClient(),
+        youtube_playlist_client=FakeYouTubePlaylistClient(),
+    )
+
+    with SessionLocal() as db:
+        job = db.get(ScrapeJob, job_id)
+        video = db.scalar(select(Video))
+
+        assert job.status == JobStatus.completed
+        assert video.scrape_status == "no_transcript"
+        assert video.transcript is None
+        assert db.scalar(select(func.count(TranscriptEmbedding.id))) == 0
 
 
 def test_youtube_backfill_updates_existing_missing_video():

@@ -1,17 +1,37 @@
 {% extends "base.html" %}
-{% block title %}Khan Transcript Library{% endblock %}
+{% block title %}Aveti Transcripts{% endblock %}
 {% block content %}
 <section class="hero">
-  <div class="eyebrow">Khan Academy transcript scraper</div>
-  <h1>Turn a course into a searchable transcript library.</h1>
-  <p class="hero-copy">Submit a Khan Academy course URL. The worker maps every unit, lesson, and video, then stores available subtitles in a structured database.</p>
-  <form id="job-form" class="submit-card">
-    <label for="course-url">Course URL</label>
+  <div class="eyebrow">Transcript scraper</div>
+  <h1>
+    <span id="hero-typed" aria-label="Turn courses and playlists into a searchable transcript library.">Turn courses and playlists into a searchable transcript library.</span>
+    <noscript>Turn courses and playlists into a searchable transcript library.</noscript>
+  </h1>
+  <p class="hero-copy">Submit a course or playlist URL. The worker maps the source, finds videos, and stores available transcript in a structured database.</p>
+  <form id="category-form" class="submit-card admin-card">
+    <label for="admin-key">Admin key</label>
+    <input id="admin-key" name="admin_key" type="password" required placeholder="Admin key" autocomplete="current-password" aria-describedby="category-message">
+    <label for="category-name">Create category</label>
     <div class="input-row">
-      <input id="course-url" name="url" type="url" required value="https://www.khanacademy.org/humanities/grammar" aria-describedby="form-message">
+      <input id="category-name" name="name" type="text" required placeholder="Example: Grammar, Science, Finance" aria-describedby="category-message">
+      <button type="submit">Add category</button>
+    </div>
+    <p id="category-message" class="form-message">Only an admin can create categories. Users can select existing categories while scraping.</p>
+  </form>
+  <form id="job-form" class="submit-card">
+    <label for="category-id">Category</label>
+    <select id="category-id" name="category_id" required>
+      <option value="">Select a category</option>
+      {% for category in categories %}
+      <option value="{{ category.id }}">{{ category.name }}</option>
+      {% endfor %}
+    </select>
+    <label for="course-url">Source URL</label>
+    <div class="input-row">
+      <input id="course-url" name="url" type="url" required placeholder="Paste a URL to scrape" aria-describedby="form-message">
       <button type="submit">Start scraping</button>
     </div>
-    <p id="form-message" class="form-message">A separate worker process handles the course in the background.</p>
+    <p id="form-message" class="form-message">A separate worker process handles the source in the background.</p>
   </form>
 </section>
 
@@ -19,22 +39,39 @@
   <div class="section-heading">
     <div>
       <div class="eyebrow">Library</div>
-      <h2>Available courses</h2>
+      <h2>Categories</h2>
     </div>
   </div>
-  {% if courses %}
-  <div class="course-grid">
-    {% for course in courses %}
-    <a class="course-card" href="/courses/{{ course.id }}">
-      <span class="course-index">{{ "%02d"|format(loop.index) }}</span>
-      <h3>{{ course.title }}</h3>
-      <p>{{ course.description or "Browse units, lessons, videos, and transcripts." }}</p>
-      <span class="text-link">Open course <span aria-hidden="true">→</span></span>
-    </a>
+  {% if category_groups %}
+  <div class="category-grid">
+    {% for group in category_groups %}
+    <section class="category-card">
+      <div class="category-card-header">
+        <span class="course-index">{{ "%02d"|format(loop.index) }}</span>
+        <span class="category-count">{{ group.courses|length }} source{{ "" if group.courses|length == 1 else "s" }}</span>
+      </div>
+      <h3>{{ group.category.name }}</h3>
+      {% if group.category.description %}
+      <p>{{ group.category.description }}</p>
+      {% else %}
+      <p>All courses and playlists saved under this category.</p>
+      {% endif %}
+      <div class="category-course-list">
+        {% for course in group.courses %}
+        <a class="category-course-row" href="/courses/{{ course.id }}">
+          <span>
+            <strong>{{ course.title }}</strong>
+            <small>{{ course.description or course.relative_url }}</small>
+          </span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
     {% endfor %}
   </div>
   {% else %}
-  <div class="empty-state">No courses are stored yet. Submit a URL above or import the included CSV.</div>
+  <div class="empty-state">No categorized courses are stored yet. Create a category, then submit a URL above.</div>
   {% endif %}
 </section>
 
@@ -48,7 +85,7 @@
   {% if jobs %}
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Course path</th><th>Status</th><th>Progress</th><th>Created</th></tr></thead>
+      <thead><tr><th>Source</th><th>Status</th><th>Progress</th><th>Created</th></tr></thead>
       <tbody>
       {% for job in jobs %}
         <tr>
@@ -67,9 +104,59 @@
 </section>
 {% endblock %}
 {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
+if (window.Typed) {
+  const heroTyped = document.getElementById("hero-typed");
+  heroTyped.textContent = "";
+  new Typed("#hero-typed", {
+    strings: ["Turn courses and playlists into a searchable transcript library."],
+    typeSpeed: 38,
+    startDelay: 250,
+    showCursor: true,
+    cursorChar: "|",
+    loop: false
+  });
+}
+
 const form = document.getElementById("job-form");
+const categoryForm = document.getElementById("category-form");
+const categorySelect = document.getElementById("category-id");
 const message = document.getElementById("form-message");
+const categoryMessage = document.getElementById("category-message");
+categoryForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const button = categoryForm.querySelector("button");
+  button.disabled = true;
+  button.textContent = "Adding...";
+  categoryMessage.className = "form-message";
+  try {
+    const formData = new FormData(categoryForm);
+    const response = await fetch("/api/categories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Admin-Key": formData.get("admin_key")
+      },
+      body: JSON.stringify({name: formData.get("name")})
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Unable to create category.");
+    const option = document.createElement("option");
+    option.value = data.id;
+    option.textContent = data.name;
+    option.selected = true;
+    categorySelect.appendChild(option);
+    categoryForm.reset();
+    categoryMessage.textContent = "Category created. It is selected for the next scrape.";
+  } catch (error) {
+    categoryMessage.textContent = error.message;
+    categoryMessage.className = "form-message error";
+  } finally {
+    button.disabled = false;
+    button.textContent = "Add category";
+  }
+});
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const button = form.querySelector("button");
@@ -77,10 +164,14 @@ form.addEventListener("submit", async (event) => {
   button.textContent = "Creating job...";
   message.className = "form-message";
   try {
+    const formData = new FormData(form);
     const response = await fetch("/api/jobs", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({url: form.url.value})
+      body: JSON.stringify({
+        url: formData.get("url"),
+        category_id: formData.get("category_id")
+      })
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.detail || "Unable to create job.");

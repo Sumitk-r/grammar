@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "Khan Transcript Library"
+    app_name: str = "Aveti Transcripts"
     database_url: str = "sqlite:///./grammar.db"
     khan_country_code: str = "US"
     khan_cookie: str | None = None
@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     youtube_fallback_enabled: bool = True
     youtube_languages: str = "en,en-IN,hi"
     display_timezone: str = "Asia/Kolkata"
+    admin_key: str = "admin"
 
     model_config = SettingsConfigDict(env_file=".env", env_prefix="", extra="ignore")
 
