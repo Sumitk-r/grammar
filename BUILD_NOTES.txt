@@ -1,0 +1,1047 @@
+AVETI TRANSCRIPTS - COMPLETE BUILD NOTES
+========================================
+
+Project location:
+C:\Users\27sum\Downloads\grammar
+
+Current app name:
+Aveti Transcripts
+
+Main purpose:
+This project turns Khan Academy courses and YouTube playlists into a searchable
+transcript library. A user can submit a source URL, the backend creates a
+background scrape job, the worker stores courses/playlists, videos, transcripts,
+timestamped segments, and transcript embeddings in a database, and the UI lets
+users browse, search, export, and read the transcript library.
+
+
+1. ORIGINAL MVP IDEA
+--------------------
+
+The MVP was built around the functional requirement:
+
+- Accept a Khan Academy course URL.
+- Scrape course structure.
+- Find units, lessons, and videos.
+- Fetch available transcripts/subtitles.
+- Store everything in a database.
+- Show progress through background jobs.
+- Provide a UI to browse courses and videos.
+- Provide a way to search transcripts.
+- Export data.
+
+During the build, the MVP expanded to also support:
+
+- YouTube playlist scraping.
+- Categories.
+- Admin-only category creation.
+- YouTube transcript fetching.
+- Transcript embeddings.
+- PostgreSQL and pgvector hybrid search.
+- Public VM deployment without Docker.
+
+
+2. TECHNOLOGY STACK
+-------------------
+
+Backend:
+- FastAPI
+- Uvicorn
+- SQLAlchemy ORM
+- Pydantic settings and schemas
+
+Database:
+- SQLite for easy local development by default.
+- PostgreSQL for production deployment.
+- Optional pgvector extension for vector search.
+
+Worker:
+- A separate Python worker process:
+  python -m app.worker
+
+Frontend:
+- Server-rendered Jinja templates.
+- CSS in app/static/app.css.
+- Small browser-side JavaScript for forms, search, delete, YouTube backfill,
+  and Typed.js hero text.
+
+Scraping/integration libraries:
+- Khan Academy GraphQL logic reused from the original scraper.
+- youtube-transcript-api for YouTube transcript attempts.
+- yt-dlp for playlist metadata and a fallback timed-text path.
+
+Deployment:
+- Ubuntu VM.
+- PostgreSQL installed directly on VM.
+- Python virtual environment.
+- systemd services for API and worker.
+- Nginx reverse proxy on port 80.
+
+
+3. MAIN FILES CREATED OR UPDATED
+--------------------------------
+
+Core app:
+- app/main.py
+  Creates the FastAPI app, mounts static files, includes API and web routes,
+  creates database tables on startup, and exposes /health.
+
+- app/config.py
+  Central settings for DATABASE_URL, Khan options, worker timing, YouTube
+  fallback, display timezone, and ADMIN_KEY.
+
+- app/database.py
+  SQLAlchemy engine/session setup. Creates tables. Adds schema compatibility
+  helpers for categories and pgvector. Creates default Uncategorized category.
+
+- app/models.py
+  Database models:
+  Category, ScrapeJob, JobEvent, Course, Unit, Lesson, Video, Transcript,
+  TranscriptSegment, TranscriptEmbedding.
+
+- app/schemas.py
+  Pydantic request/response schemas for jobs, categories, transcripts,
+  and segments.
+
+Routes:
+- app/routes/api.py
+  JSON API endpoints for categories, jobs, courses, videos, transcripts,
+  search, exports, deletion, cancellation, and YouTube backfill.
+
+- app/routes/web.py
+  Server-rendered UI pages for home, job detail, course detail, and video
+  transcript pages. Also formats dates in the configured display timezone.
+
+Templates:
+- app/templates/base.html
+  Base layout and navigation.
+
+- app/templates/home.html
+  Home page with hero text, admin category form, scrape form, category cards,
+  and recent jobs.
+
+- app/templates/course.html
+  Course/playlist page with metadata, exports, source link, delete button,
+  transcript search, unit navigation, lessons, and video rows.
+
+- app/templates/video.html
+  Video transcript page with full transcript, copy button, and timestamped
+  segments.
+
+- app/templates/job.html
+  Job status/progress/events page.
+
+Static:
+- app/static/app.css
+  All UI styling, responsive layout, cards, buttons, search results,
+  transcript page, badges, source chips, and mobile behavior.
+
+Services:
+- app/services/urls.py
+  Validates source URLs and detects whether the URL is Khan Academy or a
+  YouTube playlist.
+
+- app/services/khan_client.py
+  Khan Academy GraphQL client and transcript parser. Also handles subtitle
+  timestamps correctly.
+
+- app/services/youtube_playlist_client.py
+  Uses yt-dlp to read YouTube playlist metadata and create playlist video data.
+
+- app/services/youtube_client.py
+  Uses youtube-transcript-api and fallback timed-text fetching to obtain
+  available YouTube transcripts/captions.
+
+- app/services/job_processor.py
+  Main scrape job logic. Handles Khan jobs, YouTube playlist jobs, upserts
+  course structure, stores transcripts, records progress/events, and creates
+  embeddings.
+
+- app/services/youtube_backfill.py
+  Allows fetching missing YouTube transcripts for videos already stored in a
+  course.
+
+- app/services/embeddings.py
+  Chunks transcript text and creates local deterministic embeddings.
+
+- app/services/pgvector_search.py
+  PostgreSQL/pgvector helper logic. Syncs JSON embeddings into pgvector column,
+  backfills existing rows, checks pgvector availability, and runs hybrid search.
+
+Command line:
+- app/cli.py
+  CLI commands for importing CSV transcripts, repairing timestamps, and
+  backfilling YouTube transcripts.
+
+- app/worker.py
+  Polls queued jobs and processes them in the background.
+
+Tests:
+- tests/test_api.py
+- tests/test_importer.py
+- tests/test_pgvector_search.py
+- tests/test_urls.py
+- tests/test_web.py
+- tests/test_worker.py
+- tests/test_youtube_client.py
+
+Docs and setup:
+- README.md
+- requirements.txt
+- requirements-dev.txt
+- docker-compose.yml
+- Dockerfile
+- BUILD_NOTES.txt
+
+
+4. DATABASE DESIGN
+------------------
+
+The database stores the complete transcript library.
+
+categories:
+- id
+- name
+- slug
+- description
+- created_at
+- updated_at
+
+scrape_jobs:
+- submitted_url
+- normalized_path
+- status
+- current_step
+- progress_percent
+- total_videos
+- processed_videos
+- failed_videos
+- category_id
+- course_id
+- timestamps
+
+job_events:
+- job_id
+- level
+- message
+- metadata
+- created_at
+
+courses:
+- category_id
+- khan_course_id
+- title
+- slug
+- relative_url
+- source_url
+- description
+- timestamps
+
+units:
+- course_id
+- khan_unit_id
+- unit_index
+- title
+- slug
+- relative_url
+
+lessons:
+- unit_id
+- khan_lesson_id
+- lesson_index
+- title
+- slug
+- relative_url
+
+videos:
+- lesson_id
+- video_index
+- khan_video_id
+- title
+- readable_id
+- relative_url
+- full_url
+- youtube_id
+- duration_seconds
+- content_kind
+- scrape_status
+- scrape_error
+
+transcripts:
+- video_id
+- plain_text
+- language_code
+- source
+- created_at
+- updated_at
+
+transcript_segments:
+- transcript_id
+- segment_index
+- start_time_seconds
+- end_time_seconds
+- text
+
+transcript_embeddings:
+- transcript_id
+- chunk_index
+- text
+- model
+- dimensions
+- vector JSON
+- optional PostgreSQL pgvector column named embedding
+
+
+5. LOCAL SQLITE SUPPORT
+-----------------------
+
+SQLite remains the default:
+
+DATABASE_URL=sqlite:///./grammar.db
+
+Why SQLite was useful:
+- Quick local development.
+- No database installation required.
+- Easy to inspect using Python sqlite3.
+- Good for MVP and testing.
+
+Limitations:
+- SQLite does not support pgvector.
+- Hybrid search falls back to basic keyword search.
+
+
+6. POSTGRESQL SUPPORT
+---------------------
+
+PostgreSQL was added for production/local advanced use:
+
+Example:
+DATABASE_URL=postgresql+psycopg://grammar:grammar@127.0.0.1:5432/grammar
+
+Important:
+- POSTGRES_PASSWORD and DATABASE_URL password must match when using Docker.
+- On VM without Docker, the database user/password must match the .env file.
+- PostgreSQL is needed for pgvector hybrid search.
+
+We walked through:
+- Installing PostgreSQL.
+- Resetting the postgres password on Windows.
+- Creating grammar user/database.
+- Running the app with PostgreSQL locally.
+- Running the app with PostgreSQL on VM.
+
+
+7. PGVECTOR AND HYBRID SEARCH
+-----------------------------
+
+Hybrid search was added as an advanced search feature.
+
+Goal:
+Search should return videos/transcript chunks by meaning and relevance, not only
+exact word matching.
+
+Implementation:
+- Transcript text is split into chunks.
+- Each chunk gets an embedding and is stored in transcript_embeddings.
+- PostgreSQL full-text search is used for lexical relevance.
+- pgvector cosine similarity is used for vector similarity.
+- Results are combined into a hybrid score.
+
+Files:
+- app/services/embeddings.py
+- app/services/pgvector_search.py
+- app/routes/api.py
+- app/database.py
+- app/importer.py
+- app/services/job_processor.py
+- app/services/youtube_backfill.py
+
+Behavior:
+- If PostgreSQL has pgvector installed, /api/search uses hybrid search.
+- If pgvector is not installed, the app logs a warning and falls back to basic
+  keyword search.
+- SQLite always uses the fallback keyword search.
+
+Important caveat:
+The current embeddings are local deterministic MVP embeddings. They make the
+pgvector pipeline work, but true semantic quality would improve if replaced
+with real AI embeddings later.
+
+VM warning seen:
+extension "vector" is not available
+
+Meaning:
+The app is running, but pgvector is not installed on that PostgreSQL server.
+
+Install attempt:
+sudo apt install -y postgresql-16-pgvector
+
+If the package is not available, pgvector must be installed from the correct
+PostgreSQL package repository or built from source.
+
+
+8. KHAN ACADEMY SCRAPING
+------------------------
+
+Khan flow:
+
+User submits Khan URL
+-> app validates the URL
+-> scrape job is created
+-> worker fetches Khan course payload
+-> worker maps course, units, lessons, videos
+-> worker fetches each video content payload
+-> worker tries Khan transcript/subtitles
+-> if transcript exists, store transcript, timestamped segments, embeddings
+-> if transcript does not exist, mark video no_transcript
+
+Important fixes:
+- Khan Academy timestamps were in milliseconds in some responses.
+- The app originally treated them like seconds.
+- This caused incorrect UI times.
+- The fix converts millisecond values to seconds.
+
+Example:
+2000 ms becomes 2 seconds.
+60000 ms becomes 60 seconds, displayed as 01:00.
+
+
+9. YOUTUBE PLAYLIST SCRAPING
+----------------------------
+
+YouTube playlist support was added after the MVP.
+
+Goal:
+Allow URL like:
+https://www.youtube.com/playlist?list=...
+
+Flow:
+
+User submits YouTube playlist URL
+-> URL validator detects source_type youtube_playlist
+-> worker uses yt-dlp to read playlist metadata
+-> creates one course for the playlist
+-> creates one unit/lesson to hold playlist videos
+-> creates each video row
+-> tries to fetch transcript once
+-> stores transcript in database forever if successful
+-> marks no_transcript if it fails
+
+Important:
+The app does not download video files.
+It only attempts to fetch transcript/caption text.
+
+Files:
+- app/services/urls.py
+- app/services/youtube_playlist_client.py
+- app/services/youtube_client.py
+- app/services/job_processor.py
+
+
+10. YOUTUBE TRANSCRIPT HANDLING
+-------------------------------
+
+The user requested this strategy:
+
+Fetch transcript once
+-> store in database
+-> serve from database forever
+
+That is how the app is designed.
+
+The app attempts:
+- youtube-transcript-api first.
+- Available transcript list fallback.
+- yt-dlp/timed-text fallback.
+
+Why some videos still show no transcript:
+- YouTube may show "Show transcript" in a browser but block backend/server
+  requests.
+- Cloud IPs, including Azure VM IPs, can get HTTP 429 or blocked.
+- Some videos do not expose captions through the backend-accessible endpoint.
+- The UI transcript panel and backend transcript endpoint are not guaranteed
+  to behave identically.
+
+Safety:
+- Fetching captions/transcripts does not harm the device.
+- Public deployment risk is mostly reliability and terms/endpoint stability,
+  not device damage.
+
+faster-whisper fallback:
+- Admin-triggered audio transcription was implemented for YouTube-backed videos
+  that still have no transcript after the normal caption fetch attempts.
+- The video page shows a Generate transcript form when a missing-transcript
+  video has a YouTube ID.
+- Admin enters ADMIN_KEY and queues a background job.
+- The worker downloads audio with yt-dlp, extracts audio with ffmpeg, runs
+  faster-whisper locally, stores transcript text and timestamped segments, and
+  creates embeddings.
+- The generated transcript source is stored as whisper_generated.
+- All users then read/search the saved transcript from the database forever.
+- This is intentionally queued in the worker instead of running inside the web
+  request because transcription can be slow and CPU-heavy.
+
+
+11. CATEGORIES
+--------------
+
+Categories were added so courses/playlists can be grouped.
+
+Requirements implemented:
+- New categories table.
+- A course/playlist belongs to one category.
+- A scrape job stores selected category_id.
+- User must choose category before scraping.
+- Admin can create categories.
+- Only admin can create categories.
+
+Admin protection:
+- UI has an Admin key input.
+- API requires X-Admin-Key.
+- The key must match ADMIN_KEY in .env.
+
+Files:
+- app/models.py
+- app/schemas.py
+- app/routes/api.py
+- app/routes/web.py
+- app/templates/home.html
+- app/database.py
+
+Later category UI change:
+- Multiple playlists/courses under the same category now appear together in
+  one category component instead of separate boxes.
+
+Category deletion:
+- A delete-category feature was started/considered.
+- User asked to remove it.
+- The app now keeps only admin category creation, not category deletion.
+
+
+12. UI FEATURES
+---------------
+
+Home page:
+- App name: Aveti Transcripts.
+- Hero text:
+  Turn courses and playlists into a searchable transcript library.
+- Typed.js animation for hero title.
+- Admin category form.
+- Scrape source form.
+- Category selector.
+- Empty Source URL input with placeholder.
+- Global search across all categories, courses, and playlists.
+- Category cards.
+- Recent jobs table.
+
+Important UI fixes:
+- Removed default source URL:
+  https://www.khanacademy.org/humanities/grammar
+- Source URL field now starts empty.
+- Typed.js script changed to load non-blocking so forms work even if CDN is
+  slow.
+
+Course page:
+- Course title, description, category, unit count, video count, transcript count.
+- Export CSV.
+- Export JSON.
+- Fetch missing YouTube transcripts button when some videos lack transcripts.
+- Delete course button.
+- Source link.
+- Search transcripts input.
+- Unit navigation.
+- Video list with source chips.
+
+Source link fix:
+- Khan courses show:
+  View on Khan Academy
+- YouTube playlist courses show:
+  View on YouTube
+
+Video page:
+- Shows video title and metadata.
+- Shows transcript source:
+  Khan subtitles, YouTube transcript, or Imported transcript.
+- Copy transcript button.
+- Shows timestamped segments when available.
+- Shows no-transcript message when transcript is missing.
+
+
+13. SEARCH UI
+-------------
+
+Search is currently on each course/playlist page.
+
+Location:
+Course page left sidebar:
+Search transcripts
+
+Behavior:
+- User types query.
+- Browser calls /api/search?course_id=...&q=...
+- Backend returns matching videos/transcript chunks.
+- Results open the matching video page.
+
+Important clarification:
+- There is no separate "Hybrid Search" button.
+- The same Search transcripts box uses hybrid search automatically when the
+  backend has PostgreSQL + pgvector available.
+- On SQLite or missing pgvector, it falls back to keyword search.
+
+Dashboard search:
+- The home page includes global search across all categories, courses, and
+  playlists.
+- Results include video title, category, course, unit, lesson, transcript
+  source, and transcript excerpt.
+
+
+14. IMPORTER AND CSV DATA
+-------------------------
+
+The original 123 Khan Grammar transcript CSV can be imported.
+
+Command:
+python -m app.cli import-csv khan_grammar_transcripts.csv
+
+What importer does:
+- Creates/updates Grammar course.
+- Creates units, lessons, videos.
+- Stores transcript text.
+- Stores embeddings.
+- Syncs pgvector embeddings if pgvector is available.
+
+The user confirmed:
+Expected transcript count: 123
+
+
+15. EXPORTS
+-----------
+
+Course export endpoints:
+- /api/courses/{course_id}/export.csv
+- /api/courses/{course_id}/export.json
+
+Exports include course/video/transcript data including:
+- unit
+- lesson
+- video title
+- URLs
+- YouTube ID
+- transcript source
+- transcript text
+
+
+16. BACKGROUND JOBS
+-------------------
+
+Scraping is asynchronous.
+
+User submits source URL
+-> API creates scrape_jobs row
+-> worker picks queued job
+-> worker updates status/progress
+-> worker records job_events
+-> UI shows recent jobs and job page
+
+Statuses:
+- queued
+- running
+- completed
+- failed
+- cancelled
+- completed_with_errors
+
+Worker command:
+python -m app.worker
+
+API command:
+uvicorn app.main:app --reload
+
+
+17. DEPLOYMENT WITHOUT DOCKER
+-----------------------------
+
+The user decided not to use Docker for the scraper project.
+
+Recommended VM deployment:
+- Ubuntu VM
+- PostgreSQL installed directly
+- Python venv
+- systemd service for API
+- systemd service for worker
+- Nginx reverse proxy
+
+Example API service:
+
+[Unit]
+Description=Grammar FastAPI app
+After=network.target postgresql.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/grammar
+EnvironmentFile=/home/ubuntu/grammar/.env
+ExecStart=/home/ubuntu/grammar/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 9000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+Example worker service:
+
+[Unit]
+Description=Grammar transcript worker
+After=network.target postgresql.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/grammar
+EnvironmentFile=/home/ubuntu/grammar/.env
+ExecStart=/home/ubuntu/grammar/.venv/bin/python -m app.worker
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+Example Nginx config if API runs on internal port 9000:
+
+server {
+    listen 80;
+    server_name 20.219.139.254;
+
+    location / {
+        proxy_pass http://127.0.0.1:9000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+Public URL:
+http://20.219.139.254
+
+Important:
+- Public browser uses port 80.
+- Nginx forwards to local VM port 9000.
+- Users do not open 127.0.0.1 on their laptop to view the VM.
+
+
+18. DEPLOYMENT UPDATE PROCESS
+-----------------------------
+
+Because the app was already deployed once, later changes only need update
+deployment, not full setup.
+
+Local:
+- Commit/push changes to GitHub from VS Code.
+
+VM:
+cd ~/grammar
+git pull
+source .venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart grammar-api grammar-worker
+sudo systemctl restart nginx
+
+Checks:
+sudo systemctl status grammar-api
+sudo systemctl status grammar-worker
+curl http://127.0.0.1:9000/health
+curl http://20.219.139.254/health
+
+
+19. DEPLOYMENT ISSUES DEBUGGED
+------------------------------
+
+Docker/Podman issue:
+- Docker command was being emulated by Podman.
+- Port forwarding behaved incorrectly.
+- Container internal health worked, but host port timed out.
+- We decided to avoid Docker and use direct VM deployment.
+
+Port confusion:
+- Local dev UI was at:
+  http://127.0.0.1:8000
+- VM internal API was at:
+  http://127.0.0.1:9000
+- Public VM UI was:
+  http://20.219.139.254
+
+Nginx must match API service:
+- If service uses 9000, Nginx proxy_pass must use 9000.
+- If service uses 8000, Nginx proxy_pass must use 8000.
+
+Missing dependency:
+VM logs showed:
+ModuleNotFoundError: No module named 'yt_dlp'
+
+Fix:
+cd ~/grammar
+source .venv/bin/activate
+pip install -r requirements.txt
+sudo systemctl restart grammar-api grammar-worker
+
+Admin key issue:
+VM logs showed:
+POST /api/categories 401 Unauthorized
+
+Meaning:
+UI admin key did not match ADMIN_KEY in /home/ubuntu/grammar/.env.
+
+Fix:
+- Open .env on VM.
+- Copy only the value after ADMIN_KEY=.
+- Paste that exact value into UI Admin key box.
+- Do not paste ADMIN_KEY= itself.
+
+pgvector missing:
+VM logs showed:
+extension "vector" is not available
+
+Meaning:
+- App still runs.
+- Hybrid search falls back to keyword search.
+- Install pgvector on the PostgreSQL server for real pgvector search.
+
+
+20. IMPORTANT COMMANDS USED
+---------------------------
+
+Local start:
+.\.venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload
+python -m app.worker
+
+Import CSV:
+python -m app.cli import-csv khan_grammar_transcripts.csv
+
+Repair timestamps:
+python -m app.cli repair-timestamps
+
+Backfill YouTube:
+python -m app.cli backfill-youtube COURSE_ID
+
+Run tests:
+.\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+
+VM API health:
+curl http://127.0.0.1:9000/health
+
+Public health:
+curl http://20.219.139.254/health
+
+Service logs:
+sudo journalctl -u grammar-api -n 100 --no-pager
+sudo journalctl -u grammar-worker -n 100 --no-pager
+
+Restart services:
+sudo systemctl restart grammar-api grammar-worker
+sudo systemctl restart nginx
+
+Audio transcription host dependency:
+sudo apt install -y ffmpeg
+
+
+21. ENVIRONMENT VARIABLES
+-------------------------
+
+Important .env values:
+
+DATABASE_URL
+- SQLite local:
+  sqlite:///./grammar.db
+- PostgreSQL:
+  postgresql+psycopg://grammar:grammar@127.0.0.1:5432/grammar
+
+ADMIN_KEY
+- Required for creating categories.
+- UI sends this as X-Admin-Key.
+
+DISPLAY_TIMEZONE
+- Used for showing job created times in UI.
+- Example:
+  Asia/Kolkata
+
+YOUTUBE_FALLBACK_ENABLED
+- true/false.
+- If true, Khan jobs can try YouTube captions when Khan subtitles are missing.
+
+YOUTUBE_LANGUAGES
+- Preferred YouTube transcript languages.
+- Example:
+  en,en-IN,hi
+
+AUDIO_TRANSCRIPTION_ENABLED
+- Enables the admin-triggered faster-whisper fallback.
+- Example:
+  true
+
+AUDIO_TRANSCRIPTION_MAX_DURATION_SECONDS
+- Maximum video duration allowed for generated audio transcripts.
+- Default:
+  1800
+
+FASTER_WHISPER_MODEL
+- faster-whisper model name.
+- Recommended free VM default:
+  tiny
+
+FASTER_WHISPER_DEVICE
+- Recommended free VM default:
+  cpu
+
+FASTER_WHISPER_COMPUTE_TYPE
+- Recommended free VM default:
+  int8
+
+KHAN_COUNTRY_CODE
+- Used in Khan Academy GraphQL requests.
+
+KHAN_COOKIE
+- Optional server-side cookie value for Khan challenges.
+- Never accepted from public API.
+
+REQUEST_DELAY_SECONDS
+- Delay between video requests.
+
+WORKER_POLL_SECONDS
+- Worker sleep time when no job is queued.
+
+
+22. TESTING DONE
+----------------
+
+The current test suite passes:
+
+25 passed
+
+Coverage areas:
+- API job creation.
+- URL validation.
+- Web pages.
+- Worker processing.
+- Khan timestamp parsing.
+- YouTube transcript fallback logic.
+- CSV import.
+- Embedding storage.
+- pgvector helper fallback.
+- Course deletion cleanup.
+
+
+23. CURRENT LIMITATIONS
+-----------------------
+
+YouTube transcripts:
+- Some videos may show transcripts in the YouTube browser UI but still fail
+  from backend code.
+- This is usually due to YouTube blocking backend/cloud requests or changing
+  internal endpoints.
+
+pgvector:
+- Hybrid search works only when PostgreSQL has pgvector installed.
+- Without pgvector, app falls back to keyword search.
+
+Semantic quality:
+- Current embeddings are local deterministic MVP embeddings.
+- For stronger semantic search, replace the embedding function with a real
+  embedding model/API later.
+
+Global search:
+- Search works inside each course/playlist page.
+- Home-page global search works across all categories, courses, and playlists.
+
+Authentication:
+- Only category creation is admin-protected by ADMIN_KEY.
+- There is no full login/user system yet.
+
+HTTPS:
+- VM currently works on HTTP if only IP is used.
+- HTTPS needs a domain name plus TLS certificate setup.
+
+
+24. CURRENT USER FLOW
+---------------------
+
+Admin creates a category:
+1. Open app.
+2. Enter Admin key.
+3. Type category name.
+4. Click Add category.
+
+User starts scraping:
+1. Choose a category.
+2. Paste Khan course URL or YouTube playlist URL.
+3. Click Start scraping.
+4. Watch job page.
+5. Open created course/playlist.
+
+User searches:
+1. Open course/playlist page.
+2. Use Search transcripts on the left.
+3. Click result to open video transcript.
+
+User reads transcript:
+1. Open video page.
+2. Read full transcript.
+3. Copy transcript if needed.
+4. Expand timestamped segments if available.
+
+User exports:
+1. Open course/playlist page.
+2. Click Export CSV or Export JSON.
+
+
+25. SUMMARY OF MAJOR FEATURES BUILT
+-----------------------------------
+
+- FastAPI backend.
+- Server-rendered UI.
+- Database-backed storage.
+- SQLite local support.
+- PostgreSQL production support.
+- Background worker.
+- Job queue/progress/events.
+- Khan Academy course scraping.
+- Khan transcript storage.
+- Timestamped transcript segments.
+- Timestamp conversion fix.
+- CSV importer for existing Khan Grammar transcripts.
+- YouTube playlist scraping.
+- YouTube transcript/caption fetching.
+- Admin-triggered faster-whisper generated transcripts.
+- Fetch once, store forever design.
+- YouTube backfill button.
+- Categories.
+- Admin-only category creation.
+- Category grouping in UI.
+- Course deletion cleanup.
+- Transcript search.
+- Hybrid search with PostgreSQL full-text search plus pgvector.
+- Transcript embeddings.
+- CSV and JSON exports.
+- Typed.js hero animation.
+- Source URL input cleanup.
+- Correct YouTube/Khan source link labels.
+- VM deployment without Docker.
+- Nginx reverse proxy setup.
+- systemd API and worker services.
+- Troubleshooting for ports, dependencies, admin key, and pgvector.
+
+
+26. FINAL STATE
+---------------
+
+The app is a working transcript library system. It can run locally on
+http://127.0.0.1:8000 and can be deployed publicly on a VM through Nginx.
+
+For deployment updates:
+- Push local code to GitHub.
+- Pull on VM.
+- Install requirements.
+- Restart grammar-api and grammar-worker.
+- Restart Nginx.
+
+For full semantic search quality:
+- Install pgvector on PostgreSQL.
+- Later replace local deterministic embeddings with a real embedding model.

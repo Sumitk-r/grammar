@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ course.title }} · Aveti Transcripts{% endblock %}
+{% block title %}{{ course.title }} - Aveti Transcripts{% endblock %}
 {% block content %}
 <section class="course-hero">
-  <a class="back-link" href="/">← Back to dashboard</a>
+  <a class="back-link" href="/">&larr; Back to dashboard</a>
   <div class="eyebrow">Course library</div>
   <h1>{{ course.title }}</h1>
   <p>{{ course.description or "Browse the complete course structure and available transcripts." }}</p>
@@ -17,6 +17,9 @@
     {% if source_counts.get("youtube_captions") %}
     <span><strong>{{ source_counts["youtube_captions"] }}</strong> from YouTube</span>
     {% endif %}
+    {% if source_counts.get("whisper_generated") %}
+    <span><strong>{{ source_counts["whisper_generated"] }}</strong> generated</span>
+    {% endif %}
     {% if source_counts.get("csv_import") %}
     <span><strong>{{ source_counts["csv_import"] }}</strong> imported</span>
     {% endif %}
@@ -26,21 +29,38 @@
     <a class="button-secondary link-button" href="/api/courses/{{ course.id }}/export.json">Export JSON</a>
     {% if transcript_count < video_count %}
     <button id="youtube-backfill" class="button-secondary" type="button">Fetch missing YouTube transcripts</button>
+    <button id="generate-missing" class="button-secondary" type="button">Generate missing transcripts</button>
     {% endif %}
     {% if "youtube.com" in course.source_url or "youtu.be" in course.source_url %}
-    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on YouTube ↗</a>
+    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on YouTube</a>
     {% else %}
-    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on Khan Academy ↗</a>
+    <a class="text-link source-link" href="{{ course.source_url }}" target="_blank" rel="noreferrer">View on Khan Academy</a>
     {% endif %}
     <button id="delete-course" class="button-danger" type="button">Delete course</button>
   </div>
+  <input id="course-admin-key" class="inline-admin-key" type="password" placeholder="Admin key for generation or deletion" autocomplete="current-password">
   <p id="backfill-message" class="backfill-message" hidden></p>
 </section>
 
 <section class="browser-shell">
   <aside class="course-nav">
     <label for="course-search">Search transcripts</label>
-    <input id="course-search" type="search" placeholder="Try “pronoun” or “comma”">
+    <input id="course-search" type="search" placeholder="Try pronoun or comma">
+    <div class="course-search-filters">
+      <select id="course-search-source">
+        <option value="">All sources</option>
+        <option value="khan_subtitles">Khan subtitles</option>
+        <option value="youtube_captions">YouTube transcript</option>
+        <option value="whisper_generated">Generated transcript</option>
+        <option value="csv_import">Imported transcript</option>
+      </select>
+      <select id="course-search-status">
+        <option value="">All statuses</option>
+        <option value="completed">Completed</option>
+        <option value="no_transcript">No transcript</option>
+        <option value="failed">Failed</option>
+      </select>
+    </div>
     <div id="search-results" class="search-results" hidden></div>
     <nav id="unit-navigation">
       {% for unit in course.units %}
@@ -59,17 +79,19 @@
         <div class="video-list">
           {% for video in lesson.videos %}
           <a class="video-row" href="/videos/{{ video.id }}">
-            <span class="play-icon">▶</span>
+            <span class="play-icon">Play</span>
             <span class="video-copy">
               <strong>{{ video.title }}</strong>
               <small>
-                {% if video.duration_seconds %}{{ video.duration_seconds // 60 }}:{{ "%02d"|format(video.duration_seconds % 60) }} · {% endif %}
+                {% if video.duration_seconds %}{{ video.duration_seconds // 60 }}:{{ "%02d"|format(video.duration_seconds % 60) }} - {% endif %}
                 {{ video.scrape_status|replace("_", " ") }}
               </small>
             </span>
             {% if video.transcript %}
               {% if video.transcript.source == "youtube_captions" %}
               <span class="source-chip source-youtube">YouTube transcript</span>
+              {% elif video.transcript.source == "whisper_generated" %}
+              <span class="source-chip source-whisper">Generated transcript</span>
               {% elif video.transcript.source == "csv_import" %}
               <span class="source-chip source-import">Imported</span>
               {% else %}
@@ -78,7 +100,7 @@
             {% else %}
             <span class="source-chip source-none">No transcript</span>
             {% endif %}
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">&rarr;</span>
           </a>
           {% endfor %}
         </div>
@@ -93,30 +115,76 @@
 <script>
 const search = document.getElementById("course-search");
 const results = document.getElementById("search-results");
+const courseSearchSource = document.getElementById("course-search-source");
+const courseSearchStatus = document.getElementById("course-search-status");
 const backfillButton = document.getElementById("youtube-backfill");
 const deleteButton = document.getElementById("delete-course");
+const generateMissingButton = document.getElementById("generate-missing");
 const backfillMessage = document.getElementById("backfill-message");
 let timer;
+function courseAdminKey() {
+  return document.getElementById("course-admin-key")?.value || "";
+}
+function requireCourseAdminKey() {
+  const adminKey = courseAdminKey();
+  if (!adminKey) {
+    backfillMessage.hidden = false;
+    backfillMessage.textContent = "Enter admin key first.";
+    return null;
+  }
+  return adminKey;
+}
 backfillButton?.addEventListener("click", async () => {
+  const adminKey = requireCourseAdminKey();
+  if (!adminKey) return;
   backfillButton.disabled = true;
   backfillButton.textContent = "Fetching transcripts...";
   const response = await fetch("/api/courses/{{ course.id }}/youtube-backfill", {
-    method: "POST"
+    method: "POST",
+    headers: {"X-Admin-Key": adminKey}
   });
   const data = await response.json();
   backfillMessage.hidden = false;
-  backfillMessage.textContent = response.ok
-    ? "Transcript fetch started. Refresh this page in a few minutes to see the results."
-    : (data.detail || "Unable to start caption fetch.");
+  if (response.ok) {
+    backfillMessage.textContent = "Transcript fetch started. Refresh this page in a few minutes to see the results.";
+  } else {
+    backfillMessage.textContent = data.detail || "Unable to start caption fetch.";
+    backfillButton.disabled = false;
+    backfillButton.textContent = "Fetch missing YouTube transcripts";
+  }
+});
+generateMissingButton?.addEventListener("click", async () => {
+  const adminKey = requireCourseAdminKey();
+  if (!adminKey) return;
+  generateMissingButton.disabled = true;
+  generateMissingButton.textContent = "Queueing generation...";
+  const response = await fetch("/api/courses/{{ course.id }}/generate-missing-transcripts", {
+    method: "POST",
+    headers: {"X-Admin-Key": adminKey}
+  });
+  const data = await response.json();
+  backfillMessage.hidden = false;
+  if (response.ok) {
+    backfillMessage.textContent = `Queued ${data.queued} transcript jobs. Reused ${data.reused} active jobs.`;
+  } else {
+    backfillMessage.textContent = data.detail || "Unable to queue transcript generation.";
+    generateMissingButton.disabled = false;
+    generateMissingButton.textContent = "Generate missing transcripts";
+  }
 });
 deleteButton?.addEventListener("click", async () => {
+  const adminKey = requireCourseAdminKey();
+  if (!adminKey) return;
   const confirmed = window.confirm(
     "Delete this course and all related units, lessons, videos, transcripts, and jobs? This cannot be undone."
   );
   if (!confirmed) return;
   deleteButton.disabled = true;
   deleteButton.textContent = "Deleting...";
-  const response = await fetch("/api/courses/{{ course.id }}", {method: "DELETE"});
+  const response = await fetch("/api/courses/{{ course.id }}", {
+    method: "DELETE",
+    headers: {"X-Admin-Key": adminKey}
+  });
   const data = await response.json();
   if (response.ok) {
     window.location.href = "/";
@@ -127,26 +195,28 @@ deleteButton?.addEventListener("click", async () => {
     backfillMessage.textContent = data.detail || "Unable to delete course.";
   }
 });
-search.addEventListener("input", () => {
+function runCourseSearch() {
   clearTimeout(timer);
   const query = search.value.trim();
-  if (!query) {
+  const hasFilters = courseSearchSource.value || courseSearchStatus.value;
+  if (!query && !hasFilters) {
     results.hidden = true;
     results.innerHTML = "";
     return;
   }
   timer = setTimeout(async () => {
-    const response = await fetch(`/api/search?course_id={{ course.id }}&q=${encodeURIComponent(query)}&limit=30`);
+    const params = new URLSearchParams({course_id: "{{ course.id }}", q: query, limit: "50"});
+    if (courseSearchSource.value) params.set("transcript_source", courseSearchSource.value);
+    if (courseSearchStatus.value) params.set("scrape_status", courseSearchStatus.value);
+    const response = await fetch(`/api/search?${params.toString()}`);
     const items = await response.json();
     results.hidden = false;
-    results.innerHTML = items.length ? items.map(item => `
-      <a href="/videos/${item.video_id}">
-        <strong>${escapeHtml(item.video_title)}</strong>
-        <small>${escapeHtml(item.unit_title)} · ${escapeHtml(item.lesson_title)} · ${sourceLabel(item.transcript_source)}</small>
-        <p>${escapeHtml(item.excerpt)}</p>
-      </a>`).join("") : `<div class="empty-state small">No matching transcripts.</div>`;
+    results.innerHTML = renderGroupedResults(items);
   }, 250);
-});
+}
+search.addEventListener("input", runCourseSearch);
+courseSearchSource.addEventListener("change", runCourseSearch);
+courseSearchStatus.addEventListener("change", runCourseSearch);
 function escapeHtml(value) {
   const node = document.createElement("div");
   node.textContent = value || "";
@@ -154,9 +224,62 @@ function escapeHtml(value) {
 }
 function sourceLabel(source) {
   if (source === "youtube_captions") return "YouTube transcript";
+  if (source === "whisper_generated") return "Generated transcript";
   if (source === "csv_import") return "Imported transcript";
   if (source === "khan_subtitles") return "Khan subtitles";
   return "No transcript";
+}
+function searchModeLabel(mode) {
+  if (mode === "pgvector_hybrid") return "Hybrid search";
+  if (mode === "local_hybrid") return "Local hybrid search";
+  return "Text search";
+}
+function formatTimestamp(seconds) {
+  if (seconds === null || seconds === undefined) return "No timestamp";
+  const total = Math.max(0, Math.floor(seconds));
+  const minutes = Math.floor(total / 60);
+  const remainder = String(total % 60).padStart(2, "0");
+  return `${minutes}:${remainder}`;
+}
+function highlightedSnippet(value) {
+  return escapeHtml(value)
+    .replaceAll("&lt;mark&gt;", "<mark>")
+    .replaceAll("&lt;/mark&gt;", "</mark>");
+}
+function resultUrl(item) {
+  const params = new URLSearchParams();
+  if (item.start_time_seconds !== null && item.start_time_seconds !== undefined) {
+    params.set("t", Math.floor(item.start_time_seconds));
+  }
+  const suffix = params.toString() ? `?${params.toString()}` : "";
+  return `/videos/${item.video_id}${suffix}`;
+}
+function renderGroupedResults(items) {
+  if (!items.length) return `<div class="empty-state small">No matching transcripts.</div>`;
+  const groups = [];
+  const groupMap = new Map();
+  items.forEach((item) => {
+    if (!groupMap.has(item.video_id)) {
+      const group = {item, matches: []};
+      groupMap.set(item.video_id, group);
+      groups.push(group);
+    }
+    groupMap.get(item.video_id).matches.push(item);
+  });
+  return groups.map(({item, matches}) => `
+    <div class="search-result-group">
+      <a class="search-result-main" href="${resultUrl(item)}">
+        <strong>${escapeHtml(item.video_title)}</strong>
+        <small>${escapeHtml(item.unit_title)} | ${escapeHtml(item.lesson_title)} | ${sourceLabel(item.transcript_source)} | ${searchModeLabel(item.search_mode)} | score ${Number(item.relevance_score || 0).toFixed(2)}</small>
+      </a>
+      <div class="search-result-matches">
+        ${matches.slice(0, 4).map(match => `
+          <a href="${resultUrl(match)}">
+            <span class="timestamp-pill">${formatTimestamp(match.start_time_seconds)}</span>
+            <span>${highlightedSnippet(match.highlighted_snippet || match.excerpt)}</span>
+          </a>`).join("")}
+      </div>
+    </div>`).join("");
 }
 </script>
 {% endblock %}

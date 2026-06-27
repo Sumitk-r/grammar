@@ -13,6 +13,13 @@ class Settings(BaseSettings):
     max_videos_per_job: int | None = None
     youtube_fallback_enabled: bool = True
     youtube_languages: str = "en,en-IN,hi"
+    audio_transcription_enabled: bool = True
+    audio_transcription_max_duration_seconds: int = 1800
+    faster_whisper_model: str = "tiny"
+    faster_whisper_device: str = "cpu"
+    faster_whisper_compute_type: str = "int8"
+    embedding_dimensions: int = 128
+    pgvector_enabled: bool = False
     display_timezone: str = "Asia/Kolkata"
     admin_key: str = "admin"
 

@@ -1,8 +1,8 @@
 from collections.abc import Generator
 import logging
 
-from sqlalchemy import create_engine, inspect, select, text, update
-from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+from sqlalchemy import create_engine, inspect, or_, select, text, update
+from sqlalchemy.orm import DeclarativeBase, Session, selectinload, sessionmaker
 from sqlalchemy.pool import StaticPool
 
 from app.config import settings
@@ -34,6 +34,7 @@ def create_tables() -> None:
 
     Base.metadata.create_all(bind=engine)
     ensure_category_schema()
+    ensure_transcript_embedding_schema()
     ensure_pgvector_schema()
 
     with SessionLocal() as db:
@@ -56,7 +57,51 @@ def create_tables() -> None:
         )
         db.commit()
         try:
-            from app.services.pgvector_search import backfill_pgvector_embeddings
+            from app.models import Transcript, TranscriptEmbedding
+            from app.services.pgvector_search import (
+                backfill_pgvector_embeddings,
+                sync_pgvector_embeddings,
+            )
+            from app.services.transcript_chunks import transcript_chunk_rows
+
+            transcripts_to_rebuild = db.scalars(
+                select(Transcript)
+                .join(TranscriptEmbedding)
+                .where(
+                    or_(
+                        TranscriptEmbedding.video_id.is_(None),
+                        TranscriptEmbedding.chunk_metadata.is_(None),
+                    )
+                )
+                .options(
+                    selectinload(Transcript.video),
+                    selectinload(Transcript.segments),
+                    selectinload(Transcript.embeddings),
+                )
+                .distinct()
+            ).all()
+            for transcript in transcripts_to_rebuild:
+                segments = [
+                    {
+                        "segment_index": segment.segment_index,
+                        "start_time_seconds": segment.start_time_seconds,
+                        "end_time_seconds": segment.end_time_seconds,
+                        "text": segment.text,
+                    }
+                    for segment in transcript.segments
+                ]
+                transcript.embeddings.clear()
+                db.flush()
+                rebuilt_chunks = transcript_chunk_rows(
+                    transcript,
+                    transcript.video,
+                    transcript.plain_text,
+                    segments,
+                )
+                for chunk in rebuilt_chunks:
+                    transcript.embeddings.append(chunk)
+                db.flush()
+                sync_pgvector_embeddings(db, rebuilt_chunks)
 
             backfill_pgvector_embeddings(db)
             db.commit()
@@ -84,8 +129,82 @@ def ensure_category_schema() -> None:
             )
 
 
+def ensure_transcript_embedding_schema() -> None:
+    inspector = inspect(engine)
+    if "transcript_embeddings" not in inspector.get_table_names():
+        return
+
+    columns = {
+        column["name"]
+        for column in inspector.get_columns("transcript_embeddings")
+    }
+    column_types = {
+        "video_id": "VARCHAR(36)",
+        "video_title": "VARCHAR(500)",
+        "source_url": "TEXT",
+        "start_time_seconds": "DOUBLE PRECISION",
+        "end_time_seconds": "DOUBLE PRECISION",
+        "chunk_metadata": "JSON",
+    }
+    if engine.dialect.name == "sqlite":
+        column_types["start_time_seconds"] = "FLOAT"
+        column_types["end_time_seconds"] = "FLOAT"
+
+    with engine.begin() as connection:
+        for column_name, column_type in column_types.items():
+            if column_name not in columns:
+                connection.execute(
+                    text(
+                        "ALTER TABLE transcript_embeddings "
+                        f"ADD COLUMN {column_name} {column_type}"
+                    )
+                )
+
+        if engine.dialect.name == "postgresql":
+            connection.execute(
+                text(
+                    "UPDATE transcript_embeddings te "
+                    "SET video_id = v.id, "
+                    "video_title = v.title, "
+                    "source_url = v.full_url "
+                    "FROM transcripts t "
+                    "JOIN videos v ON v.id = t.video_id "
+                    "WHERE te.transcript_id = t.id "
+                    "AND te.video_id IS NULL"
+                )
+            )
+            connection.execute(
+                text(
+                    "CREATE INDEX IF NOT EXISTS ix_transcript_embeddings_video_id "
+                    "ON transcript_embeddings (video_id)"
+                )
+            )
+            connection.execute(
+                text(
+                    "ALTER TABLE transcript_embeddings "
+                    "ADD COLUMN IF NOT EXISTS search_vector tsvector"
+                )
+            )
+            connection.execute(
+                text(
+                    "UPDATE transcript_embeddings "
+                    "SET search_vector = to_tsvector("
+                    "'english', concat_ws(' ', video_title, text)"
+                    ") "
+                    "WHERE search_vector IS NULL"
+                )
+            )
+            connection.execute(
+                text(
+                    "CREATE INDEX IF NOT EXISTS "
+                    "ix_transcript_embeddings_search_vector_gin "
+                    "ON transcript_embeddings USING gin (search_vector)"
+                )
+            )
+
+
 def ensure_pgvector_schema() -> None:
-    if engine.dialect.name != "postgresql":
+    if engine.dialect.name != "postgresql" or not settings.pgvector_enabled:
         return
 
     try:
@@ -94,7 +213,7 @@ def ensure_pgvector_schema() -> None:
             connection.execute(
                 text(
                     "ALTER TABLE transcript_embeddings "
-                    "ADD COLUMN IF NOT EXISTS embedding vector(128)"
+                    f"ADD COLUMN IF NOT EXISTS embedding vector({settings.embedding_dimensions})"
                 )
             )
             connection.execute(

@@ -8,9 +8,12 @@ exporting transcripts from Khan Academy courses and YouTube playlists. It includ
 - Separate database-backed background worker
 - Idempotent course, unit, lesson, video, and transcript upserts
 - Job progress, event history, cancellation, and per-video failures
-- Hybrid transcript search and CSV/JSON exports
+- Hybrid transcript search, timestamped results, and CSV/JSON exports
+- Dashboard global search across all categories, courses, and playlists
+- Admin job dashboard with retry controls
 - Import support for the existing scraper CSV
 - YouTube playlist support using available manual or auto-generated captions
+- Admin-triggered faster-whisper audio transcription for YouTube videos without captions
 
 ## Quick Start
 
@@ -28,7 +31,13 @@ Import the included 123 Grammar transcripts:
 python -m app.cli import-csv khan_grammar_transcripts.csv
 ```
 
-Start the API and worker in separate terminals:
+On Windows, you can start both required processes together:
+
+```powershell
+.\run-local.ps1
+```
+
+Or start the API and worker in separate terminals:
 
 ```powershell
 uvicorn app.main:app --reload
@@ -49,8 +58,9 @@ DATABASE_URL=postgresql+psycopg://user:password@localhost/grammar
 ```
 
 Hybrid search uses PostgreSQL full-text search plus pgvector when PostgreSQL
-has the `vector` extension installed. SQLite automatically falls back to the
-basic keyword search used during local development.
+has the `vector` extension installed. When pgvector is not available, the app
+uses local hybrid search over stored JSON embeddings plus keyword/fuzzy ranking,
+so search remains useful in local development and on smaller VMs.
 
 ## Docker
 
@@ -78,6 +88,13 @@ Copy `.env.example` to `.env` and adjust values as needed.
 - `MAX_VIDEOS_PER_JOB`: optional cap useful during development
 - `YOUTUBE_FALLBACK_ENABLED`: try YouTube captions when Khan subtitles are absent
 - `YOUTUBE_LANGUAGES`: preferred YouTube caption language codes
+- `AUDIO_TRANSCRIPTION_ENABLED`: allow admin-triggered audio transcription jobs
+- `AUDIO_TRANSCRIPTION_MAX_DURATION_SECONDS`: max video length for audio transcription
+- `FASTER_WHISPER_MODEL`: faster-whisper model name, defaults to `tiny`
+- `FASTER_WHISPER_DEVICE`: faster-whisper device, defaults to `cpu`
+- `FASTER_WHISPER_COMPUTE_TYPE`: faster-whisper compute type, defaults to `int8`
+- `EMBEDDING_DIMENSIONS`: vector dimensions used for free local embeddings
+- `PGVECTOR_ENABLED`: set to `true` only after the Postgres pgvector extension is installed
 - `DISPLAY_TIMEZONE`: timezone used for timestamps in the web UI
 - `ADMIN_KEY`: admin key required to create categories
 
@@ -90,6 +107,23 @@ its internals. YouTube also frequently blocks cloud-provider IP addresses; a
 local worker is generally more reliable than an Azure-hosted worker for this
 caption fetching.
 
+When YouTube captions are unavailable, an admin can open the no-transcript video
+page and queue "Generate transcript". The worker downloads audio with `yt-dlp`,
+transcribes it with faster-whisper, stores the generated transcript and
+timestamps in the database, and all users then read the saved transcript. Install
+`ffmpeg` on the host before using this feature.
+
+Search results are grouped by video and include matching transcript timestamps.
+Opening a timestamped result jumps to the closest transcript segment on the
+video page.
+
+Production deployment helpers are in `deploy/`:
+
+- `deploy/grammar-api.service`
+- `deploy/grammar-worker.service`
+- `deploy/nginx-aveti.conf`
+- `.env.production.example`
+
 ## API
 
 Core endpoints:
@@ -98,10 +132,14 @@ Core endpoints:
 - `GET /api/jobs`
 - `GET /api/jobs/{job_id}`
 - `POST /api/jobs/{job_id}/cancel`
+- `POST /api/jobs/{job_id}/retry`
 - `GET /api/jobs/{job_id}/course`
 - `GET /api/courses/{course_id}`
 - `GET /api/search?course_id=...&q=...`
+- `GET /api/system/search-status`
 - `GET /api/videos/{video_id}/transcript`
+- `POST /api/videos/{video_id}/generate-transcript`
+- `POST /api/courses/{course_id}/generate-missing-transcripts`
 - `GET /api/courses/{course_id}/export.csv`
 - `GET /api/courses/{course_id}/export.json`
 

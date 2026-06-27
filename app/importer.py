@@ -16,17 +16,11 @@ from app.models import (
     Lesson,
     ScrapeJob,
     Transcript,
-    TranscriptEmbedding,
     Unit,
     Video,
 )
-from app.services.embeddings import (
-    EMBEDDING_DIMENSIONS,
-    EMBEDDING_MODEL,
-    chunk_text,
-    embed_text,
-)
 from app.services.pgvector_search import sync_pgvector_embeddings
+from app.services.transcript_chunks import transcript_chunk_rows
 
 
 def text_or_none(value: str | None) -> str | None:
@@ -162,16 +156,8 @@ def import_transcript_csv(
                     transcript.source = "csv_import"
                     transcript.embeddings.clear()
                 db.flush()
-                for chunk_index, chunk in enumerate(chunk_text(transcript_text)):
-                    transcript.embeddings.append(
-                        TranscriptEmbedding(
-                            chunk_index=chunk_index,
-                            text=chunk,
-                            model=EMBEDDING_MODEL,
-                            dimensions=EMBEDDING_DIMENSIONS,
-                            vector=embed_text(chunk),
-                        )
-                    )
+                for chunk in transcript_chunk_rows(transcript, video, transcript_text):
+                    transcript.embeddings.append(chunk)
                 db.flush()
                 sync_pgvector_embeddings(db, transcript.embeddings)
                 imported += 1

@@ -3,9 +3,11 @@ from __future__ import annotations
 import hashlib
 import math
 
+from app.config import settings
+
 
 EMBEDDING_MODEL = "local-hash-v1"
-EMBEDDING_DIMENSIONS = 128
+EMBEDDING_DIMENSIONS = settings.embedding_dimensions
 MAX_CHUNK_CHARACTERS = 1200
 
 

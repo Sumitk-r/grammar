@@ -17,19 +17,17 @@ from app.models import (
     Lesson,
     ScrapeJob,
     Transcript,
-    TranscriptEmbedding,
     TranscriptSegment,
     Unit,
     Video,
 )
-from app.services.embeddings import (
-    EMBEDDING_DIMENSIONS,
-    EMBEDDING_MODEL,
-    chunk_text,
-    embed_text,
+from app.services.audio_transcription import (
+    AudioTranscriptionUnavailable,
+    FasterWhisperTranscriber,
 )
 from app.services.khan_client import KhanClient, VideoCandidate, full_url
 from app.services.pgvector_search import sync_pgvector_embeddings
+from app.services.transcript_chunks import transcript_chunk_rows
 from app.services.urls import is_youtube_playlist_path, youtube_playlist_id_from_path
 from app.services.youtube_client import (
     YouTubeCaptionClient,
@@ -42,6 +40,7 @@ from app.services.youtube_playlist_client import (
 )
 
 logger = logging.getLogger(__name__)
+AUDIO_TRANSCRIPT_PREFIX = "audio_transcript:"
 
 
 def now() -> datetime:
@@ -190,16 +189,8 @@ def _replace_transcript(
     db.flush()
     for segment in segments:
         transcript.segments.append(TranscriptSegment(**segment))
-    for chunk_index, chunk in enumerate(chunk_text(plain_text)):
-        transcript.embeddings.append(
-            TranscriptEmbedding(
-                chunk_index=chunk_index,
-                text=chunk,
-                model=EMBEDDING_MODEL,
-                dimensions=EMBEDDING_DIMENSIONS,
-                vector=embed_text(chunk),
-            )
-        )
+    for chunk in transcript_chunk_rows(transcript, video, plain_text, segments):
+        transcript.embeddings.append(chunk)
     db.flush()
     sync_pgvector_embeddings(db, transcript.embeddings)
 
@@ -210,6 +201,18 @@ def _youtube_languages() -> list[str]:
         for language in settings.youtube_languages.split(",")
         if language.strip()
     ]
+
+
+def audio_transcript_path(video_id: str) -> str:
+    return f"{AUDIO_TRANSCRIPT_PREFIX}{video_id}"
+
+
+def is_audio_transcript_path(value: str) -> bool:
+    return value.startswith(AUDIO_TRANSCRIPT_PREFIX)
+
+
+def video_id_from_audio_transcript_path(value: str) -> str:
+    return value.removeprefix(AUDIO_TRANSCRIPT_PREFIX)
 
 
 def _upsert_youtube_playlist_course(
@@ -410,11 +413,100 @@ def _process_youtube_playlist_job(
     db.commit()
 
 
+def _process_audio_transcript_job(
+    db: Session,
+    job_id: str,
+    transcriber: FasterWhisperTranscriber | None = None,
+) -> None:
+    transcriber = transcriber or FasterWhisperTranscriber()
+
+    def update_progress(step: str, progress_percent: int) -> None:
+        progress_job = db.get(ScrapeJob, job_id)
+        if progress_job is None or progress_job.status != JobStatus.running:
+            return
+        progress_job.current_step = step
+        progress_job.progress_percent = max(
+            progress_job.progress_percent or 0,
+            progress_percent,
+        )
+        db.commit()
+
+    job = db.get(ScrapeJob, job_id)
+    video_id = video_id_from_audio_transcript_path(job.normalized_path)
+    video = db.get(Video, video_id)
+    if video is None:
+        raise AudioTranscriptionUnavailable("Video not found.")
+
+    unit = video.lesson.unit
+    job.course_id = unit.course_id
+    job.total_videos = 1
+    job.current_step = "Generating transcript from audio"
+    add_event(db, job, f"Audio transcription started for {video.title}")
+
+    if video.transcript is not None:
+        job.processed_videos = 1
+        job.progress_percent = 100
+        job.status = JobStatus.completed
+        job.current_step = "Transcript already exists"
+        job.finished_at = now()
+        add_event(db, job, "Skipped because the video already has a transcript")
+        db.commit()
+        return
+
+    if not video.youtube_id:
+        raise AudioTranscriptionUnavailable("Only YouTube-backed videos can be transcribed from audio.")
+
+    video.scrape_status = "transcribing"
+    video.scrape_error = None
+    db.commit()
+
+    try:
+        result = transcriber.transcribe_video(
+            f"https://www.youtube.com/watch?v={video.youtube_id}",
+            progress_callback=update_progress,
+        )
+    except Exception as exc:
+        job = db.get(ScrapeJob, job_id)
+        video = db.get(Video, video_id)
+        video.scrape_status = "no_transcript"
+        video.scrape_error = f"Audio transcription failed: {exc}"
+        job.failed_videos = 1
+        job.progress_percent = 100
+        job.status = JobStatus.failed
+        job.current_step = "Failed"
+        job.error_message = str(exc)
+        job.finished_at = now()
+        add_event(db, job, f"Audio transcription failed: {exc}", "error")
+        db.commit()
+        return
+
+    job = db.get(ScrapeJob, job_id)
+    video = db.get(Video, video_id)
+    _replace_transcript(
+        db,
+        video,
+        result.plain_text,
+        result.segments,
+        source="whisper_generated",
+        language_code=result.language_code,
+    )
+    video.scrape_status = "completed"
+    video.scrape_error = None
+    job.processed_videos = 1
+    job.progress_percent = 100
+    job.status = JobStatus.completed
+    job.current_step = "Finished"
+    job.finished_at = now()
+    add_event(db, job, f"Generated transcript for {video.title}")
+    db.commit()
+
+
 def process_job(
     job_id: str,
     client: KhanClient | None = None,
     youtube_client: YouTubeCaptionClient | None = None,
     youtube_playlist_client: YouTubePlaylistClient | None = None,
+    audio_transcriber: FasterWhisperTranscriber | None = None,
 ) -> None:
     if youtube_client is None and settings.youtube_fallback_enabled:
         youtube_client = YouTubeCaptionClient(_youtube_languages())
@@ -436,6 +528,10 @@ def process_job(
                 youtube_client,
                 youtube_playlist_client,
             )
+            return
+
+        if is_audio_transcript_path(job.normalized_path):
+            _process_audio_transcript_job(db, job_id, audio_transcriber)
             return
 
         client = client or KhanClient(settings.khan_country_code, settings.khan_cookie)

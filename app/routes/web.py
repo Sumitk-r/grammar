@@ -8,7 +8,8 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from app.config import settings
 from app.database import get_db
-from app.models import Category, Course, Lesson, ScrapeJob, Transcript, Unit, Video
+from app.models import Category, Course, JobStatus, Lesson, ScrapeJob, Transcript, Unit, Video
+from app.services.pgvector_search import pgvector_available
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -63,6 +64,29 @@ def home(request: Request, db: Session = Depends(get_db)):
             "jobs": jobs,
             "categories": categories,
             "category_groups": category_groups,
+            "search_status": {
+                "pgvector_enabled": pgvector_available(db),
+                "embedding_provider": "local_hash",
+            },
+        },
+    )
+
+
+@router.get("/admin/jobs", response_class=HTMLResponse)
+def admin_jobs_page(request: Request, db: Session = Depends(get_db)):
+    jobs = db.scalars(
+        select(ScrapeJob).order_by(ScrapeJob.created_at.desc()).limit(100)
+    ).all()
+    counts = dict(
+        db.execute(select(ScrapeJob.status, func.count(ScrapeJob.id)).group_by(ScrapeJob.status)).all()
+    )
+    return templates.TemplateResponse(
+        request,
+        "admin_jobs.html",
+        {
+            "jobs": jobs,
+            "counts": counts,
+            "statuses": list(JobStatus),
         },
     )
 

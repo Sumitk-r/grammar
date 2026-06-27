@@ -1,0 +1,14 @@
+[Unit]
+Description=Aveti Transcripts Worker
+After=network.target postgresql.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/grammar
+EnvironmentFile=/home/ubuntu/grammar/.env
+ExecStart=/home/ubuntu/grammar/.venv/bin/python -m app.worker
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

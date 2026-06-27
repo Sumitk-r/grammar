@@ -2,6 +2,7 @@ from pathlib import Path
 
 from sqlalchemy import func, select
 
+from app.config import settings
 from app.database import SessionLocal
 from app.importer import import_transcript_csv
 from app.models import Course, Lesson, Transcript, TranscriptEmbedding, Unit, Video
@@ -40,6 +41,10 @@ def test_imported_course_is_browsable_and_exportable(client):
         "/api/search",
         params={"course_id": course_id, "q": "grammar"},
     )
+    global_search = client.get(
+        "/api/search",
+        params={"q": "grammar"},
+    )
     transcript = client.get(f"/api/videos/{video_id}/transcript")
     csv_export = client.get(f"/api/courses/{course_id}/export.csv")
     json_export = client.get(f"/api/courses/{course_id}/export.json")
@@ -49,6 +54,9 @@ def test_imported_course_is_browsable_and_exportable(client):
     assert "Imported" in page.text
     assert search.status_code == 200
     assert search.json()[0]["video_title"] == "Introduction to grammar"
+    assert global_search.status_code == 200
+    assert global_search.json()[0]["course_title"] == "Grammar"
+    assert global_search.json()[0]["video_title"] == "Introduction to grammar"
     assert transcript.status_code == 200
     assert transcript.json()["plain_text"].startswith("- [Voiceover]")
     assert transcript.json()["source"] == "csv_import"
@@ -64,7 +72,13 @@ def test_course_can_be_deleted_from_api(client):
         course, _ = import_transcript_csv(db, path)
         course_id = course.id
 
-    response = client.delete(f"/api/courses/{course_id}")
+    unauthorized = client.delete(f"/api/courses/{course_id}")
+    assert unauthorized.status_code == 401
+
+    response = client.delete(
+        f"/api/courses/{course_id}",
+        headers={"X-Admin-Key": settings.admin_key},
+    )
 
     assert response.status_code == 200
     assert response.json()["status"] == "deleted"

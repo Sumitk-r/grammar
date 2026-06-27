@@ -13,6 +13,8 @@ from app.models import (
     Video,
 )
 from app.services.job_processor import process_job
+from app.services.audio_transcription import AudioTranscriptionResult
+from app.services.job_processor import audio_transcript_path
 from app.services.khan_client import VideoCandidate
 from app.services.youtube_client import YouTubeCaptionResult
 from app.services.youtube_backfill import backfill_missing_youtube_captions
@@ -133,6 +135,26 @@ class FakeYouTubePlaylistClient:
                     full_url="https://www.youtube.com/watch?v=abc123",
                     duration_seconds=42,
                 )
+            ],
+        )
+
+
+class FakeAudioTranscriber:
+    def transcribe_video(self, video_url, progress_callback=None):
+        assert video_url == "https://www.youtube.com/watch?v=abc123"
+        if progress_callback is not None:
+            progress_callback("Downloading source audio", 20)
+            progress_callback("Transcribing audio", 75)
+        return AudioTranscriptionResult(
+            plain_text="Generated from audio.",
+            language_code="en",
+            segments=[
+                {
+                    "segment_index": 0,
+                    "start_time_seconds": 0.0,
+                    "end_time_seconds": 2.5,
+                    "text": "Generated from audio.",
+                }
             ],
         )
 
@@ -311,3 +333,51 @@ def test_youtube_backfill_updates_existing_missing_video():
         video = db.scalar(select(Video))
         assert video.scrape_status == "completed"
         assert video.transcript.source == "youtube_captions"
+
+
+def test_worker_generates_audio_transcript_for_missing_youtube_video():
+    with SessionLocal() as db:
+        course = Course(
+            title="Playlist",
+            slug="playlist",
+            relative_url="youtube_playlist:PL123",
+            source_url="https://www.youtube.com/playlist?list=PL123",
+        )
+        unit = Unit(course=course, unit_index=1, title="YouTube playlist")
+        from app.models import Lesson
+
+        lesson = Lesson(unit=unit, lesson_index=1, title="Videos")
+        video = Video(
+            lesson=lesson,
+            video_index=1,
+            title="Missing transcript video",
+            relative_url="youtube:playlist:PL123:video:abc123",
+            full_url="https://www.youtube.com/watch?v=abc123",
+            youtube_id="abc123",
+            content_kind="YouTubeVideo",
+            scrape_status="no_transcript",
+        )
+        db.add(course)
+        db.flush()
+        job = ScrapeJob(
+            submitted_url=video.full_url,
+            normalized_path=audio_transcript_path(video.id),
+            course_id=course.id,
+            total_videos=1,
+        )
+        db.add(job)
+        db.commit()
+        job_id = job.id
+
+    process_job(job_id, audio_transcriber=FakeAudioTranscriber())
+
+    with SessionLocal() as db:
+        job = db.get(ScrapeJob, job_id)
+        video = db.scalar(select(Video))
+        assert job.status == JobStatus.completed
+        assert job.progress_percent == 100
+        assert video.scrape_status == "completed"
+        assert video.transcript.source == "whisper_generated"
+        assert video.transcript.plain_text == "Generated from audio."
+        assert video.transcript.segments[0].end_time_seconds == 2.5
+        assert len(video.transcript.embeddings) == 1

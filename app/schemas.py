@@ -7,7 +7,7 @@ from app.models import JobStatus
 
 class JobCreate(BaseModel):
     url: str = Field(min_length=1, max_length=2048)
-    category_id: str = Field(min_length=1, max_length=36)
+    category_id: str | None = Field(default=None, min_length=1, max_length=36)
 
 
 class JobCreated(BaseModel):

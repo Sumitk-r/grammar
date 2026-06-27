@@ -1,0 +1,14 @@
+[Unit]
+Description=Aveti Transcripts API
+After=network.target postgresql.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/grammar
+EnvironmentFile=/home/ubuntu/grammar/.env
+ExecStart=/home/ubuntu/grammar/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 9000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -7,14 +7,9 @@ from sqlalchemy.orm import selectinload
 
 from app.config import settings
 from app.database import SessionLocal
-from app.models import Lesson, Transcript, TranscriptEmbedding, TranscriptSegment, Unit, Video
-from app.services.embeddings import (
-    EMBEDDING_DIMENSIONS,
-    EMBEDDING_MODEL,
-    chunk_text,
-    embed_text,
-)
+from app.models import Lesson, Transcript, TranscriptSegment, Unit, Video
 from app.services.pgvector_search import sync_pgvector_embeddings
+from app.services.transcript_chunks import transcript_chunk_rows
 from app.services.youtube_client import (
     YouTubeCaptionClient,
     YouTubeCaptionUnavailable,
@@ -35,16 +30,8 @@ def _store_youtube_transcript(db, video, result) -> None:
     db.flush()
     for segment in result.segments:
         transcript.segments.append(TranscriptSegment(**segment))
-    for chunk_index, chunk in enumerate(chunk_text(result.plain_text)):
-        transcript.embeddings.append(
-            TranscriptEmbedding(
-                chunk_index=chunk_index,
-                text=chunk,
-                model=EMBEDDING_MODEL,
-                dimensions=EMBEDDING_DIMENSIONS,
-                vector=embed_text(chunk),
-            )
-        )
+    for chunk in transcript_chunk_rows(transcript, video, result.plain_text, result.segments):
+        transcript.embeddings.append(chunk)
     db.flush()
     sync_pgvector_embeddings(db, transcript.embeddings)
 

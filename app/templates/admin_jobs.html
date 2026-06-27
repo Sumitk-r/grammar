@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Admin jobs - Aveti Transcripts{% endblock %}
+{% block content %}
+<section class="page-shell">
+  <a class="back-link" href="/">&larr; Back to dashboard</a>
+  <div class="page-title-row">
+    <div>
+      <div class="eyebrow">Admin</div>
+      <h1>Job dashboard</h1>
+      <p class="muted">Review, retry, and monitor scraper/transcript jobs from one place.</p>
+    </div>
+  </div>
+
+  <div class="admin-toolbar">
+    <input id="admin-key-jobs" type="password" placeholder="Admin key for retry actions" autocomplete="current-password">
+  </div>
+
+  <div class="status-grid">
+    {% for status in statuses %}
+    <div class="status-card">
+      <span>{{ status.value|replace("_", " ") }}</span>
+      <strong>{{ counts.get(status, 0) }}</strong>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Status</th><th>Step</th><th>Progress</th><th>Created</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+      {% for job in jobs %}
+        <tr>
+          <td><a href="/jobs/{{ job.id }}">{{ job.submitted_url }}</a></td>
+          <td><span class="badge badge-{{ job.status.value }}">{{ job.status.value|replace("_", " ") }}</span></td>
+          <td>{{ job.current_step }}</td>
+          <td>{{ job.progress_percent }}%</td>
+          <td>{{ job.created_at|local_datetime }}</td>
+          <td>
+            {% if job.status.value not in ["queued", "running"] %}
+            <button class="button-secondary retry-job" type="button" data-job-id="{{ job.id }}">Retry</button>
+            {% else %}
+            <span class="muted">Active</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p id="admin-jobs-message" class="form-message"></p>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const adminJobsMessage = document.getElementById("admin-jobs-message");
+document.querySelectorAll(".retry-job").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const adminKey = document.getElementById("admin-key-jobs").value;
+    if (!adminKey) {
+      adminJobsMessage.textContent = "Enter admin key first.";
+      adminJobsMessage.className = "form-message error";
+      return;
+    }
+    button.disabled = true;
+    button.textContent = "Retrying...";
+    const response = await fetch(`/api/jobs/${button.dataset.jobId}/retry`, {
+      method: "POST",
+      headers: {"X-Admin-Key": adminKey}
+    });
+    const data = await response.json();
+    if (response.ok) {
+      adminJobsMessage.textContent = "Job queued again. Worker will pick it up.";
+      adminJobsMessage.className = "form-message";
+      setTimeout(() => window.location.reload(), 700);
+    } else {
+      adminJobsMessage.textContent = data.detail || "Unable to retry job.";
+      adminJobsMessage.className = "form-message error";
+      button.disabled = false;
+      button.textContent = "Retry";
+    }
+  });
+});
+</script>
+{% endblock %}

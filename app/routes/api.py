@@ -5,6 +5,8 @@ import hmac
 import io
 import json
 import re
+import subprocess
+import sys
 from typing import Any
 
 from fastapi import APIRouter, BackgroundTasks, Depends, Header, HTTPException, Query, status
@@ -28,7 +30,9 @@ from app.models import (
     Video,
 )
 from app.schemas import CategoryCreate, CategoryRead, JobCreate, JobCreated, TranscriptRead
-from app.services.pgvector_search import hybrid_search_transcripts
+from app.services.embeddings import EMBEDDING_MODEL
+from app.services.job_processor import audio_transcript_path
+from app.services.pgvector_search import hybrid_search_transcripts, pgvector_available
 from app.services.urls import InvalidCourseUrl, validate_course_url
 from app.services.youtube_backfill import backfill_missing_youtube_captions
 
@@ -81,6 +85,46 @@ def require_admin(x_admin_key: str | None = Header(default=None)) -> None:
         raise HTTPException(status_code=401, detail="Admin key is required.")
 
 
+def queue_audio_transcript_job(db: Session, video: Video) -> tuple[ScrapeJob, bool]:
+    normalized_path = audio_transcript_path(video.id)
+    active = db.scalar(
+        select(ScrapeJob)
+        .where(
+            ScrapeJob.normalized_path == normalized_path,
+            ScrapeJob.status.in_([JobStatus.queued, JobStatus.running]),
+        )
+        .order_by(ScrapeJob.created_at.desc())
+    )
+    if active:
+        return active, True
+
+    job = ScrapeJob(
+        submitted_url=video.full_url,
+        normalized_path=normalized_path,
+        course_id=video.lesson.unit.course_id,
+        total_videos=1,
+        current_step="Waiting for worker",
+    )
+    video.scrape_status = "queued_transcription"
+    video.scrape_error = None
+    db.add(job)
+    return job, False
+
+
+def ytdlp_version() -> str | None:
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "yt_dlp", "--version"],
+            capture_output=True,
+            check=True,
+            text=True,
+            timeout=10,
+        )
+    except Exception:
+        return None
+    return result.stdout.strip() or None
+
+
 @router.get("/categories", response_model=list[CategoryRead])
 def list_categories(db: Session = Depends(get_db)) -> list[dict[str, Any]]:
     categories = db.scalars(select(Category).order_by(Category.name)).all()
@@ -116,9 +160,11 @@ def create_category(
 
 @router.post("/jobs", response_model=JobCreated, status_code=status.HTTP_201_CREATED)
 def create_job(payload: JobCreate, db: Session = Depends(get_db)) -> JobCreated:
-    category = db.get(Category, payload.category_id)
-    if category is None:
-        raise HTTPException(status_code=404, detail="Category not found.")
+    category = None
+    if payload.category_id:
+        category = db.get(Category, payload.category_id)
+        if category is None:
+            raise HTTPException(status_code=404, detail="Category not found.")
 
     try:
         course_url = validate_course_url(payload.url)
@@ -188,6 +234,29 @@ def cancel_job(job_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
     return job_dict(job)
 
 
+@router.post("/jobs/{job_id}/retry")
+def retry_job(
+    job_id: str,
+    _: None = Depends(require_admin),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
+    job = get_or_404(db, ScrapeJob, job_id)
+    if job.status in {JobStatus.queued, JobStatus.running}:
+        raise HTTPException(status_code=409, detail="This job is already active.")
+    job.status = JobStatus.queued
+    job.current_step = "Waiting for worker"
+    job.progress_percent = 0
+    job.processed_videos = 0
+    job.failed_videos = 0
+    job.error_message = None
+    job.started_at = None
+    job.finished_at = None
+    add_event = JobEvent(job=job, message="Job manually queued for retry")
+    db.add(add_event)
+    db.commit()
+    return job_dict(job)
+
+
 @router.get("/jobs/{job_id}/course")
 def get_job_course(job_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
     job = get_or_404(db, ScrapeJob, job_id)
@@ -232,7 +301,11 @@ def get_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
 
 
 @router.delete("/courses/{course_id}")
-def delete_course(course_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+def delete_course(
+    course_id: str,
+    _: None = Depends(require_admin),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
     course = get_or_404(db, Course, course_id)
     active_job = db.scalar(
         select(ScrapeJob.id).where(
@@ -321,6 +394,7 @@ def get_course_units(course_id: str, db: Session = Depends(get_db)) -> list[dict
 def start_youtube_backfill(
     course_id: str,
     background_tasks: BackgroundTasks,
+    _: None = Depends(require_admin),
     db: Session = Depends(get_db),
 ) -> dict[str, str]:
     get_or_404(db, Course, course_id)
@@ -328,6 +402,84 @@ def start_youtube_backfill(
     return {
         "status": "started",
         "message": "Fetching missing YouTube transcripts in the background.",
+    }
+
+
+@router.post("/courses/{course_id}/generate-missing-transcripts", status_code=202)
+def generate_missing_transcripts(
+    course_id: str,
+    _: None = Depends(require_admin),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
+    get_or_404(db, Course, course_id)
+    videos = db.scalars(
+        select(Video)
+        .join(Lesson)
+        .join(Unit)
+        .where(
+            Unit.course_id == course_id,
+            Video.youtube_id.is_not(None),
+            Video.transcript == None,  # noqa: E711
+        )
+        .options(selectinload(Video.lesson).selectinload(Lesson.unit))
+        .order_by(Unit.unit_index, Lesson.lesson_index, Video.video_index)
+    ).all()
+    queued = 0
+    reused = 0
+    for video in videos:
+        _, was_reused = queue_audio_transcript_job(db, video)
+        if was_reused:
+            reused += 1
+        else:
+            queued += 1
+    db.commit()
+    return {
+        "status": "queued",
+        "queued": queued,
+        "reused": reused,
+        "eligible_videos": len(videos),
+    }
+
+
+@router.post("/videos/{video_id}/generate-transcript", status_code=status.HTTP_202_ACCEPTED)
+def generate_video_transcript(
+    video_id: str,
+    _: None = Depends(require_admin),
+    db: Session = Depends(get_db),
+) -> dict[str, Any]:
+    if not settings.audio_transcription_enabled:
+        raise HTTPException(status_code=503, detail="Audio transcription is disabled.")
+
+    video = db.scalar(
+        select(Video)
+        .where(Video.id == video_id)
+        .options(
+            selectinload(Video.transcript),
+            selectinload(Video.lesson).selectinload(Lesson.unit),
+        )
+    )
+    if video is None:
+        raise HTTPException(status_code=404, detail="Video not found")
+    if video.transcript is not None:
+        raise HTTPException(status_code=409, detail="This video already has a transcript.")
+    if not video.youtube_id:
+        raise HTTPException(
+            status_code=400,
+            detail="Only YouTube-backed videos can be transcribed from audio.",
+        )
+
+    job, reused = queue_audio_transcript_job(db, video)
+    db.commit()
+    db.refresh(job)
+    return {
+        "status": job.status.value,
+        "job_id": job.id,
+        "reused": reused,
+        "message": (
+            "Transcript generation is already queued or running."
+            if reused
+            else "Transcript generation queued."
+        ),
     }
 
 
@@ -411,38 +563,53 @@ def get_transcript(video_id: str, db: Session = Depends(get_db)) -> TranscriptRe
 
 @router.get("/search")
 def search_transcripts(
-    course_id: str,
+    course_id: str | None = None,
+    category_id: str | None = None,
     q: str = Query("", max_length=200),
     unit_id: str | None = None,
     lesson_id: str | None = None,
+    transcript_source: str | None = None,
+    scrape_status: str | None = None,
     failed_only: bool = False,
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
-    get_or_404(db, Course, course_id)
+    if course_id:
+        get_or_404(db, Course, course_id)
+    if category_id:
+        get_or_404(db, Category, category_id)
     if q.strip() and not failed_only:
         hybrid_results = hybrid_search_transcripts(
             db,
             course_id=course_id,
+            category_id=category_id,
             query=q.strip(),
             unit_id=unit_id,
             lesson_id=lesson_id,
+            transcript_source=transcript_source,
             limit=limit,
         )
-        if hybrid_results is not None:
+        if hybrid_results is not None and not scrape_status:
             return hybrid_results
 
     query = (
-        select(Video, Lesson, Unit, Transcript)
+        select(Video, Lesson, Unit, Course, Category, Transcript)
         .join(Lesson, Video.lesson_id == Lesson.id)
         .join(Unit, Lesson.unit_id == Unit.id)
+        .join(Course, Unit.course_id == Course.id)
+        .outerjoin(Category, Course.category_id == Category.id)
         .outerjoin(Transcript, Transcript.video_id == Video.id)
-        .where(Unit.course_id == course_id)
     )
+    if course_id:
+        query = query.where(Unit.course_id == course_id)
+    if category_id:
+        query = query.where(Course.category_id == category_id)
     if q.strip():
         pattern = f"%{q.strip()}%"
         query = query.where(
             or_(
+                Course.title.ilike(pattern),
+                Category.name.ilike(pattern),
                 Video.title.ilike(pattern),
                 Lesson.title.ilike(pattern),
                 Unit.title.ilike(pattern),
@@ -453,16 +620,29 @@ def search_transcripts(
         query = query.where(Unit.id == unit_id)
     if lesson_id:
         query = query.where(Lesson.id == lesson_id)
+    if transcript_source:
+        query = query.where(Transcript.source == transcript_source)
+    if scrape_status:
+        query = query.where(Video.scrape_status == scrape_status)
     if failed_only:
         query = query.where(Video.scrape_status == "failed")
 
     rows = db.execute(
-        query.order_by(Unit.unit_index, Lesson.lesson_index, Video.video_index).limit(limit)
+        query.order_by(
+            Course.updated_at.desc(),
+            Unit.unit_index,
+            Lesson.lesson_index,
+            Video.video_index,
+        ).limit(limit)
     ).all()
     return [
         {
             "video_id": video.id,
             "video_title": video.title,
+            "course_id": course.id,
+            "course_title": course.title,
+            "category_id": category.id if category else None,
+            "category_name": category.name if category else None,
             "unit_id": unit.id,
             "unit_title": unit.title,
             "lesson_id": lesson.id,
@@ -470,9 +650,41 @@ def search_transcripts(
             "scrape_status": video.scrape_status,
             "transcript_source": transcript.source if transcript else None,
             "excerpt": transcript.plain_text[:320] if transcript else "",
+            "highlighted_snippet": transcript.plain_text[:320] if transcript else "",
+            "start_time_seconds": None,
+            "end_time_seconds": None,
+            "source_url": video.full_url,
+            "search_mode": "text",
+            "lexical_score": 0,
+            "semantic_score": 0,
+            "relevance_score": 0,
         }
-        for video, lesson, unit, transcript in rows
+        for video, lesson, unit, course, category, transcript in rows
     ]
+
+
+@router.get("/system/search-status")
+def search_status(db: Session = Depends(get_db)) -> dict[str, Any]:
+    embedding_count = db.scalar(select(func.count(TranscriptEmbedding.id))) or 0
+    timestamp_count = (
+        db.scalar(
+            select(func.count(TranscriptEmbedding.id)).where(
+                TranscriptEmbedding.start_time_seconds.is_not(None)
+            )
+        )
+        or 0
+    )
+    return {
+        "database": db.get_bind().dialect.name,
+        "pgvector_enabled": pgvector_available(db),
+        "embedding_provider": "local_hash",
+        "embedding_model": EMBEDDING_MODEL,
+        "embedding_dimensions": settings.embedding_dimensions,
+        "stored_chunks": embedding_count,
+        "timestamped_chunks": timestamp_count,
+        "yt_dlp_version": ytdlp_version(),
+        "audio_transcription_enabled": settings.audio_transcription_enabled,
+    }
 
 
 def export_rows(db: Session, course_id: str):

@@ -3,10 +3,7 @@
 {% block content %}
 <section class="hero">
   <div class="eyebrow">Transcript scraper</div>
-  <h1>
-    <span id="hero-typed" aria-label="Turn courses and playlists into a searchable transcript library.">Turn courses and playlists into a searchable transcript library.</span>
-    <noscript>Turn courses and playlists into a searchable transcript library.</noscript>
-  </h1>
+  <h1>Turn courses and playlists into a searchable transcript library.</h1>
   <p class="hero-copy">Submit a course or playlist URL. The worker maps the source, finds videos, and stores available transcript in a structured database.</p>
   <form id="category-form" class="submit-card admin-card">
     <label for="admin-key">Admin key</label>
@@ -16,16 +13,9 @@
       <input id="category-name" name="name" type="text" required placeholder="Example: Grammar, Science, Finance" aria-describedby="category-message">
       <button type="submit">Add category</button>
     </div>
-    <p id="category-message" class="form-message">Only an admin can create categories. Users can select existing categories while scraping.</p>
+    <p id="category-message" class="form-message">Only an admin can create categories. Courses without a category appear as uncategorized.</p>
   </form>
   <form id="job-form" class="submit-card">
-    <label for="category-id">Category</label>
-    <select id="category-id" name="category_id" required>
-      <option value="">Select a category</option>
-      {% for category in categories %}
-      <option value="{{ category.id }}">{{ category.name }}</option>
-      {% endfor %}
-    </select>
     <label for="course-url">Source URL</label>
     <div class="input-row">
       <input id="course-url" name="url" type="url" required placeholder="Paste a URL to scrape" aria-describedby="form-message">
@@ -33,6 +23,29 @@
     </div>
     <p id="form-message" class="form-message">A separate worker process handles the source in the background.</p>
   </form>
+</section>
+
+<section class="content-section global-search-section">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">Global search</div>
+      <h2>Search every transcript</h2>
+    </div>
+  </div>
+  <div class="global-search-card">
+    <label for="global-search">Search across all categories, courses, and playlists</label>
+    <input id="global-search" type="search" placeholder="Try &ldquo;arrays&rdquo;, &ldquo;pronoun&rdquo;, or &ldquo;organic chemistry&rdquo;">
+    <div class="search-filter-row">
+      <select id="global-search-category">
+        <option value="">All categories</option>
+        {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div id="global-search-results" class="global-search-results" hidden></div>
+    <p class="form-message">Results include matching videos and transcript chunks from the full library. Search mode: {{ "pgvector hybrid" if search_status.pgvector_enabled else "local hybrid fallback" }}.</p>
+  </div>
 </section>
 
 <section class="content-section">
@@ -104,30 +117,15 @@
 </section>
 {% endblock %}
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
 <script>
-function initHeroTyped() {
-  if (!window.Typed) return;
-  const heroTyped = document.getElementById("hero-typed");
-  if (!heroTyped || heroTyped.dataset.typedInitialized) return;
-  heroTyped.dataset.typedInitialized = "true";
-  heroTyped.textContent = "";
-  new Typed("#hero-typed", {
-    strings: ["Turn courses and playlists into a searchable transcript library."],
-    typeSpeed: 38,
-    startDelay: 250,
-    showCursor: true,
-    cursorChar: "|",
-    loop: false
-  });
-}
-window.addEventListener("load", initHeroTyped);
-
 const form = document.getElementById("job-form");
 const categoryForm = document.getElementById("category-form");
-const categorySelect = document.getElementById("category-id");
 const message = document.getElementById("form-message");
 const categoryMessage = document.getElementById("category-message");
+const globalSearch = document.getElementById("global-search");
+const globalSearchCategory = document.getElementById("global-search-category");
+const globalSearchResults = document.getElementById("global-search-results");
+let globalSearchTimer;
 categoryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const button = categoryForm.querySelector("button");
@@ -146,13 +144,8 @@ categoryForm.addEventListener("submit", async (event) => {
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.detail || "Unable to create category.");
-    const option = document.createElement("option");
-    option.value = data.id;
-    option.textContent = data.name;
-    option.selected = true;
-    categorySelect.appendChild(option);
     categoryForm.reset();
-    categoryMessage.textContent = "Category created. It is selected for the next scrape.";
+    categoryMessage.textContent = "Category created. It is available in search filters.";
   } catch (error) {
     categoryMessage.textContent = error.message;
     categoryMessage.className = "form-message error";
@@ -173,8 +166,7 @@ form.addEventListener("submit", async (event) => {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        url: formData.get("url"),
-        category_id: formData.get("category_id")
+        url: formData.get("url")
       })
     });
     const data = await response.json();
@@ -187,5 +179,89 @@ form.addEventListener("submit", async (event) => {
     button.textContent = "Start scraping";
   }
 });
+function runGlobalSearch() {
+  clearTimeout(globalSearchTimer);
+  const query = globalSearch.value.trim();
+  const hasFilters = globalSearchCategory.value;
+  if (!query && !hasFilters) {
+    globalSearchResults.hidden = true;
+    globalSearchResults.innerHTML = "";
+    return;
+  }
+  globalSearchTimer = setTimeout(async () => {
+    const params = new URLSearchParams({q: query, limit: "60"});
+    if (globalSearchCategory.value) params.set("category_id", globalSearchCategory.value);
+    const response = await fetch(`/api/search?${params.toString()}`);
+    const items = await response.json();
+    globalSearchResults.hidden = false;
+    globalSearchResults.innerHTML = renderGroupedResults(items);
+  }, 250);
+}
+globalSearch.addEventListener("input", runGlobalSearch);
+globalSearchCategory.addEventListener("change", runGlobalSearch);
+function escapeHtml(value) {
+  const node = document.createElement("div");
+  node.textContent = value || "";
+  return node.innerHTML;
+}
+function sourceLabel(source) {
+  if (source === "youtube_captions") return "YouTube transcript";
+  if (source === "whisper_generated") return "Generated transcript";
+  if (source === "csv_import") return "Imported transcript";
+  if (source === "khan_subtitles") return "Khan subtitles";
+  return "No transcript";
+}
+function searchModeLabel(mode) {
+  if (mode === "pgvector_hybrid") return "Hybrid search";
+  if (mode === "local_hybrid") return "Local hybrid search";
+  return "Text search";
+}
+function formatTimestamp(seconds) {
+  if (seconds === null || seconds === undefined) return "No timestamp";
+  const total = Math.max(0, Math.floor(seconds));
+  const minutes = Math.floor(total / 60);
+  const remainder = String(total % 60).padStart(2, "0");
+  return `${minutes}:${remainder}`;
+}
+function highlightedSnippet(value) {
+  return escapeHtml(value)
+    .replaceAll("&lt;mark&gt;", "<mark>")
+    .replaceAll("&lt;/mark&gt;", "</mark>");
+}
+function resultUrl(item) {
+  const params = new URLSearchParams();
+  if (item.start_time_seconds !== null && item.start_time_seconds !== undefined) {
+    params.set("t", Math.floor(item.start_time_seconds));
+  }
+  const suffix = params.toString() ? `?${params.toString()}` : "";
+  return `/videos/${item.video_id}${suffix}`;
+}
+function renderGroupedResults(items) {
+  if (!items.length) return `<div class="empty-state small">No matching transcripts.</div>`;
+  const groups = [];
+  const groupMap = new Map();
+  items.forEach((item) => {
+    if (!groupMap.has(item.video_id)) {
+      const group = {item, matches: []};
+      groupMap.set(item.video_id, group);
+      groups.push(group);
+    }
+    groupMap.get(item.video_id).matches.push(item);
+  });
+  return groups.map(({item, matches}) => `
+    <div class="search-result-group">
+      <a class="search-result-main" href="${resultUrl(item)}">
+        <strong>${escapeHtml(item.video_title)}</strong>
+        <small>${escapeHtml(item.category_name || "Uncategorized")} | ${escapeHtml(item.course_title)} | ${sourceLabel(item.transcript_source)} | ${searchModeLabel(item.search_mode)} | score ${Number(item.relevance_score || 0).toFixed(2)}</small>
+      </a>
+      <div class="search-result-matches">
+        ${matches.slice(0, 4).map(match => `
+          <a href="${resultUrl(match)}">
+            <span class="timestamp-pill">${formatTimestamp(match.start_time_seconds)}</span>
+            <span>${highlightedSnippet(match.highlighted_snippet || match.excerpt)}</span>
+          </a>`).join("")}
+      </div>
+    </div>`).join("");
+}
 </script>
 {% endblock %}
