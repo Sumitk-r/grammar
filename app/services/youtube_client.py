@@ -8,6 +8,8 @@ from urllib.request import urlopen
 from youtube_transcript_api import YouTubeTranscriptApi
 from yt_dlp import YoutubeDL
 
+from app.services.yt_dlp_options import add_cookiefile
+
 
 class YouTubeCaptionUnavailable(RuntimeError):
     pass
@@ -82,7 +84,8 @@ class YouTubeCaptionClient:
 
     def _fetch_with_ytdlp(self, video_id: str) -> YouTubeCaptionResult:
         url = f"https://www.youtube.com/watch?v={video_id}"
-        with YoutubeDL({"quiet": True, "no_warnings": True, "skip_download": True}) as ydl:
+        options = add_cookiefile({"quiet": True, "no_warnings": True, "skip_download": True})
+        with YoutubeDL(options) as ydl:
             info = ydl.extract_info(url, download=False)
 
         tracks_by_language = {

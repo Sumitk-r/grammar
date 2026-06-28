@@ -9,6 +9,7 @@ from typing import Any
 from yt_dlp import YoutubeDL
 
 from app.config import settings
+from app.services.yt_dlp_options import add_cookiefile
 
 
 class AudioTranscriptionUnavailable(RuntimeError):
@@ -194,4 +195,4 @@ class FasterWhisperTranscriber:
                     "player_client": list(player_clients),
                 }
             }
-        return options
+        return add_cookiefile(options)

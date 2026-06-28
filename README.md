@@ -88,6 +88,7 @@ Copy `.env.example` to `.env` and adjust values as needed.
 - `MAX_VIDEOS_PER_JOB`: optional cap useful during development
 - `YOUTUBE_FALLBACK_ENABLED`: try YouTube captions when Khan subtitles are absent
 - `YOUTUBE_LANGUAGES`: preferred YouTube caption language codes
+- `YT_DLP_COOKIES_FILE`: optional path to an exported YouTube cookies.txt file for VMs that hit bot checks
 - `AUDIO_TRANSCRIPTION_ENABLED`: allow admin-triggered audio transcription jobs
 - `AUDIO_TRANSCRIPTION_MAX_DURATION_SECONDS`: max video length for audio transcription
 - `FASTER_WHISPER_MODEL`: faster-whisper model name, defaults to `tiny`
@@ -106,6 +107,11 @@ undocumented YouTube web endpoint, so it may stop working when YouTube changes
 its internals. YouTube also frequently blocks cloud-provider IP addresses; a
 local worker is generally more reliable than an Azure-hosted worker for this
 caption fetching.
+
+If a VM shows "Sign in to confirm you're not a bot" from YouTube, export
+YouTube cookies from a browser into a Netscape-format `cookies.txt`, copy it to
+the VM, set `YT_DLP_COOKIES_FILE=/home/ubuntu/grammar/cookies.txt`, and restart
+the API and worker. Keep this file private.
 
 When YouTube captions are unavailable, an admin can open the no-transcript video
 page and queue "Generate transcript". The worker downloads audio with `yt-dlp`,

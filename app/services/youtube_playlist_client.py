@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 from yt_dlp import YoutubeDL
 
+from app.services.yt_dlp_options import add_cookiefile
+
 
 @dataclass(frozen=True)
 class YouTubePlaylistVideo:
@@ -33,7 +35,7 @@ class YouTubePlaylistClient:
             "extract_flat": "in_playlist",
             "skip_download": True,
         }
-        with YoutubeDL(options) as ydl:
+        with YoutubeDL(add_cookiefile(options)) as ydl:
             info = ydl.extract_info(source_url, download=False)
 
         entries = []
@@ -66,4 +68,3 @@ class YouTubePlaylistClient:
             description=info.get("description"),
             videos=entries,
         )
-

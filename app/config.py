@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     max_videos_per_job: int | None = None
     youtube_fallback_enabled: bool = True
     youtube_languages: str = "en,en-IN,hi"
+    yt_dlp_cookies_file: str | None = None
     audio_transcription_enabled: bool = True
     audio_transcription_max_duration_seconds: int = 1800
     faster_whisper_model: str = "tiny"
